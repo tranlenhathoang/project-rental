@@ -1,0 +1,16 @@
+{
+    "users":[
+        {
+            "id":1,
+            "name":"nhathoang",
+            "password": "123456",
+            "mail": "tranlenhathoang357@gmail.com"
+        },
+        {
+            "id":2,
+            "name":"admin",
+            "password": "1234567",
+            "mail": "admin@gmail.com"
+        }
+    ]
+}
