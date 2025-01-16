@@ -1,17 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import Login from './login-logout/Login';
-import { Routes } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import logo from "./logo.svg";
+import "./App.css";
+import Login from "./login-logout/Login";
+import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import RegisterAccount from "./login-logout/Register";
+import Header from "./component/header/Header";
 
 function App() {
   return (
     <>
-    <ToastContainer/>
-    <Login/>
-    <Routes>
-      
-    </Routes>
+      <ToastContainer />
+      <Routes>
+        <Route path="/" element={<Login/>}/>
+        <Route path="/register" element={<RegisterAccount />}/>
+        <Route path="/trangchu" element={<Header/>}/>
+      </Routes>
     </>
   );
 }
