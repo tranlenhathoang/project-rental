@@ -1,0 +1,59 @@
+{
+	"customerList": [
+		{
+			"id": 1,
+			"name": "Nguyễn Đình Hoà",
+			"identity": "343432423",
+			"email": "hoadeptrai@gmail.com",
+			"phone": "906543453",
+			"date": "05/05/1994",
+			"address": "12 Lê Quý Kỳ, Đà Nẵng",
+			"website": "hoaminnzy.com",
+			"company": "Hoa Thiên Phú"
+		},
+		{
+			"id": 2,
+			"name": "Lê Đình Quốc",
+			"identity": "343432423",
+			"email": "nhanvanlam@gmail.com",
+			"phone": "906543453",
+			"date": "05/05/1994",
+			"address": "12 Nguyễn Phước Nguyên, Đà Nẵng",
+			"website": "abc.com",
+			"company": "Hoa Mặt Trời"
+		},
+		{
+			"id": 3,
+			"name": "Nguyễn Minh Hùng",
+			"identity": "343432423",
+			"email": "hung@gmail.com",
+			"phone": "906543453",
+			"date": "05/05/1994",
+			"address": "12 Lê Duẩn, Đà Nẵng",
+			"website": "hoaminnzy.com",
+			"company": "Hoa Hướng Dương"
+		},
+		{
+			"id": 4,
+			"name": "Phạm Minh Hưng",
+			"identity": "343432423",
+			"email": "hungmapdeptrai@gmail.com",
+			"phone": "906543453",
+			"date": "05/05/1994",
+			"address": "12 Trường Chinh, Đà Nẵng",
+			"website": "vipnha.com",
+			"company": "Hoa Vạn Thọ"
+		},
+		{
+			"id": 5,
+			"name": "Nguyễn Văn Tiến",
+			"identity": "343432423",
+			"email": "tieni@gmail.com",
+			"phone": "906543453",
+			"date": "05/05/1994",
+			"address": "12 Lê Văn Quý, Đà Nẵng",
+			"website": "build.com",
+			"company": "Hoa Cúc"
+		}
+	]
+}
