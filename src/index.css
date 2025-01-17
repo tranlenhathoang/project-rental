@@ -25,11 +25,6 @@
 .table-bordered {
 	border: 1px solid #ddd;
 }
-
-.table-striped tbody tr:nth-child(odd) {
-	background-color: #f2f2f2;
-}
-
 th,
 td {
 	min-width: 200px; /* Đảm bảo chiều rộng tối thiểu cho các cột */
