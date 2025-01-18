@@ -2,12 +2,22 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../redux/accountAction";
 
 const Header = () => {
+  const account = useSelector((state) => state.user.account);
+  const dispatch = useDispatch();
+  const navigate =useNavigate();
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const handleShowDrop = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+  const handleLogout = () =>{
+    dispatch(logout());
+    navigate("/");
+  }
 
   return (
     <>
@@ -117,10 +127,35 @@ const Header = () => {
                     Tin Tức
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link to="#" className="nav-link">
-                    Thông Tin Cá Nhân
-                  </Link>
+                <li class="nav-item dropdown">
+                  <span
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    {account && account.name}
+                  </span>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <Link className="dropdown-item" to="/profile">
+                        <i className="bi bi-person-circle me-2"></i>Thông Tin Cá
+                        Nhân
+                      </Link>
+                    </li>
+                    <li>
+                      <hr className="dropdown-divider" />
+                    </li>
+                    <li>
+                      <button
+                        className="dropdown-item text-danger"
+                        onClick={handleLogout}
+                      >
+                        <i className="bi bi-box-arrow-right me-2"></i>Logout
+                      </button>
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </div>
