@@ -9,8 +9,6 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/accountAction";
 
-
-
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
