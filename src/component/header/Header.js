@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 
 const Header = () => {
+  const account  = useSelector(state => state.user.account)
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const handleShowDrop = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -119,7 +123,7 @@ const Header = () => {
                 </li>
                 <li className="nav-item">
                   <Link to="#" className="nav-link">
-                    Thông Tin Cá Nhân
+                    {account && account.name}
                   </Link>
                 </li>
               </ul>

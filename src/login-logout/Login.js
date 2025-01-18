@@ -6,10 +6,13 @@ import { checkLogin } from "../apiProject/ApiLogin";
 import { toast } from "react-toastify";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/accountAction";
 
 
 
 const Login = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [user, setUser] = useState({
     name: "",
@@ -21,6 +24,7 @@ const Login = () => {
     if (result) {
       toast.success("Đăng nhập thành công");
       navigate("/");
+      dispatch(login(result))
     } else {
       toast.error("Đăng nhập thất bại");
     }
