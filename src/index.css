@@ -9,15 +9,22 @@
 }
 /* .header {
 	position: fixed;
-	top: 0;
+	top: 25%;
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 1000;
 	padding: 10px 20px;
 	width: 100%;
 	text-align: center;
+}
+.table {
+	margin-top: 5%;
 } */
 
+.search {
+	border: none;
+	border-bottom: 1px solid red;
+}
 .table th {
 	background-color: #343a40 !important;
 }
