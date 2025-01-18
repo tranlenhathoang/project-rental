@@ -3,23 +3,34 @@
 		{
 			"id": 1,
 			"name": "Nguyễn Đình Hòa",
-			"status": 1,
+			"status": true,
 			"contractId": 1
 		},
 		{
-			"id": 1,
+			"id": 2,
 			"name": "Nguyễn Văn Anh",
-			"status": 1,
+			"status": false,
+			"contractId": 2
+		},
+		{
+			"id": 3,
+			"name": "Nguyễn Đình Cựu",
+			"status": false,
+			"contractId": 2
+		},
+		{
+			"id": 4,
+			"name": "Nhân Văn Lam",
+			"status": false,
 			"contractId": 1
 		},
 		{
-			"id": 1,
-			"name": "Nguyễn Đình Cựu",
-			"status": 0,
-			"contractId": 1
+			"id": 5,
+			"name": "Nguyễn Mỹ Linh",
+			"status": true,
+			"contractId": 3
 		}
 	],
-
 	"contracts": [
 		{
 			"id": 1,
