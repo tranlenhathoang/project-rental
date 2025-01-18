@@ -23,7 +23,7 @@ const Login = () => {
     const result = await checkLogin(name, password);
     if (result) {
       toast.success("Đăng nhập thành công");
-      navigate("/tranchu");
+      navigate("/trangchu");
       dispatch(login(result))
     } else {
       toast.error("Đăng nhập thất bại");
