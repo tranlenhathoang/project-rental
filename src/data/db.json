@@ -1,0 +1,114 @@
+{
+  "facilities": [
+    {
+      "id":1,
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+      "status": "Chưa bàn giao",
+      "prices": "12,000,000",
+      "management_fee": "500,000",
+      "customer":"Nguyễn Đình Hòa"
+    },   
+    {
+      "id":2,
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+     "status": "Chưa bàn giao",
+      "prices": "12,000,000",
+      "management_fee": "500,000",
+      "customer":"Nguyễn Đình Hòa"
+    },  
+    {
+      "id":3,
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+     "status": "Chưa bàn giao",
+      "prices": "12,000,000",
+      "management_fee": "500,000",
+      "customer":"Nguyễn Đình Hòa"
+    },  
+    {
+      "id":4,
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+     "status": "Chưa bàn giao",
+      "prices": "12,000,000",
+      "management_fee": "500,000",
+      "customer":"Nguyễn Đình Hòa"
+    },
+    {
+      "id":5,
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+     "status": "Chưa bàn giao",
+      "prices": "12,000,000",
+      "management_fee": "500,000",
+      "customer":"Nguyễn Đình Hòa"
+    },  
+    {
+      "id":6,
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+     "status": "Chưa bàn giao",
+      "prices": "12,000,000",
+      "management_fee": "500,000",
+      "customer":"Nguyễn Đình Hòa"
+    },    
+    {
+      "id":7,
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+     "status": "Chưa bàn giao",
+      "prices": "12,000,000",
+      "management_fee": "500,000",
+      "customer":"Nguyễn Đình Hòa"
+    },  
+    {
+      "id":8,
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+     "status": "Chưa bàn giao",
+      "prices": "12,000,000",
+      "management_fee": "500,000",
+      "customer":"Nguyễn Đình Hòa"
+    },  
+    {
+      "id":9,
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+     "status": "Chưa bàn giao",
+      "prices": "12,000,000",
+      "management_fee": "500,000",
+      "customer":"Nguyễn Đình Hòa"
+    },  
+    {
+      "id":10,
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+     "status": "Chưa bàn giao",
+      "prices": "12,000,000",
+      "management_fee": "500,000",
+      "customer":"Nguyễn Đình Hòa"
+    },  
+    {
+      "id":11,
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+     "status": "Chưa bàn giao",
+      "prices": "12,000,000",
+      "management_fee": "500,000",
+      "customer":"Nguyễn Đình Hòa"
+    }
+  ]
+}

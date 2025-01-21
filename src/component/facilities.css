@@ -1,0 +1,12 @@
+.addfacilities-bg{
+  color: #fff;             /* Chữ sáng */
+  padding: 40px;           /* Thêm khoảng cách để nội dung không bị sát viền */
+  text-align: left;      /* Căn giữa văn bản */
+  border-radius: 10px;     /* Viền bo tròn nếu cần */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Để tạo hiệu ứng bóng cho nền */
+  font-size: 1.5rem;       /* Cỡ chữ lớn để nổi bật */
+}
+.addfacilities-bg h1,
+.addfacilities-bg p {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Tạo hiệu ứng bóng cho chữ */
+}
