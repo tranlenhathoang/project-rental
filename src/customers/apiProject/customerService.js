@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL } from "../../apiProject/api";
+import { BASE_URL } from "./api";
 
 export async function getAllCustomer(page, limit) {
 	try {

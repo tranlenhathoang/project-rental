@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import CustomerItem from "./CustomerItem";
-import { getAllCustomer, searchByName } from "../api/customerService";
 import { Link } from "react-router-dom";
 import { IoSearchSharp } from "react-icons/io5";
 import Pagination from "react-bootstrap/Pagination";
 import { HiMiniArrowPath } from "react-icons/hi2";
 import { PAGE_SIZE } from "../apiProject/constant";
+import { getAllCustomer, searchByName } from "../apiProject/customerService";
 
 function CustomerList() {
 	const [customerList, setCustomerList] = useState([]);
