@@ -12,6 +12,7 @@ function CustomerList() {
 	const [totalSize, setTotalSize] = useState(PAGE_SIZE); //tổng bản ghi muốn lấy. Hiện tại constant cho PAGE_SIZE = 3
 	const [page, setPage] = useState(1); //(1) là trang đầu tiên
 	const [totalPage, setTotalPage] = useState(0); //tổng bản ghi trong db chia tổng bản ghi muốn lấy (làm tròn đến số nguyên, nếu không kết quả chia sẽ là số thực)
+	const [reload, setReload] = useState(true);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -20,8 +21,11 @@ function CustomerList() {
 			setTotalPage(Math.ceil(totalRecords / PAGE_SIZE));
 		};
 		fetchData();
-	}, [page]);
+	}, [page, reload]);
 
+	const reloadData = () => {
+		setReload(!reload);
+	};
 	const searchNameRef = useRef();
 	const searchIdentityRef = useRef();
 	const handleSearch = async () => {
@@ -62,12 +66,22 @@ function CustomerList() {
 								CMND:
 							</label>
 							<input ref={searchIdentityRef} type="text" id="customerID" className="search" placeholder="Số chứng minh nhân dân" />
-							<button onClick={handleSearch} type="button" className="btn btn-secondary rounded-5 ms-3">
-								<IoSearchSharp style={{ fontSize: "1rem" }} />
+							<button
+								onClick={handleSearch}
+								type="button"
+								className="btn btn-secondary rounded-circle ms-3 d-flex justify-content-center align-items-center"
+								style={{ width: "40px", height: "40px" }}
+							>
+								<IoSearchSharp color="red" />
 							</button>
-							<Link type="button" className="btn btn-secondary rounded-5 ms-3" to="/">
-								<HiMiniArrowPath style={{ fontSize: "1rem" }} />
-							</Link>
+							<button
+								type="button"
+								className="btn btn-secondary rounded-circle ms-3 d-flex justify-content-center align-items-center"
+								style={{ width: "43px", height: "43px" }}
+								onClick={reloadData}
+							>
+								<HiMiniArrowPath />
+							</button>
 						</div>
 					</div>
 				</form>
