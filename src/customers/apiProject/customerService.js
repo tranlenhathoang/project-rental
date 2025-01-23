@@ -10,9 +10,9 @@ export async function getAllCustomer(page, limit) {
 		return {};
 	}
 }
-export async function searchByName(name, identity) {
+export async function searchByName(name, phone, identity) {
 	try {
-		const response = await axios.get(`${BASE_URL}/customerList?name_like=${name}&identity_like=${identity}`);
+		const response = await axios.get(`${BASE_URL}/customerList?name_like=${name}&phone=${phone}&identity_like=${identity}`);
 		return response.data;
 	} catch (e) {
 		return [];

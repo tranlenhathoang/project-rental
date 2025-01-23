@@ -6,6 +6,8 @@ import Pagination from "react-bootstrap/Pagination";
 import { HiMiniArrowPath } from "react-icons/hi2";
 import { PAGE_SIZE } from "../apiProject/constant";
 import { getAllCustomer, searchByName } from "../apiProject/customerService";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function CustomerList() {
 	const [customerList, setCustomerList] = useState([]);
@@ -28,10 +30,12 @@ function CustomerList() {
 	};
 	const searchNameRef = useRef();
 	const searchIdentityRef = useRef();
+	const searchPhoneRef = useRef();
 	const handleSearch = async () => {
 		let searchName = searchNameRef.current.value.trim();
+		let searchPhone = searchPhoneRef.current.value.trim();
 		let searchIdentity = searchIdentityRef.current.value.trim();
-		const fetchData = await searchByName(searchName, searchIdentity);
+		const fetchData = await searchByName(searchName, searchPhone, searchIdentity);
 		setCustomerList(() => [...fetchData]);
 	};
 
@@ -52,20 +56,34 @@ function CustomerList() {
 		<div>
 			<div className="p-4">
 				<h5 className="mb-4">Tìm kiếm thông tin khách hàng</h5>
-
-				<form>
-					<div className="row mb-3 ">
-						<div className="col-6 d-flex align-items-center ">
-							<label htmlFor="customerName" className="form-label me-3 mt-3">
+				<Row className="">
+					<Col>
+						<div className=" d-flex align-items-center ">
+							<label htmlFor="customerName" className="text me-2">
 								Tên khách hàng:
 							</label>
-							<input ref={searchNameRef} type="text" id="customerName" className="search" placeholder="Tên khách hàng" />
+							<input ref={searchNameRef} type="text" id="customerName" className="form-control" placeholder="Tên khách hàng" />
 						</div>
-						<div className="col-6 d-flex align-items-center">
-							<label htmlFor="customerID" className="form-label me-3 mt-3">
+					</Col>
+
+					<Col>
+						<div className=" d-flex align-items-center">
+							<label htmlFor="customerID" className="text me-2">
 								CMND:
 							</label>
-							<input ref={searchIdentityRef} type="text" id="customerID" className="search" placeholder="Số chứng minh nhân dân" />
+							<input ref={searchIdentityRef} type="text" id="customerID" className="form-control" placeholder="Số chứng minh nhân dân" />
+						</div>
+					</Col>
+					<Col>
+						<div className=" d-flex align-items-center ">
+							<label htmlFor="customerName" className="text me-2">
+								Số điện thoại:
+							</label>
+							<input ref={searchPhoneRef} type="text" id="customerName" className="form-control" placeholder="Số điện thoại" />
+						</div>
+					</Col>
+					<Col>
+						<div className="row">
 							<button
 								onClick={handleSearch}
 								type="button"
@@ -83,9 +101,10 @@ function CustomerList() {
 								<HiMiniArrowPath />
 							</button>
 						</div>
-					</div>
-				</form>
+					</Col>
+				</Row>
 			</div>
+
 			<div className="list">
 				<div className="header text-center text-white mt-2">
 					<h2>DANH SÁCH KHÁCH HÀNG</h2>
@@ -109,16 +128,8 @@ function CustomerList() {
 							<th className="text-center">CMND</th>
 							<th className="text-center">Email</th>
 							<th className="text-center">Số điện thoại</th>
-							<th className="text-center">Ngày sinh</th>
-							<th className="text-center">Địa chỉ</th>
-							<th className="text-center">Website</th>
-							<th className="text-center">Công ty</th>
 
-							<th className="text-center" style={{ width: 200 }}>
-								Mặt bằng
-							</th>
-							<th></th>
-							<th></th>
+							<th className="text-center" colSpan={3}></th>
 						</tr>
 					</thead>
 					<tbody>
