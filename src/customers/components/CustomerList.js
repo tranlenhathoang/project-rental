@@ -111,6 +111,9 @@ function CustomerList() {
 				</div>
 				{/* Button */}
 				<div className="d-flex justify-content-start align-items-center gap-2 mb-2 ms-2">
+					<Link className="btn btn-sm btn-primary" id="add-link" to="/">
+						Chi tiết khách hàng
+					</Link>
 					<Link className="btn btn-sm btn-success" id="add-link" to="/">
 						Thêm mới
 					</Link>
@@ -129,7 +132,10 @@ function CustomerList() {
 							<th className="text-center">Email</th>
 							<th className="text-center">Số điện thoại</th>
 
-							<th className="text-center" colSpan={3}></th>
+							<th className="text-center" style={{ width: 200 }}>
+								Mặt bằng
+							</th>
+							<th colSpan={2}></th>
 						</tr>
 					</thead>
 					<tbody>
