@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import "./service.css";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import CreateServices from './service.create';
 
 
 const listPremises = [
@@ -31,6 +32,7 @@ const ServiceTable = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedService, setSelectedService] = useState(null);
     const [dropdownSelected, setDropdownSelected] = useState("");
+    const [isOpenModalCreate, setIsOpenModalCreate] = useState(false);
 
 
     useEffect(() => {
@@ -97,7 +99,7 @@ const ServiceTable = () => {
                     <Button variant="primary" style={{
                         marginRight: "10px"
                     }} onClick={() => handleSearch()}>Tìm kiếm</Button>
-                    <Button variant="secondary">Thêm dịch vụ</Button>
+                    <Button variant="secondary" onClick={() => setIsOpenModalCreate(true)}>Thêm dịch vụ</Button>
                 </div>
 
             </div>
@@ -160,6 +162,11 @@ const ServiceTable = () => {
                     </div>
                 )
             }
+
+            {isOpenModalCreate && (
+                <CreateServices isOpenModalCreate={isOpenModalCreate} setIsOpenModalCreate={setIsOpenModalCreate} />
+            )}
+
 
 
 
