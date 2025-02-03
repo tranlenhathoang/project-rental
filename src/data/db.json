@@ -1,48 +1,34 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "name": "nhathoang",
-            "password": "123456",
-            "mail": "tranlenhathoang357@gmail.com"
-        },
-        {
-            "id": 2,
-            "name": "admin",
-            "password": "1234567",
-            "mail": "admin@gmail.com"
-        }
-    ],
-    "services": [
-        {
-            "id": "1",
-            "name": "nước",
-            "date": "01/02/2025",
-            "prevMonth": 17000,
-            "nextMonth": 20000,
-            "unit": "m",
-            "consume": 3000,
-            "premises": "MB001"
-        },
-        {
-            "id": "2",
-            "name": "điện",
-            "date": "01/02/2025",
-            "prevMonth": 17000,
-            "nextMonth": 20000,
-            "unit": "kw/h",
-            "consume": 3000,
-            "premises": "MB002"
-        },
-        {
-            "id": "3",
-            "name": "nước",
-            "date": "01/02/2025",
-            "prevMonth": 17000,
-            "nextMonth": 20000,
-            "unit": "m",
-            "consume": 3000,
-            "premises": "MB001"
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "name": "nhathoang",
+      "password": "123456",
+      "mail": "tranlenhathoang357@gmail.com"
+    },
+    {
+      "id": "2",
+      "name": "admin",
+      "password": "1234567",
+      "mail": "admin@gmail.com"
+    }
+  ],
+  "services": [
+    {
+      "id": "1381",
+      "name": "Nước",
+      "consume": 4000,
+      "date": "2025-02-04",
+      "premises": "MB002",
+      "quantity": 50
+    },
+    {
+      "id": "39d6",
+      "name": "Điện",
+      "consume": 5000,
+      "date": "2025-02-01",
+      "premises": "MB002",
+      "quantity": 30
+    }
+  ]
 }

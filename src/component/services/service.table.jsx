@@ -8,6 +8,7 @@ import "./service.css";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import CreateServices from './service.create';
+import EditServices from './service.edit';
 
 
 const listPremises = [
@@ -33,6 +34,8 @@ const ServiceTable = () => {
     const [selectedService, setSelectedService] = useState(null);
     const [dropdownSelected, setDropdownSelected] = useState("");
     const [isOpenModalCreate, setIsOpenModalCreate] = useState(false);
+    const [isOpenModalEdit, setIsOpenModalEdit] = useState(false);
+    const [dataUpdate, setDataUpdate] = useState(null);
 
 
     useEffect(() => {
@@ -73,7 +76,6 @@ const ServiceTable = () => {
 
 
 
-
     return (
         <div className='container'>
             <h2 style={{
@@ -110,8 +112,7 @@ const ServiceTable = () => {
                         <th>#</th>
                         <th>Tên dịch vụ</th>
                         <th>Tháng Năm</th>
-                        <th>Chỉ số tháng trước</th>
-                        <th>Chỉ số tháng sau</th>
+
                         <th>Đơn vị</th>
                         <th>Tiêu thụ</th>
                         <th>Đơn giá</th>
@@ -126,13 +127,23 @@ const ServiceTable = () => {
                                 <td>{index + 1}</td>
                                 <td>{item.name}</td>
                                 <td>{item.date}</td>
-                                <td>{item.prevMonth}</td>
-                                <td>{item.nextMonth}</td>
                                 <td>{item.unit}</td>
-                                <td>{item.nextMonth - item.prevMonth}</td>
+                                <td>{item.quantity}</td>
                                 <td>{item.consume}</td>
-                                <td>{item.consume * (item.nextMonth - item.prevMonth)}</td>
-                                <td><Button onClick={() => handlePayment(item)}>Thanh toán</Button></td>
+                                <td>{item.consume * item.quantity}</td>
+                                <td style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "10px"
+                                }}>
+                                    <Button onClick={() => handlePayment(item)}>Thanh toán</Button>
+                                    <Button variant='secondary' onClick={() => {
+                                        setIsOpenModalEdit(true);
+                                        setDataUpdate(item);
+                                    }}>Chỉnh sửa</Button>
+
+                                </td>
+
                             </tr>
                         )
                     })}
@@ -164,8 +175,20 @@ const ServiceTable = () => {
             }
 
             {isOpenModalCreate && (
-                <CreateServices isOpenModalCreate={isOpenModalCreate} setIsOpenModalCreate={setIsOpenModalCreate} />
+                <CreateServices isOpenModalCreate={isOpenModalCreate} setIsOpenModalCreate={setIsOpenModalCreate} getData={getData} />
             )}
+
+            {
+                isOpenModalEdit && (
+                    <EditServices
+                        getData={getData}
+                        dataUpdate={dataUpdate}
+                        setDataUpdate={setDataUpdate}
+                        isOpenModalEdit={isOpenModalEdit}
+                        setIsOpenModalEdit={setIsOpenModalEdit} />
+
+                )
+            }
 
 
 

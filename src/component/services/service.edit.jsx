@@ -1,29 +1,15 @@
 import { Button, Modal } from "react-bootstrap"
-import { useField, Form, FormikProps, Formik, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from "yup";
 import axios from 'axios';
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 
-const listPremises = [
-    {
-        id: 1,
-        name: "MB001",
-    },
-    {
-        id: 2,
-        name: "MB002",
-    },
-    {
-        id: 3,
-        name: "MB003",
-    }
-];
-
-
-const CreateServices = (props) => {
+const EditServices = (props) => {
     const formik = useFormik({
         initialValues: {
+            id: "",
             name: "",
             consume: "",
             date: "",
@@ -31,14 +17,14 @@ const CreateServices = (props) => {
             quantity: ""
         },
         onSubmit: values => {
-            console.log(values);
-            axios.post("http://localhost:3001/services", values).then(res => {
+            console.log("check values", values);
+            axios.patch(`http://localhost:3001/services/${dataUpdate.id}`, values).then(res => {
                 console.log(">>>check res", res);
-                if (res.status === 201) {
-                    toast.success("Tạo dịch vụ thành công")
+                if (res.status === 200) {
+                    toast.success("Sửa dịch vụ thành công!")
                     getData();
                 } else {
-                    toast.error("Tạo dịch vụ thất bại")
+                    toast.error("Sửa dịch vụ thất bại")
                 }
             })
 
@@ -55,16 +41,28 @@ const CreateServices = (props) => {
     })
     console.log(">>>check formik", formik);
 
+    const { getData, dataUpdate, setIsOpenModalEdit, isOpenModalEdit, setDataUpdate } = props;
+    console.log(">>>> check dataUpdate", dataUpdate);
 
+    useEffect(() => {
+        if (dataUpdate) {
+            formik.setValues({
+                // id: dataUpdate.id,
+                name: dataUpdate.name,
+                consume: dataUpdate.consume,
+                date: dataUpdate.date,
+                premises: dataUpdate.premises,
+                quantity: dataUpdate.quantity
+            });
+        }
+    }, [dataUpdate]);
 
-    const { isOpenModalCreate, setIsOpenModalCreate, getData } = props;
 
     const handleSave = (values) => {
-        // setIsOpenModalCreate(false)
         if (formik.values.name === "" || formik.values.consume === "" || formik.values.date === "") {
-            setIsOpenModalCreate(true)
+            setIsOpenModalEdit(true)
         } else {
-            setIsOpenModalCreate(false);
+            setIsOpenModalEdit(false);
             formik.handleSubmit();
         }
         console.log(values);
@@ -78,7 +76,7 @@ const CreateServices = (props) => {
             >
                 <Modal.Dialog>
                     <Modal.Header>
-                        <Modal.Title>Tạo dịch vụ </Modal.Title>
+                        <Modal.Title>Sửa dịch vụ </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <form onSubmit={formik.handleSubmit}  >
@@ -103,19 +101,14 @@ const CreateServices = (props) => {
 
                                 {formik.touched.date && formik.errors.date ? <span style={{ color: "red" }}>{formik.errors.date}</span> : null}
 
-                                <label className="p-2">Mặt bằng</label>
-                                <select onBlur={formik.handleBlur} onChange={formik.handleChange} name="premises" style={{ padding: "3px 5px", borderRadius: "6px", outline: "none", border: "1px solid #ccc" }}>
-                                    {listPremises.map((item, index) => {
-                                        return (
-                                            <option key={item.id} value={item.name}>{item.name}</option>
-                                        )
-                                    })}
-                                </select>
+
                             </div>
                         </form>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={() => setIsOpenModalCreate(false)}>Close</Button>
+                        <Button variant="secondary" onClick={() => {
+                            setIsOpenModalEdit(false)
+                        }}>Close</Button>
                         <Button variant="primary" onClick={(values) => handleSave(values)}>Save changes</Button>
                     </Modal.Footer>
                 </Modal.Dialog>
@@ -124,7 +117,7 @@ const CreateServices = (props) => {
     )
 }
 
-export default CreateServices
+export default EditServices
 
 
 
