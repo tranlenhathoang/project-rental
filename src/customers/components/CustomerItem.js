@@ -17,12 +17,18 @@ function CustomerItem(props) {
 				</Link>
 			</td>
 			<td className="text-center">
+				<Link className="btn btn-primary me-3" to={"/"}>
+					Chi tiết
+				</Link>
+			</td>
+			<td className="text-center">
 				<Link className="btn btn-dark me-3" to={"/services"}>
 					Xem dịch vụ
 				</Link>
 			</td>
 			<td className="text-center">
 				<button className="btn btn-warning me-3">Sửa</button>
+				<button className="btn btn-danger me-3">Xoá</button>
 			</td>
 		</tr>
 	);
