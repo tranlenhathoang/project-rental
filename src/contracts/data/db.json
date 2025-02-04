@@ -1,48 +1,48 @@
 {
-	"customer": [
-		{
-			"id": 1,
-			"name": "Nguyễn Đình Hòa",
-			"status": true,
-			"contractId": 1
-		},
-		{
-			"id": 2,
-			"name": "Nguyễn Văn Anh",
-			"status": false,
-			"contractId": 2
-		},
-		{
-			"id": 3,
-			"name": "Nguyễn Đình Cựu",
-			"status": false,
-			"contractId": 2
-		},
-		{
-			"id": 4,
-			"name": "Nhân Văn Lam",
-			"status": false,
-			"contractId": 1
-		},
-		{
-			"id": 5,
-			"name": "Nguyễn Mỹ Linh",
-			"status": true,
-			"contractId": 3
-		}
-	],
-	"contracts": [
-		{
-			"id": 1,
-			"premises": "MB001"
-		},
-		{
-			"id": 2,
-			"premises": "MB002"
-		},
-		{
-			"id": 3,
-			"premises": "MB003"
-		}
-	]
+  "customer": [
+    {
+      "id": 1,
+      "name": "Nguyễn Đình Hòa",
+      "status": true,
+      "contractId": 1
+    },
+    {
+      "id": 2,
+      "name": "Nguyễn Văn Anh",
+      "status": false,
+      "contractId": 2
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Đình Cựu",
+      "status": false,
+      "contractId": 2
+    },
+    {
+      "id": 4,
+      "name": "Nhân Văn Lam",
+      "status": false,
+      "contractId": 1
+    },
+    {
+      "id": 5,
+      "name": "Nguyễn Mỹ Linh",
+      "status": true,
+      "contractId": 3
+    }
+  ],
+  "contracts": [
+    {
+      "id": 1,
+      "premises": "MB001"
+    },
+    {
+      "id": 2,
+      "premises": "MB002"
+    },
+    {
+      "id": 3,
+      "premises": "MB003"
+    }
+  ]
 }

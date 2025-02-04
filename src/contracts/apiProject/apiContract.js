@@ -7,3 +7,10 @@ export async function getAllContracts() {
 		return response.data;
 	} catch (error) {}
 }
+
+// export async function getContractById(id) {
+// 	try {
+// 		const response = await axios.get(`${BASE_URL}/contracts/${id}`);
+// 		return response.data;
+// 	} catch (error) {}
+// }

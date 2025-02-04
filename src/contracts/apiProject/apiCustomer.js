@@ -14,3 +14,19 @@ export async function changeStatus(id, status) {
 		return response.data;
 	} catch (error) {}
 }
+
+export async function searchCustomerByName(name, contractId, status) {
+	try {
+		let response = [];
+		if (contractId && status) {
+			response = await axios.get(`${BASE_URL}/customer?contractId=${contractId}&name_like=${name}&status=${status}&_expand=contract`);
+		} else if (contractId) {
+			response = await axios.get(`${BASE_URL}/customer?name_like=${name}&contractId=${contractId}&_expand=contract`);
+		} else if (status) {
+			response = await axios.get(`${BASE_URL}/customer?name_like=${name}&status=${status}&_expand=contract`);
+		} else {
+			response = await axios.get(`${BASE_URL}/customer?name_like=${name}&_expand=contract`);
+		}
+		return response.data;
+	} catch (error) {}
+}
