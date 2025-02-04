@@ -35,7 +35,7 @@ function CustomerList() {
 		let searchName = searchNameRef.current.value.trim();
 		let searchPhone = searchPhoneRef.current.value.trim();
 		let searchIdentity = searchIdentityRef.current.value.trim();
-		const fetchData = await searchByName(searchName, searchPhone, searchIdentity);
+		const fetchData = await searchByName(searchName, searchIdentity, searchPhone);
 		setCustomerList(() => [...fetchData]);
 	};
 
@@ -111,15 +111,15 @@ function CustomerList() {
 				</div>
 				{/* Button */}
 				<div className="d-flex justify-content-start align-items-center gap-2 mb-2 ms-2">
-					<Link className="btn btn-sm btn-primary" id="add-link" to="/">
+					<Link className="btn btn-sm btn-primary" id="add-link" to="/detail">
 						Chi tiết khách hàng
 					</Link>
-					<Link className="btn btn-sm btn-success" id="add-link" to="/">
+					<Link className="btn btn-sm btn-success" id="add-link" to="/add_customers">
 						Thêm mới
 					</Link>
-					<Link className="btn btn-sm btn-danger" id="delete-link" to="/">
+					<button className="btn btn-sm btn-danger" id="delete-link">
 						Xóa tất cả
-					</Link>
+					</button>
 				</div>
 
 				{/* Table */}
@@ -139,9 +139,15 @@ function CustomerList() {
 						</tr>
 					</thead>
 					<tbody>
-						{customerList.map((c, i) => (
-							<CustomerItem key={c.id} customer={c} i={(page - 1) * PAGE_SIZE + i} />
-						))}
+						{customerList.length === 0 ? (
+							<tr>
+								<td colSpan="7" className="text-center">
+									Không có dữ liệu
+								</td>
+							</tr>
+						) : (
+							customerList.map((c, i) => <CustomerItem key={c.id} customer={c} i={(page - 1) * PAGE_SIZE + i} />)
+						)}
 					</tbody>
 				</table>
 			</div>

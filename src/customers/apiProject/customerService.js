@@ -10,9 +10,30 @@ export async function getAllCustomer(page, limit) {
 		return {};
 	}
 }
-export async function searchByName(name, phone, identity) {
+export async function searchByName(name, identity, phone) {
 	try {
-		const response = await axios.get(`${BASE_URL}/customerList?name_like=${name}&phone=${phone}&identity_like=${identity}`);
+		let response = [];
+		if ((name, identity, phone)) {
+			response = await axios.get(`${BASE_URL}/customerList?name_like=${name}&identity_like=${identity}&phone=${phone}`);
+		} else if (name) {
+			response = await axios.get(`${BASE_URL}/customerList?name_like=${name}`);
+		} else if (identity) {
+			response = await axios.get(`${BASE_URL}/customerList?identity_like=${identity}`);
+		} else if (phone) {
+			response = await axios.get(`${BASE_URL}/customerList?phone=${phone}`);
+		} else {
+			response = await axios.get(`${BASE_URL}/customerList`);
+		}
+
+		return response.data;
+	} catch (e) {
+		return [];
+	}
+}
+
+export async function addNewCustomer(customer) {
+	try {
+		const response = await axios.post(`${BASE_URL}/customerList`, customer);
 		return response.data;
 	} catch (e) {
 		return [];
