@@ -5,6 +5,9 @@ import * as Yup from "yup";
 import { addNewCustomer } from "../apiProject/customerService";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { FaCalendarAlt } from "react-icons/fa"; // Sử dụng react-icons cho icon
 
 function AddComponent() {
 	const [customer, setCustomer] = useState({
@@ -50,7 +53,6 @@ function AddComponent() {
 			.matches(/^0[0-9]{9}$/, "Số điện thoại không hợp lệ"),
 		address: Yup.string().required("Địa chỉ là bắt buộc"),
 		company: Yup.string().required("Tên công ty là bắt buộc"),
-		date: Yup.date().required("Ngày thành lập là bắt buộc"),
 	});
 	return (
 		<div className="container d-flex justify-content-center align-items-center mt-5">
@@ -102,7 +104,25 @@ function AddComponent() {
 
 						<div className="mb-3">
 							<label className="form-label">Ngày thành lập (*):</label>
-							<Field type="date" name="date" className="form-control" />
+
+							<div className="position-relative">
+								<DatePicker
+									selected={customer.date ? new Date(customer.date) : null}
+									onChange={(date) => setCustomer({ ...customer, date })}
+									className="form-control"
+									dateFormat="dd/MM/yyyy"
+									withPortal
+									placeholderText="Chọn ngày"
+									// readOnly={true} // Chặn nhập từ bàn phím nhưng vẫn mở được lịch
+
+									//Dùng position-relative cho div bọc ngoài để dễ dàng định vị icon lịch.
+									//Sử dụng position-absolute end-0 top-50 translate-middle-y cho icon để cố định icon ở góc phải.
+								/>
+								<FaCalendarAlt
+									className="position-absolute end-0 top-50 translate-middle-y me-3"
+									style={{ pointerEvents: "none", fontSize: "18px", color: "#6c757d" }}
+								/>
+							</div>
 							<ErrorMessage name="date" component="div" className="text-danger" />
 						</div>
 
