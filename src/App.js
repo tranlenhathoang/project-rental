@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import CustomerList from "./customers/components/CustomerList";
 import Header from "./component/header/Header";
 import ServiceTable from "./component/services/service.table";
+import AddComponent from "./customers/components/AddComponent";
 
 function App() {
 	return (
@@ -12,6 +13,7 @@ function App() {
 			<Routes>
 				<Route path={"/customers"} element={<CustomerList />}></Route>
 				<Route path={"/services"} element={<ServiceTable />}></Route>
+				<Route path={"/add_customers"} element={<AddComponent />}></Route>
 			</Routes>
 		</>
 	);
