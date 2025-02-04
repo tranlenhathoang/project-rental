@@ -88,7 +88,7 @@ function AddComponent() {
 						</div>
 
 						<div className="mb-3">
-							<label className="form-label">Ngày sinh (*):</label>
+							<label className="form-label">Ngày thành lập (*):</label>
 							<Field type="date" name="date" className="form-control" />
 							<ErrorMessage name="date" component="div" className="text-danger" />
 						</div>
