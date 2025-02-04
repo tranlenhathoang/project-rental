@@ -25,8 +25,12 @@ function AddComponent() {
 		navigate("/customers");
 	};
 	const validationSchema = Yup.object({
-		name: Yup.string().required("Tên khách hàng là bắt buộc"),
-		identity: Yup.string().required("Số chứng minh thư là bắt buộc"),
+		name: Yup.string()
+			.required("Tên khách hàng là bắt buộc")
+			.matches(/^[A-ZÀ-Ỹ[a-zà-ỹ]*(\s[A-ZÀ-Ỹ[a-zà-ỹ]*)+$/, "Tên không đúng định dạng"),
+		identity: Yup.string()
+			.matches(/^\d{12}$/, "CMND phải bao gồm đúng 12 chữ số")
+			.required("Số chứng minh thư là bắt buộc"),
 		email: Yup.string().email("Email không hợp lệ").required("Email là bắt buộc"),
 		phone: Yup.string()
 			.required("Số điện thoại là bắt buộc")
@@ -37,7 +41,7 @@ function AddComponent() {
 	});
 	return (
 		<div className="container d-flex justify-content-center align-items-center mt-5">
-			<div className="card p-4 shadow" style={{ width: "600px" }}>
+			<div className="card p-4 shadow" style={{ width: "1000px" }}>
 				<h3 className="text-center text-success mb-4">Thêm mới khách hàng</h3>
 				<Formik initialValues={customer} validationSchema={validationSchema} onSubmit={handleSubmit}>
 					<Form>
