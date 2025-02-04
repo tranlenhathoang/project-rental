@@ -105,11 +105,13 @@ const CreateServices = (props) => {
 
                                 <label className="p-2">Mặt bằng</label>
                                 <select onBlur={formik.handleBlur} onChange={formik.handleChange} name="premises" style={{ padding: "3px 5px", borderRadius: "6px", outline: "none", border: "1px solid #ccc" }}>
-                                    {listPremises.map((item) => {
-                                        return (
-                                            <option key={item.id} value={item.name}>{item.name}</option>
-                                        )
-                                    })}
+                                    {
+                                        listPremises.map((item) => {
+                                            return (
+                                                <option key={item.id} value={item.name}>{item.name}</option>
+                                            )
+                                        })
+                                    }
                                 </select>
                             </div>
                         </form>
