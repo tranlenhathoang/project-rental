@@ -17,7 +17,7 @@ function CustomerItem(props) {
 				</Link>
 			</td>
 			<td className="text-center">
-				<Link className="btn btn-dark me-3" to={"/"}>
+				<Link className="btn btn-dark me-3" to={"/services"}>
 					Xem dịch vụ
 				</Link>
 			</td>

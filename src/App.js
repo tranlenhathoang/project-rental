@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import CustomerList from "./customers/components/CustomerList";
+import Header from "./component/header/Header";
+import ServiceTable from "./component/services/service.table";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			<Header />
+
+			<Routes>
+				<Route path={"/customers"} element={<CustomerList />}></Route>
+				<Route path={"/services"} element={<ServiceTable />}></Route>
+			</Routes>
+		</>
+	);
 }
 
 export default App;
