@@ -3,6 +3,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { addNewCustomer } from "../apiProject/customerService";
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AddComponent() {
 	const [customer, setCustomer] = useState({
@@ -22,6 +24,17 @@ function AddComponent() {
 			...value,
 		};
 		await addNewCustomer(customer);
+		toast.success("Thêm mới thành công!", {
+			position: "top-right",
+			autoClose: 5000,
+			hideProgressBar: false,
+			closeOnClick: false,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: "colored",
+			transition: Bounce,
+		});
 		navigate("/customers");
 	};
 	const validationSchema = Yup.object({

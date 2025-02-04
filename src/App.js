@@ -4,6 +4,7 @@ import CustomerList from "./customers/components/CustomerList";
 import Header from "./component/header/Header";
 import ServiceTable from "./component/services/service.table";
 import AddComponent from "./customers/components/AddComponent";
+import { ToastContainer } from "react-toastify";
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 				<Route path={"/services"} element={<ServiceTable />}></Route>
 				<Route path={"/add_customers"} element={<AddComponent />}></Route>
 			</Routes>
+			<ToastContainer />
 		</>
 	);
 }
