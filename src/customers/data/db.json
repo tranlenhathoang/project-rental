@@ -1,107 +1,173 @@
 {
-	"customerList": [
-		{
-			"id": 1,
-			"name": "Nguyễn Đình Hoà",
-			"identity": "343432423",
-			"email": "hoadeptrai@gmail.com",
-			"phone": "096543453",
-			"date": "05/05/1994",
-			"address": "12 Lê Quý Kỳ, Đà Nẵng",
-			"website": "hoaminnzy.com",
-			"company": "Hoa Thiên Phú"
-		},
-		{
-			"id": 2,
-			"name": "Lê Đình Quốc",
-			"identity": "343432423",
-			"email": "nhanvanlam@gmail.com",
-			"phone": "096543453",
-			"date": "05/05/1994",
-			"address": "12 Nguyễn Phước Nguyên, Đà Nẵng",
-			"website": "abc.com",
-			"company": "Hoa Mặt Trời"
-		},
-		{
-			"id": 3,
-			"name": "Nguyễn Minh Hùng",
-			"identity": "343432423",
-			"email": "hung@gmail.com",
-			"phone": "096543453",
-			"date": "05/05/1994",
-			"address": "12 Lê Duẩn, Đà Nẵng",
-			"website": "hoaminnzy.com",
-			"company": "Hoa Hướng Dương"
-		},
-		{
-			"id": 4,
-			"name": "Phạm Minh Hưng",
-			"identity": "343432423",
-			"email": "hungmapdeptrai@gmail.com",
-			"phone": "096543453",
-			"date": "05/05/1994",
-			"address": "12 Trường Chinh, Đà Nẵng",
-			"website": "vipnha.com",
-			"company": "Hoa Vạn Thọ"
-		},
-		{
-			"id": 5,
-			"name": "Nguyễn Văn Tiến",
-			"identity": "343432423",
-			"email": "tieni@gmail.com",
-			"phone": "096543453",
-			"date": "05/05/1994",
-			"address": "12 Lê Văn Quý, Đà Nẵng",
-			"website": "build.com",
-			"company": "Hoa Cúc"
-		}
-	],
-	"users": [
-		{
-			"id": "1",
-			"name": "nhathoang",
-			"password": "123456",
-			"mail": "tranlenhathoang357@gmail.com"
-		},
-		{
-			"id": "2",
-			"name": "admin",
-			"password": "1234567",
-			"mail": "admin@gmail.com"
-		}
-	],
-	"services": [
-		{
-			"id": "1381",
-			"name": "Nước",
-			"consume": 4000,
-			"date": "2025-02-04",
-			"premises": "MB002",
-			"quantity": 50
-		},
-		{
-			"id": "39d6",
-			"name": "Điện",
-			"consume": 5000,
-			"date": "2025-02-01",
-			"premises": "MB002",
-			"quantity": 30
-		},
-		{
-			"id": "1498",
-			"name": "demo_mb1",
-			"consume": 30000,
-			"date": "2025-02-05",
-			"premises": "MB001",
-			"quantity": 1000
-		},
-		{
-			"id": "bd68",
-			"name": "demo_mb3",
-			"consume": 10000,
-			"date": "2025-02-06",
-			"premises": "MB003",
-			"quantity": 100
-		}
-	]
+  "customerList": [
+    {
+      "id": 1,
+      "name": "Nguyễn Đình Hoà",
+      "identity": "343432423",
+      "email": "hoadeptrai@gmail.com",
+      "phone": "096543453",
+      "date": "05/05/1994",
+      "address": "12 Lê Quý Kỳ, Đà Nẵng",
+      "website": "hoaminnzy.com",
+      "company": "Hoa Thiên Phú"
+    },
+    {
+      "id": 2,
+      "name": "Lê Đình Quốc",
+      "identity": "343432423",
+      "email": "nhanvanlam@gmail.com",
+      "phone": "096543453",
+      "date": "05/05/1994",
+      "address": "12 Nguyễn Phước Nguyên, Đà Nẵng",
+      "website": "abc.com",
+      "company": "Hoa Mặt Trời"
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Minh Hùng",
+      "identity": "343432423",
+      "email": "hung@gmail.com",
+      "phone": "096543453",
+      "date": "05/05/1994",
+      "address": "12 Lê Duẩn, Đà Nẵng",
+      "website": "hoaminnzy.com",
+      "company": "Hoa Hướng Dương"
+    },
+    {
+      "id": 4,
+      "name": "Phạm Minh Hưng",
+      "identity": "343432423",
+      "email": "hungmapdeptrai@gmail.com",
+      "phone": "096543453",
+      "date": "05/05/1994",
+      "address": "12 Trường Chinh, Đà Nẵng",
+      "website": "vipnha.com",
+      "company": "Hoa Vạn Thọ"
+    },
+    {
+      "id": 5,
+      "name": "Nguyễn Văn Tiến",
+      "identity": "343432423",
+      "email": "tieni@gmail.com",
+      "phone": "096543453",
+      "date": "05/05/1994",
+      "address": "12 Lê Văn Quý, Đà Nẵng",
+      "website": "build.com",
+      "company": "Hoa Cúc"
+    },
+    {
+      "name": "Thanh Hang",
+      "identity": "040048000389",
+      "email": "dinhhang440@gmail.com",
+      "phone": "0334534831",
+      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
+      "website": "thanhhang.com",
+      "company": "Trăn hua hua",
+      "date": "",
+      "id": 6
+    },
+    {
+      "name": "Thanh Hằng",
+      "identity": "040048000389",
+      "email": "dinhhang440@gmail.com",
+      "phone": "0334534831",
+      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
+      "website": "tranhuahua.com",
+      "company": "Trăn hua hua",
+      "date": "",
+      "id": 7
+    },
+    {
+      "name": "Thanh Hằng",
+      "identity": "040048000389",
+      "email": "dinhhang440@gmail.com",
+      "phone": "0334534831",
+      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
+      "website": "tranhuahua.com",
+      "company": "Trăn hua hua",
+      "date": "2025-02-05T06:07:10.804Z",
+      "id": 8
+    },
+    {
+      "name": "Thanh Hằng",
+      "identity": "001303016745",
+      "email": "dinhhang440@gmail.com",
+      "phone": "0334534831",
+      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
+      "website": "tranhuahua.com",
+      "company": "Trăn hua hua",
+      "date": "2025-02-03T06:14:28.000Z",
+      "id": 9
+    },
+    {
+      "name": "Thanh Hằng",
+      "identity": "040048000389",
+      "email": "thanhhang262003@gmail.com",
+      "phone": "0334534831",
+      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
+      "website": "tranhuahua.com",
+      "company": "Trăn hua hua",
+      "date": "2025-02-03T17:00:00.000Z",
+      "id": 10
+    },
+    {
+      "name": "Thanh Hằng",
+      "identity": "001303016742",
+      "email": "dinhhang440@gmail.com",
+      "phone": "0334534831",
+      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
+      "website": "tranhuahua.com",
+      "company": "University Education",
+      "date": "2025-02-18T17:00:00.000Z",
+      "id": 11
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "nhathoang",
+      "password": "123456",
+      "mail": "tranlenhathoang357@gmail.com"
+    },
+    {
+      "id": "2",
+      "name": "admin",
+      "password": "1234567",
+      "mail": "admin@gmail.com"
+    }
+  ],
+  "services": [
+    {
+      "id": "1381",
+      "name": "Nước",
+      "consume": 4000,
+      "date": "2025-02-04",
+      "premises": "MB002",
+      "quantity": 50
+    },
+    {
+      "id": "39d6",
+      "name": "Điện",
+      "consume": 5000,
+      "date": "2025-02-01",
+      "premises": "MB002",
+      "quantity": 30
+    },
+    {
+      "id": "1498",
+      "name": "demo_mb1",
+      "consume": 30000,
+      "date": "2025-02-05",
+      "premises": "MB001",
+      "quantity": 1000
+    },
+    {
+      "id": "bd68",
+      "name": "demo_mb3",
+      "consume": 10000,
+      "date": "2025-02-06",
+      "premises": "MB003",
+      "quantity": 100
+    }
+  ]
 }

@@ -5,12 +5,7 @@ import * as Yup from "yup";
 import { addNewCustomer } from "../apiProject/customerService";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { FaCalendarAlt } from "react-icons/fa"; // Sử dụng react-icons cho icon
-
 function AddComponent() {
-	const [startDate, setStartDate] = useState(new Date());
 	const [customer, setCustomer] = useState({
 		name: "",
 		identity: "",
@@ -19,15 +14,23 @@ function AddComponent() {
 		address: "",
 		website: "",
 		company: "",
-		date: new Date(),
+		date: "",
 	});
 
 	const navigate = useNavigate();
 	const handleSubmit = async (value) => {
 		const customer = {
 			...value,
-			date: value.date,
+			date: new Date(value.date).toLocaleDateString("vi-VN", {
+				day: "2-digit",
+				month: "2-digit",
+				year: "numeric",
+			}),
 		};
+		//Gọi hàm toLocaleDateString để định dạng ngày theo chuẩn vi-VN (Tiếng Việt)
+		//day: "2-digit": Ngày được hiển thị với 2 chữ số (ví dụ: 05 thay vì 5).
+		//month: "2-digit": Tháng cũng hiển thị với 2 chữ số.
+		//year: "numeric": Hiển thị năm đầy đủ 4 chữ số (ví dụ: 2025).
 		await addNewCustomer(customer);
 		toast.success("Thêm mới thành công!", {
 			position: "top-right",
@@ -55,6 +58,7 @@ function AddComponent() {
 			.matches(/^0[0-9]{9}$/, "Số điện thoại không hợp lệ"),
 		address: Yup.string().required("Địa chỉ là bắt buộc"),
 		company: Yup.string().required("Tên công ty là bắt buộc"),
+		date: Yup.date().required("Ngày thành lập là bắt buộc"),
 	});
 	return (
 		<div className="container d-flex justify-content-center align-items-center mt-5">
@@ -106,25 +110,7 @@ function AddComponent() {
 
 						<div className="mb-3">
 							<label className="form-label">Ngày thành lập (*):</label>
-
-							<div className="position-relative">
-								<DatePicker
-									selected={startDate}
-									onChange={(date) => setStartDate(date)}
-									className="form-control"
-									dateFormat="dd/MM/yyyy"
-									withPortal
-									placeholderText="Chọn ngày"
-									// readOnly={true} // Chặn nhập từ bàn phím nhưng vẫn mở được lịch
-
-									//Dùng position-relative cho div bọc ngoài để dễ dàng định vị icon lịch.
-									//Sử dụng position-absolute end-0 top-50 translate-middle-y cho icon để cố định icon ở góc phải.
-								/>
-								<FaCalendarAlt
-									className="position-absolute end-0 top-50 translate-middle-y me-3"
-									style={{ pointerEvents: "none", fontSize: "18px", color: "#6c757d" }}
-								/>
-							</div>
+							<Field type="date" name="date" className="form-control" />
 							<ErrorMessage name="date" component="div" className="text-danger" />
 						</div>
 
