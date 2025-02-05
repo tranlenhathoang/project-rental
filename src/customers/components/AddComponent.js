@@ -27,6 +27,10 @@ function AddComponent() {
 				year: "numeric",
 			}),
 		};
+		//Gọi hàm toLocaleDateString để định dạng ngày theo chuẩn vi-VN (Tiếng Việt)
+		//day: "2-digit": Ngày được hiển thị với 2 chữ số (ví dụ: 05 thay vì 5).
+		//month: "2-digit": Tháng cũng hiển thị với 2 chữ số.
+		//year: "numeric": Hiển thị năm đầy đủ 4 chữ số (ví dụ: 2025).
 		await addNewCustomer(customer);
 		toast.success("Thêm mới thành công!", {
 			position: "top-right",
@@ -54,6 +58,7 @@ function AddComponent() {
 			.matches(/^0[0-9]{9}$/, "Số điện thoại không hợp lệ"),
 		address: Yup.string().required("Địa chỉ là bắt buộc"),
 		company: Yup.string().required("Tên công ty là bắt buộc"),
+		date: Yup.date().required("Ngày thành lập là bắt buộc"),
 	});
 	return (
 		<div className="container d-flex justify-content-center align-items-center mt-5">
