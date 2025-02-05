@@ -10,6 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendarAlt } from "react-icons/fa"; // Sử dụng react-icons cho icon
 
 function AddComponent() {
+	const [startDate, setStartDate] = useState(new Date());
 	const [customer, setCustomer] = useState({
 		name: "",
 		identity: "",
@@ -18,13 +19,14 @@ function AddComponent() {
 		address: "",
 		website: "",
 		company: "",
-		date: "",
+		date: new Date(),
 	});
 
 	const navigate = useNavigate();
 	const handleSubmit = async (value) => {
 		const customer = {
 			...value,
+			date: value.date,
 		};
 		await addNewCustomer(customer);
 		toast.success("Thêm mới thành công!", {
@@ -107,8 +109,8 @@ function AddComponent() {
 
 							<div className="position-relative">
 								<DatePicker
-									selected={customer.date ? new Date(customer.date) : null}
-									onChange={(date) => setCustomer({ ...customer, date })}
+									selected={startDate}
+									onChange={(date) => setStartDate(date)}
 									className="form-control"
 									dateFormat="dd/MM/yyyy"
 									withPortal
