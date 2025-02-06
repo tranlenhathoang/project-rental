@@ -106,7 +106,12 @@ function CustomerList() {
 			</div>
 
 			<div className="list">
-				<div className="header text-center text-white mt-2">
+				<div
+					className="header text-center mt-2"
+					style={{
+						color: "#0056b3",
+					}}
+				>
 					<h2>DANH SÁCH KHÁCH HÀNG</h2>
 				</div>
 				{/* Button */}
