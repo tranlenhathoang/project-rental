@@ -4,7 +4,7 @@
 	box-sizing: border-box;
 }
 .list {
-	background-color: #435d7d;
+	background-color: #e3f2fd;
 	overflow-x: auto; /* Đảm bảo không xuất hiện thanh trượt ngang, chỉ khi cần */
 }
 /* .header {
