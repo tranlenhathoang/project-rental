@@ -1,13 +1,42 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.list {
+	background-color: #e3f2fd;
+	overflow-x: auto; /* Đảm bảo không xuất hiện thanh trượt ngang, chỉ khi cần */
+}
+/* .header {
+	position: fixed;
+	top: 25%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1000;
+	padding: 10px 20px;
+	width: 100%;
+	text-align: center;
+}
+.table {
+	margin-top: 5%;
+} */
+
+.search {
+	border: none;
+	border-bottom: 1px solid red;
+}
+.table th {
+	background-color: #343a40 !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.table-bordered {
+	border: 1px solid #ddd;
+}
+th,
+td {
+	min-width: 200px; /* Đảm bảo chiều rộng tối thiểu cho các cột */
+	white-space: nowrap;
+}
+.text {
+	white-space: nowrap;
 }
