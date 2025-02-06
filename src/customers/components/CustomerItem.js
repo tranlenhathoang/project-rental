@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function CustomerItem(props) {
-	const { name, identity, email, phone } = props.customer;
+	const { id, name, identity, email, phone } = props.customer;
 	return (
 		<tr>
 			<td className="text-center">{+props.i + 1}</td>
@@ -12,7 +12,7 @@ function CustomerItem(props) {
 			<td className="text-center">{phone}</td>
 
 			<td className="text-center">
-				<Link className="btn btn-primary me-3" to={"/"}>
+				<Link className="btn btn-primary me-3" to={"/detail/" + id}>
 					Chi tiết
 				</Link>
 			</td>
@@ -28,7 +28,9 @@ function CustomerItem(props) {
 			</td>
 			<td className="text-center">
 				<button className="btn btn-warning me-3">Sửa</button>
-				<button className="btn btn-danger me-3">Xoá</button>
+				<button onClick={() => props.showModalDelete(props.customer)} className="btn btn-danger me-3">
+					Xoá
+				</button>
 			</td>
 		</tr>
 	);

@@ -2,17 +2,6 @@
   "customerList": [
     {
       "id": 1,
-      "name": "Nguyễn Đình Hoà",
-      "identity": "343432423",
-      "email": "hoadeptrai@gmail.com",
-      "phone": "096543453",
-      "date": "05/05/1994",
-      "address": "12 Lê Quý Kỳ, Đà Nẵng",
-      "website": "hoaminnzy.com",
-      "company": "Hoa Thiên Phú"
-    },
-    {
-      "id": 2,
       "name": "Lê Đình Quốc",
       "identity": "343432423",
       "email": "nhanvanlam@gmail.com",
@@ -23,7 +12,7 @@
       "company": "Hoa Mặt Trời"
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "Nguyễn Minh Hùng",
       "identity": "343432423",
       "email": "hung@gmail.com",
@@ -31,6 +20,17 @@
       "date": "05/05/1994",
       "address": "12 Lê Duẩn, Đà Nẵng",
       "website": "hoaminnzy.com",
+      "company": "Hoa Hướng Dương"
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Minh Hùng",
+      "identity": "343432423",
+      "email": "hungmapdeptrai@gmail.com",
+      "phone": "096543453",
+      "date": "05/05/1994",
+      "address": "12 Lê Duẩn, Đà Nẵng",
+      "website": "hoaminzy.com",
       "company": "Hoa Hướng Dương"
     },
     {
@@ -54,72 +54,6 @@
       "address": "12 Lê Văn Quý, Đà Nẵng",
       "website": "build.com",
       "company": "Hoa Cúc"
-    },
-    {
-      "name": "Thanh Hang",
-      "identity": "040048000389",
-      "email": "dinhhang440@gmail.com",
-      "phone": "0334534831",
-      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
-      "website": "thanhhang.com",
-      "company": "Trăn hua hua",
-      "date": "",
-      "id": 6
-    },
-    {
-      "name": "Thanh Hằng",
-      "identity": "040048000389",
-      "email": "dinhhang440@gmail.com",
-      "phone": "0334534831",
-      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
-      "website": "tranhuahua.com",
-      "company": "Trăn hua hua",
-      "date": "",
-      "id": 7
-    },
-    {
-      "name": "Thanh Hằng",
-      "identity": "040048000389",
-      "email": "dinhhang440@gmail.com",
-      "phone": "0334534831",
-      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
-      "website": "tranhuahua.com",
-      "company": "Trăn hua hua",
-      "date": "2025-02-05T06:07:10.804Z",
-      "id": 8
-    },
-    {
-      "name": "Thanh Hằng",
-      "identity": "001303016745",
-      "email": "dinhhang440@gmail.com",
-      "phone": "0334534831",
-      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
-      "website": "tranhuahua.com",
-      "company": "Trăn hua hua",
-      "date": "2025-02-03T06:14:28.000Z",
-      "id": 9
-    },
-    {
-      "name": "Thanh Hằng",
-      "identity": "040048000389",
-      "email": "thanhhang262003@gmail.com",
-      "phone": "0334534831",
-      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
-      "website": "tranhuahua.com",
-      "company": "Trăn hua hua",
-      "date": "2025-02-03T17:00:00.000Z",
-      "id": 10
-    },
-    {
-      "name": "Thanh Hằng",
-      "identity": "001303016742",
-      "email": "dinhhang440@gmail.com",
-      "phone": "0334534831",
-      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
-      "website": "tranhuahua.com",
-      "company": "University Education",
-      "date": "2025-02-18T17:00:00.000Z",
-      "id": 11
     }
   ],
   "users": [

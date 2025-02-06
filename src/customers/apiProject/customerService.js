@@ -39,3 +39,19 @@ export async function addNewCustomer(customer) {
 		return [];
 	}
 }
+
+export async function getCustomerById(id) {
+	try {
+		const response = await axios.get(`${BASE_URL}/customerList/${id}`);
+		return response.data;
+	} catch (e) {}
+}
+
+export async function deleteCustomerById(id) {
+	try {
+		const response = await axios.delete(`${BASE_URL}/customerList/${id}`);
+		return response.data;
+	} catch (e) {
+		return null;
+	}
+}
