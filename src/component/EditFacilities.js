@@ -170,7 +170,7 @@ export default function EditFacilities() {
                     <Button variant="primary" type="submit" disabled={isSubmitting}>
                       Lưu
                     </Button>
-                    <Link to="/">
+                    <Link to="/floor">
                       <Button variant="secondary" className="ms-2">
                         Làm lại
                       </Button>

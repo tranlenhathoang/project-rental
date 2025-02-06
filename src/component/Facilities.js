@@ -92,7 +92,7 @@ const Facilities = () => {
                 />
             </div>
             <div className="table-responsive">
-                <Link to={`/AddFacilities`} className="btn btn-success btn-sm me-2">Thêm mới</Link>
+                <Link to={`/floor/AddFacilities`} className="btn btn-success btn-sm me-2">Thêm mới</Link>
                 <button className="btn btn-danger btn-sm me-2">Xóa tất cả</button>
                 <button className="btn btn-danger btn-sm">Tên tầng</button>
                 <table className="table table-bordered table-striped">
@@ -120,10 +120,10 @@ const Facilities = () => {
                                     <td>{facility.management_fee}</td>
                                     <td>{facility.customer || ""}</td>
                                     <td>
-                                        <Link to={`/facilities/${facility.id}`} className="btn btn-info btn-sm me-2">
+                                        <Link to={`/floor/facilities/${facility.id}`} className="btn btn-info btn-sm me-2">
                                             Xem
                                         </Link>
-                                        <Link to={`/facilities/${facility.id}/edit`} className="btn btn-warning btn-sm me-2">
+                                        <Link to={`/floor/facilities/${facility.id}/edit`} className="btn btn-warning btn-sm me-2">
                                             Sửa
                                         </Link>
                                         <button

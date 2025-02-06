@@ -28,7 +28,7 @@ function DetailFacilities() {
   return (
     <div className="container mt-4">
       <h2 className="text-center">DANH SÁCH MẶT BẰNG</h2>
-      <Link to="/">
+      <Link to="/floor">
                     <Button variant="primary" className="ms-2">
                       Quay Lại
                     </Button>

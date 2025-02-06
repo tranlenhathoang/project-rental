@@ -1,5 +1,5 @@
 import axios from "axios";
-let url = `http://localhost:8080/facilities`
+let url = `http://localhost:3001/facilities`
 
 // tìm tất cả facilities với query
 export async function GetAllfacilities(query) {
