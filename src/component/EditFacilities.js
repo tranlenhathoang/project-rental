@@ -1,179 +1,187 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { useFormik } from "formik";
-import { fetchFacilityById,updateFacilityById } from "../Function/typeFacilities";
+import { GetfacilitiesById, Updatefacilities } from "../Function/typeFacilities";
+import { useNavigate, useParams, Link } from "react-router-dom";
+import { Formik, Form, Field,ErrorMessage } from "formik";
+import * as Yup from 'yup';
+import { Button,Card} from 'react-bootstrap';
 
-const EditFacilities = () => {
-  const { id } = useParams(); // Lấy id từ URL
-  const navigate = useNavigate(); // Dùng navigate thay vì history.push
-  const [facility, setFacility] = useState(null);
+export default function EditFacilities() {
+    const { id } = useParams();
+    const [facilities, setFacilities] = useState(null);
+    useEffect(() => {
+        const fetchfacilities = async () => {
+            try {
+                const data = await GetfacilitiesById(id);
+                setFacilities(data);
+            } catch (error) {
+                console.error("Lỗi khi lấy dữ liệu:", error);
+            }
+        };
+        fetchfacilities();
+    }, [id]);
+    
 
-  // Tải dữ liệu facility từ API
-  useEffect(() => {
-    const fetchFacility = async () => {
-      const data = await fetchFacilityById(id);
-      setFacility(data);
+    const navigate = useNavigate();
+
+    const handleSubmit = async (values) => {
+        console.log("Dữ liệu gửi đi:", values);
+        await Updatefacilities(id, values); // Cập nhật trực tiếp dữ liệu
+        console.log("----Cập nhật thành công----");
+        navigate('/');
     };
-    fetchFacility();
-  }, [id]);
+    
+    if (!facilities) {
+        return <div className="text-center mt-5">Loading dữ liệu...</div>;
+    }
+    
+      const validationSchema = Yup.object({
+        building: Yup.string().required("Không được để trống !!!"),
+        floor: Yup.string().required("Không được để trống !!!"),
+        facility_type: Yup.string().required("Không được để trống !!!"),
+        facility_code: Yup.string()
+          .matches(/^MB\d{3}$/, "Nhập đúng định dạng: MBxxx !!!")
+          .required("Không được để trống !!!"),
+        status: Yup.string().required("Không được để trống !!!"),
+        area: Yup.number()
+          .typeError("Phải là số !!!")
+          .positive("Diện tích phải lớn hơn 0 !!!")
+          .required("Không được để trống !!!"),
+        prices: Yup.number()
+          .typeError("Phải là số !!!")
+          .positive("Giá phải lớn hơn 0 !!!"),
+        management_fee: Yup.number()
+          .typeError("Phải là số !!!")
+          .positive("Phí quản lý phải lớn hơn 0 !!!"),
+      });
 
-  // Formik để xử lý form
-  const formik = useFormik({
-    enableReinitialize: true, // Khi dữ liệu facility thay đổi, form sẽ tự động cập nhật
-    initialValues: {
-      type: facility ? facility.type : "",
-      area: facility ? facility.area : "",
-      rental_cost: facility ? facility.rental_cost : "",
-      max_people: facility ? facility.max_people : "",
-      room_standard: facility ? facility.room_standard : "",
-      img_url: facility ? facility.img_url : "",
-      rental_type: facility ? facility.rental_type : "",
-      pool_area: facility ? facility.pool_area : "",
-      floors: facility ? facility.floors : "",
-      other_services: facility ? facility.other_services : "",
-      free_services: facility ? facility.free_services : "",
-    },
-    validate: (values) => {
-      const errors = {};
-      if (!values.type) {
-        errors.type = "Required";
-      }
-      if (!values.area) {
-        errors.area = "Required";
-      }
-      if (!values.rental_cost) {
-        errors.rental_cost = "Required";
-      }
-      if (!values.max_people) {
-        errors.max_people = "Required";
-      }
-      if (!values.room_standard) {
-        errors.room_standard = "Required";
-      }
-      if (!values.img_url) {
-        errors.img_url = "Required";
-      }
-      return errors;
-    },
-    onSubmit: async (values) => {
-      await updateFacilityById(id, values);
-      navigate(`/facilities/${id}`);
-    },
-  });
-
-  // Nếu chưa tải xong facility, hiển thị loading
-  if (!facility) {
-    return <div>Loading...</div>;
+    return (
+        <div className="container mt-5">
+        <Card style={{ maxWidth: "800px", margin: "auto" }}>
+          <Card.Header as="h5">Thêm mới thông tin Mặt Bằng</Card.Header>
+          <Card.Body>
+            <Formik
+              initialValues={{
+                building: facilities.building,
+                floor: facilities.floor,
+                facility_type: facilities.facility_type,
+                facility_code: facilities.facility_code,
+                status: facilities.status ,
+                area: facilities.area,
+                description: facilities.description,
+                prices: facilities.prices,
+                management_fee: facilities.management_fee
+              }}
+              onSubmit={handleSubmit}
+              validationSchema={validationSchema}
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <div className="mb-3">
+                    <label htmlFor="building" className="form-label">
+                      Tên tòa nhà (*)
+                    </label>
+                    <Field type="text" name="building" id="building" className="form-control" />
+                    <ErrorMessage name="building" component="div" className="text-danger" />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="floor" className="form-label">
+                      Tên Tầng (*)
+                    </label>
+                    <Field type="text" name="floor" id="floor" className="form-control" />
+                    <ErrorMessage name="floor" component="div" className="text-danger" />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="facility_type" className="form-label">
+                      Loại mặt bằng (*)
+                    </label>
+                    <Field as="select" name="facility_type" id="facility_type" className="form-control">
+                    <option value="">Chọn</option>
+                      <option value="Mặt Tiền">Mặt Tiền</option>
+                      <option value="Mặt Hậu">Mặt Hậu</option>
+                      <option value="Mặt Cắt">Mặt Cắt</option>
+                      <option value="Mặt Đứng">Mặt Đứng</option>
+                    </Field>
+                    <ErrorMessage name="facility_type" component="div" className="text-danger" />
+                  </div>
+  
+                  <div className="mb-3">
+                    <label htmlFor="facility_code" className="form-label">
+                      Mã mặt bằng (*)
+                    </label>
+                    <Field type="text" name="facility_code" id="facility_code" className="form-control" />
+                    <ErrorMessage name="facility_code" component="div" className="text-danger" />
+                  </div>
+  
+                  <div className="mb-3">
+                    <label htmlFor="status" className="form-label">
+                      Trạng thái
+                    </label>
+                    <Field as="select" name="status" id="status" className="form-control">
+                    <option value="">Chọn</option>
+                      <option value="Chưa Bàn Giao">Chưa Bàn Giao</option>
+                      <option value="Đang Vào Ở">Đang Vào Ở</option>
+                      <option value="Đang Sửa Chữa">Đang Sửa Chữa</option>
+                    </Field>
+                    <ErrorMessage name="status" component="div" className="text-danger" />
+                  </div>
+  
+                  <div className="mb-3">
+                    <label htmlFor="area" className="form-label">
+                      Diện tích (*)
+                    </label>
+                    <Field type="text" name="area" id="area" className="form-control" />
+                    <ErrorMessage name="area" component="div" className="text-danger" />
+                  </div>
+  
+                  <div className="mb-3">
+                    <label htmlFor="description" className="form-label">
+                      Chú thích
+                    </label>
+                    <Field
+                      as="textarea"
+                      name="description"
+                      id="description"
+                      className="form-control"
+                    />
+                  </div>
+  
+                  <div className="mb-3">
+                    <label htmlFor="prices" className="form-label">
+                      Giá tiền
+                    </label>
+                    <Field type="text" name="prices" id="prices" className="form-control" />
+                    <ErrorMessage name="prices" component="div" className="text-danger" />
+                  </div>
+  
+                  <div className="mb-3">
+                    <label htmlFor="management_fee" className="form-label">
+                      Phí quản lý
+                    </label>
+                    <Field
+                      type="text"
+                      name="management_fee"
+                      id="management_fee"
+                      className="form-control"
+                    />
+                    <ErrorMessage name="management_fee" component="div" className="text-danger" />
+                  </div>
+  
+                  <div className="d-flex">
+                    <Button variant="primary" type="submit" disabled={isSubmitting}>
+                      Lưu
+                    </Button>
+                    <Link to="/">
+                      <Button variant="secondary" className="ms-2">
+                        Làm lại
+                      </Button>
+                    </Link>
+                  </div>
+                </Form>
+              )}
+            </Formik>
+          </Card.Body>
+        </Card>
+      </div>
+    );
   }
-
-  return (
-    <div className="container mt-5">
-      <h2 className="mb-4">Chỉnh Sửa Facility</h2>
-      <form onSubmit={formik.handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="type" className="form-label">Type</label>
-          <input
-            type="text"
-            id="type"
-            name="type"
-            className="form-control"
-            value={formik.values.type}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.type && formik.errors.type && (
-            <div className="text-danger">{formik.errors.type}</div>
-          )}
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="area" className="form-label">Area (m²)</label>
-          <input
-            type="number"
-            id="area"
-            name="area"
-            className="form-control"
-            value={formik.values.area}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.area && formik.errors.area && (
-            <div className="text-danger">{formik.errors.area}</div>
-          )}
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="rental_cost" className="form-label">Rental Cost (USD)</label>
-          <input
-            type="number"
-            id="rental_cost"
-            name="rental_cost"
-            className="form-control"
-            value={formik.values.rental_cost}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.rental_cost && formik.errors.rental_cost && (
-            <div className="text-danger">{formik.errors.rental_cost}</div>
-          )}
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="max_people" className="form-label">Max People</label>
-          <input
-            type="number"
-            id="max_people"
-            name="max_people"
-            className="form-control"
-            value={formik.values.max_people}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.max_people && formik.errors.max_people && (
-            <div className="text-danger">{formik.errors.max_people}</div>
-          )}
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="room_standard" className="form-label">Room Standard</label>
-          <input
-            type="text"
-            id="room_standard"
-            name="room_standard"
-            className="form-control"
-            value={formik.values.room_standard}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.room_standard && formik.errors.room_standard && (
-            <div className="text-danger">{formik.errors.room_standard}</div>
-          )}
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="img_url" className="form-label">Image URL</label>
-          <input
-            type="url"
-            id="img_url"
-            name="img_url"
-            className="form-control"
-            value={formik.values.img_url}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.img_url && formik.errors.img_url && (
-            <div className="text-danger">{formik.errors.img_url}</div>
-          )}
-        </div>
-
-        <div className="mb-3">
-          <button type="submit" className="btn btn-primary">
-            Save Changes
-          </button>
-        </div>
-      </form>
-    </div>
-  );
-};
-
-export default EditFacilities;
+  

@@ -1,95 +1,57 @@
 import axios from "axios";
+let url = `http://localhost:8080/facilities`
 
-// Lấy danh sách các facilities với hỗ trợ phân trang
-export const fetchFacilities = async (page = 1, itemsPerPage = 6) => {
-  try {
-    const response = await axios.get("http://localhost:8080/facilities", {
-      params: {
-        _page: page, // Số trang
-        _limit: itemsPerPage, // Số mục trên mỗi trang
-      },
-    });
-
-    // Tổng số mục từ header `x-total-count`
-    const totalItems = parseInt(response.headers["x-total-count"], 10) || 0;
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-    return {
-      items: response.data, // Danh sách facilities
-      totalPages, // Tổng số trang
-    };
-  } catch (error) {
-    console.error("Lỗi khi lấy dữ liệu facilities:", error);
-    return {
-      items: [],
-      totalPages: 0,
-    };
-  }
+// tìm tất cả facilities với query
+export async function GetAllfacilities(query) {
+    try {
+        // Sử dụng params để thêm query vào URL, trong đó query có thể bao gồm các tham số phân trang như page và limit
+        const response = await axios.get(`${url}`, { params: query });
+        return response.data;
+    } catch (e) {
+        console.log("không lấy dữ liệu", e);
+        return [];
+    }
 };
 
-// Xử lý xóa facility
-export const handleDeleteFacility = async (id, facilities, setFacilities) => {
-  try {
-    await axios.delete(`http://localhost:8080/facilities/${id}`);
-    setFacilities(facilities.filter((facility) => facility.id !== id));
-  } catch (error) {
-    console.error("Lỗi khi xóa facility:", error);
-  }
+// tìm 1 facilities dựa trên id truyền qua url
+export async function GetfacilitiesById(id){
+    try {
+        const response = await axios.get(`${url}/`+id);
+        console.log(response);
+        return response.data;
+    } catch(e){
+        console.log("loi",e);
+        return null
+    }
 };
 
-// Xử lý lấy detail dữ liệu
-export const fetchFacilityById = async (id) => {
-  try {
-    const response = await axios.get(`http://localhost:8080/facilities/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching facility: ", error);
-    return null;
-  }
+// thêm mới facilities
+export async function AddNewfacilities(values) {
+    try{
+        const response = await axios.post(url,values);
+        console.log('---them moi ne ----')
+    } catch (e){
+        console.log('loi loi lol',e);
+    }
 };
 
-// Xử lý cập nhật facility
-export const updateFacilityById = async (id, values) => {
-  try {
-    await axios.put(`http://localhost:8080/facilities/${id}`, values);
-  } catch (error) {
-    console.error("Error updating facility: ", error);
-  }
-};
-
-// Hàm xử lý tìm kiếm theo type và room_standard với phân trang
-export async function searchFacilityByName(searchType, searchRoom, page = 1, itemsPerPage = 6) {
-  try {
-    let query = "";
-
-    if (searchType) query += `type_like=${searchType}`;
-    if (searchRoom) query += (query ? "&" : "") + `room_standard_like=${searchRoom}`;
-
-    const response = await axios.get(`http://localhost:8080/facilities`, {
-      params: {
-        _page: page, // Số trang
-        _limit: itemsPerPage, // Số mục trên mỗi trang
-        ...query.split("&").reduce((acc, q) => {
-          const [key, value] = q.split("=");
-          acc[key] = value;
-          return acc;
-        }, {}),
-      },
-    });
-
-    // Tổng số mục từ header `x-total-count`
-    const totalItems = parseInt(response.headers["x-total-count"], 10) || 0;
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-    return {
-      items: response.data, // Danh sách facilities
-      totalPages, // Tổng số trang
-    };
-  } catch (e) {
-    console.log("Lỗi: " + e);
-    return {
-      items: [],
-      totalPages: 0,
-    };
-  }
+// xóa 1 facilities
+export async function deleteFacilitiesById(id) {
+    try {    
+        console.log("ID to del :", id)
+        const response = await axios.delete(`${url}/`+id);
+        console.log('--xoa mat roi---')
+    }catch (e){
+        console.log('loi roi: ',e)
+    }
 }
+
+// update facilities
+export async function Updatefacilities(id,facilities) {
+    try{
+        const response = await axios.put(`${url}/`+id,facilities);
+        console.log('---Update ben function duoc roi nhe ----')
+    } catch (e){
+        console.log('loi ben function',e);
+    }
+};

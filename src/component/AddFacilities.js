@@ -1,256 +1,169 @@
 import React from "react";
-import { useFormik } from "formik";
-import axios from "axios";
+import { AddNewfacilities } from "../Function/typeFacilities";
+import { useNavigate, Link } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { Button, Card } from "react-bootstrap";
 
-function AddFacilities() {
-  // Khai báo useFormik
-  const formik = useFormik({
-    initialValues: {
-      type: "",
-      area: "",
-      rental_cost: "",
-      max_people: "",
-      room_standard: "",
-      img_url: "",
-      rental_type: "",
-      other_services:"",  // không required
-      pool_area:"",       // không required
-      floors:"",          // không required
-      free_services:""    // không required
-    },
+function AddlFacilities() {
 
-    validate: (values) => {
-      const errors = {};
-      if (!values.type) {
-        errors.type = "Required";
-      }
-      if (!values.area) {
-        errors.area = "Required";
-      }
-      if (!values.rental_cost) {
-        errors.rental_cost = "Required";
-      }
-      if (!values.max_people) {
-        errors.max_people = "Required";
-      }
-      if (!values.room_standard) {
-        errors.room_standard = "Required";
-      }
-      if (!values.img_url) {
-        errors.img_url = "Required";
-      }
-      return errors;
-    },
-    onSubmit: (values) => {
-      // xử lý post vào API ở đây nhé:
-      axios
-        .post("http://localhost:8080/facilities",values)
-        .then((Response) => {
-          console.log("---SENTTTT---", Response.data);
-        })
-        .catch((error)=> {
-          console.log("---loi nay: ",error)
-        })
-      console.log("Form values:", values);
-    },
+  const navigate = useNavigate();
+
+  const handleSubmit = async (values) => {
+    console.log(values);
+    await AddNewfacilities(values);
+    console.log("----Thêm thành công----");
+    navigate("/");
+  };
+
+  const validationSchema = Yup.object({
+    building: Yup.string().required("Không được để trống !!!"),
+    floor: Yup.string().required("Không được để trống !!!"),
+    facility_type: Yup.string().required("Không được để trống !!!"),
+    facility_code: Yup.string()
+      .matches(/^MB\d{3}$/, "Nhập đúng định dạng: MBxxx !!!")
+      .required("Không được để trống !!!"),
+    status: Yup.string().required("Không được để trống !!!"),
+    area: Yup.number()
+      .typeError("Phải là số !!!")
+      .positive("Diện tích phải lớn hơn 0 !!!")
+      .required("Không được để trống !!!"),
+    prices: Yup.number()
+      .typeError("Phải là số !!!")
+      .positive("Giá phải lớn hơn 0 !!!"),
+    management_fee: Yup.number()
+      .typeError("Phải là số !!!")
+      .positive("Phí quản lý phải lớn hơn 0 !!!"),
   });
-
   return (
-    <div className="container mt-5 addfacilities-bg ">
-      <h2 className="mb-4">Add a New Facility</h2>
-      <form onSubmit={formik.handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="rental_type" className="form-label">
-            Rental Type
-          </label>
-          <select
-            name="type"
-            className="form-control"
-            value={formik.values.type}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
+    <div className="container mt-5">
+      <Card style={{ maxWidth: "800px", margin: "auto" }}>
+        <Card.Header as="h5">Thêm mới thông tin Mặt Bằng</Card.Header>
+        <Card.Body>
+          <Formik
+            initialValues={{
+              building: "",
+              floor: "",
+              facility_type: "",
+              facility_code: "",
+              status: "",
+              area: "",
+              description: "",
+              prices: "",
+              management_fee: "",
+            }}
+            onSubmit={handleSubmit}
+            validationSchema={validationSchema}
           >
-            <option value="">Select Type</option>
-            <option value="villa">Villa</option>
-            <option value="house">House</option>
-            <option value="room">Room</option>
-          </select>
-          {formik.touched.type && formik.errors.type ? (
-            <div className="text-danger">{formik.errors.type}</div>
-          ) : null}
-        </div>
-        <div className="mb-3">
-          <label htmlFor="area" className="form-label">
-            Area (m²)
-          </label>
-          <input
-            type="number"
-            id="area"
-            name="area"
-            className="form-control"
-            value={formik.values.area}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.area && formik.errors.area ? (
-            <div className="text-danger">{formik.errors.area}</div>
-          ) : null}
-        </div>
+            {({ isSubmitting }) => (
+              <Form>
+                <div className="mb-3">
+                  <label htmlFor="building" className="form-label">
+                    Tên tòa nhà (*)
+                  </label>
+                  <Field type="text" name="building" id="building" className="form-control" />
+                  <ErrorMessage name="building" component="div" className="text-danger" />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="floor" className="form-label">
+                    Tên Tầng (*)
+                  </label>
+                  <Field type="text" name="floor" id="floor" className="form-control" />
+                  <ErrorMessage name="floor" component="div" className="text-danger" />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="facility_type" className="form-label">
+                    Loại mặt bằng (*)
+                  </label>
+                  <Field as="select" name="facility_type" id="facility_type" className="form-control">
+                  <option value="">Chọn</option>
+                    <option value="Mặt Tiền">Mặt Tiền</option>
+                    <option value="Mặt Hậu">Mặt Hậu</option>
+                    <option value="Mặt Cắt">Mặt Cắt</option>
+                    <option value="Mặt Đứng">Mặt Đứng</option>
+                  </Field>
+                  <ErrorMessage name="facility_type" component="div" className="text-danger" />
+                </div>
 
-        <div className="mb-3">
-          <label htmlFor="rental_cost" className="form-label">
-            Rental Cost (USD)
-          </label>
-          <input
-            type="number"
-            id="rental_cost"
-            name="rental_cost"
-            className="form-control"
-            value={formik.values.rental_cost}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.rental_cost && formik.errors.rental_cost ? (
-            <div className="text-danger">{formik.errors.rental_cost}</div>
-          ) : null}
-        </div>
+                <div className="mb-3">
+                  <label htmlFor="facility_code" className="form-label">
+                    Mã mặt bằng (*)
+                  </label>
+                  <Field type="text" name="facility_code" id="facility_code" className="form-control" />
+                  <ErrorMessage name="facility_code" component="div" className="text-danger" />
+                </div>
 
-        <div className="mb-3">
-          <label htmlFor="max_people" className="form-label">
-            Max People
-          </label>
-          <input
-            type="number"
-            id="max_people"
-            name="max_people"
-            className="form-control"
-            value={formik.values.max_people}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.max_people && formik.errors.max_people ? (
-            <div className="text-danger">{formik.errors.max_people}</div>
-          ) : null}
-        </div>
+                <div className="mb-3">
+                  <label htmlFor="status" className="form-label">
+                    Trạng thái
+                  </label>
+                  <Field as="select" name="status" id="status" className="form-control">
+                  <option value="">Chọn</option>
+                    <option value="Chưa Bàn Giao">Chưa Bàn Giao</option>
+                    <option value="Đang Vào Ở">Đang Vào Ở</option>
+                    <option value="Đang Sửa Chữa">Đang Sửa Chữa</option>
+                  </Field>
+                  <ErrorMessage name="status" component="div" className="text-danger" />
+                </div>
 
-        <div className="mb-3">
-          <label htmlFor="rental_type" className="form-label">
-            Rental Type
-          </label>
-          <select
-            id="rental_type"
-            name="rental_type"
-            className="form-control"
-            value={formik.values.rental_type}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          >
-            <option value="">Select rental type</option>
-            <option value="day">Day</option>
-            <option value="month">Month</option>
-            <option value="year">Year</option>
-          </select>
-          {formik.touched.rental_type && formik.errors.rental_type ? (
-            <div className="text-danger">{formik.errors.rental_type}</div>
-          ) : null}
-        </div>
+                <div className="mb-3">
+                  <label htmlFor="area" className="form-label">
+                    Diện tích (*)
+                  </label>
+                  <Field type="text" name="area" id="area" className="form-control" />
+                  <ErrorMessage name="area" component="div" className="text-danger" />
+                </div>
 
-        <div className="mb-3">
-          <label htmlFor="room_standard" className="form-label">
-            Room Standard
-          </label>
-          <input
-            type="text"
-            id="room_standard"
-            name="room_standard"
-            className="form-control"
-            value={formik.values.room_standard}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.room_standard && formik.errors.room_standard ? (
-            <div className="text-danger">{formik.errors.room_standard}</div>
-          ) : null}
-        </div>
+                <div className="mb-3">
+                  <label htmlFor="description" className="form-label">
+                    Chú thích
+                  </label>
+                  <Field
+                    as="textarea"
+                    name="description"
+                    id="description"
+                    className="form-control"
+                  />
+                </div>
 
-        <div className="mb-3">
-          <label htmlFor="other_services" className="form-label">
-            Other Services
-          </label>
-          <input
-            type="text"
-            id="other_services"
-            name="other_services"
-            className="form-control"
-            value={formik.values.other_services}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.other_services && formik.errors.other_services ? (
-            <div className="text-danger">{formik.errors.other_services}</div>
-          ) : null}
-        </div>
+                <div className="mb-3">
+                  <label htmlFor="prices" className="form-label">
+                    Giá tiền
+                  </label>
+                  <Field type="text" name="prices" id="prices" className="form-control" />
+                  <ErrorMessage name="prices" component="div" className="text-danger" />
+                </div>
 
-        <div className="mb-3">
-          <label htmlFor="pool_area" className="form-label">
-            Pool Area (m²)
-          </label>
-          <input
-            type="number"
-            id="pool_area"
-            name="pool_area"
-            className="form-control"
-            value={formik.values.pool_area}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.pool_area && formik.errors.pool_area ? (
-            <div className="text-danger">{formik.errors.pool_area}</div>
-          ) : null}
-        </div>
+                <div className="mb-3">
+                  <label htmlFor="management_fee" className="form-label">
+                    Phí quản lý
+                  </label>
+                  <Field
+                    type="text"
+                    name="management_fee"
+                    id="management_fee"
+                    className="form-control"
+                  />
+                  <ErrorMessage name="management_fee" component="div" className="text-danger" />
+                </div>
 
-        <div className="mb-3">
-          <label htmlFor="floors" className="form-label">
-            Floors
-          </label>
-          <input
-            type="number"
-            id="floors"
-            name="floors"
-            className="form-control"
-            value={formik.values.floors}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.floors && formik.errors.floors ? (
-            <div className="text-danger">{formik.errors.floors}</div>
-          ) : null}
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="img_url" className="form-label">
-            Image URL
-          </label>
-          <input
-            type="url"
-            id="img_url"
-            name="img_url"
-            className="form-control"
-            value={formik.values.img_url}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.img_url && formik.errors.img_url ? (
-            <div className="text-danger">{formik.errors.img_url}</div>
-          ) : null}
-        </div>
-
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
+                <div className="d-flex">
+                  <Button variant="primary" type="submit" disabled={isSubmitting}>
+                    Lưu
+                  </Button>
+                  <Link to="/">
+                    <Button variant="secondary" className="ms-2">
+                      Làm lại
+                    </Button>
+                  </Link>
+                </div>
+              </Form>
+            )}
+          </Formik>
+        </Card.Body>
+      </Card>
     </div>
   );
 }
 
-export default AddFacilities;
+export default AddlFacilities;

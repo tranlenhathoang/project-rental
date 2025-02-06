@@ -1,63 +1,95 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { fetchFacilities, handleDeleteFacility, searchFacilityByName } from "../Function/typeFacilities";
+import { GetAllfacilities, deleteFacilitiesById } from "../Function/typeFacilities";
 
 const Facilities = () => {
     const [facilities, setFacilities] = useState([]); // Danh sách facilities
-    const [totalPages, setTotalPages] = useState(0); // Tổng số trang
+    const [searchFloor, setSearchFloor] = useState(""); // Từ khóa tìm kiếm theo tên tầng
+    const [searchCode, setSearchCode] = useState(""); // Từ khóa tìm kiếm theo mã mặt bằng
+    const [searchArea, setSearchArea] = useState(""); // Từ khóa tìm kiếm theo diện tích
+    const [searchType, setSearchType] = useState(""); // Từ khóa tìm kiếm theo loại mặt bằng
+    const [filteredFacilities, setFilteredFacilities] = useState([]); // Danh sách mặt bằng sau khi lọc
     const [currentPage, setCurrentPage] = useState(1); // Trang hiện tại
-
-    const searchRef1 = useRef();
-    const searchRef2 = useRef();
-    const searchRef3 = useRef();
-    const searchRef4 = useRef();
-
+    const [itemsPerPage, setItemsPerPage] = useState(6); // Số mục mỗi trang
 
     // Tải dữ liệu facilities khi component được render
     useEffect(() => {
-        loadFacilities(currentPage);
-    }, [currentPage]);
+        loadFacilities();
+    }, []);
 
-    const loadFacilities = async (page) => {
-        console.log("Đang tải trang:", page);
-        const data = await fetchFacilities(page);
-        console.log("Dữ liệu nhận được:", data);
-        setFacilities(data.items);
-        setTotalPages(data.totalPages);
+    useEffect(() => {
+        // Lọc danh sách khi có thay đổi trong search terms
+        const filteredData = facilities.filter(facility =>
+            (facility.floor?.toLowerCase().includes(searchFloor.toLowerCase()) || searchFloor === "") &&
+            (facility.facility_code?.toLowerCase().includes(searchCode.toLowerCase()) || searchCode === "") &&
+            (facility.area.toString().includes(searchArea) || searchArea === "") && // Bỏ toLowerCase() ở đây
+            (typeof facility.facility_type === 'string' && facility.facility_type.toLowerCase().includes(searchType.toLowerCase()) || searchType === "")
+        );
+        
+        // Nếu không có tìm kiếm, hiển thị tất cả danh sách
+        setFilteredFacilities(filteredData);
+    }, [searchFloor, searchCode, searchArea, searchType, facilities]);
+
+    const handleDelete = async (id) => {
+        await deleteFacilitiesById(id);
+        setFacilities(facilities.filter((facility) => facility.id !== id));
     };
 
-
-    const handleSearch = async () => {
-        const search1 = searchRef1.current.value.trim(); // Tìm kiếm theo tên tầng
-        const search2 = searchRef2.current.value.trim(); // Tìm kiếm theo mã mặt
-        const search3 = searchRef3.current.value.trim(); // Tìm kiếm theo diện tích
-        const search4 = searchRef4.current.value.trim(); // Tìm kiếm theo loại mặt
-        const page = 1; // Tìm kiếm bắt đầu từ trang 1
-        const data = await searchFacilityByName(search1, search2, search3, search4, page); // Gọi hàm tìm kiếm với các tham số chính xác
-        setFacilities(data.items); // Gán danh sách facilities từ kết quả tìm kiếm
-        setTotalPages(data.totalPages); // Gán tổng số trang từ kết quả tìm kiếm
-        setCurrentPage(page); // Reset trang hiện tại về 1
-    };
-
-
-    const handlePageChange = (page) => {
-        if (page !== currentPage) {
-            setCurrentPage(page);
+    const loadFacilities = async () => {
+        try {
+            console.log("Đang tải danh sách mặt bằng...");
+            const data = await GetAllfacilities();
+            console.log("Dữ liệu nhận được:", data);
+            setFacilities(data || []); // Gán danh sách facilities
+            setFilteredFacilities(data || []); // Gán danh sách sau khi lọc ban đầu
+        } catch (error) {
+            console.error("Lỗi khi tải dữ liệu facilities:", error);
         }
     };
+
+    // Xử lý phân trang
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = filteredFacilities.slice(indexOfFirstItem, indexOfLastItem);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <div className="container mt-4">
             <h2 className="text-center">DANH SÁCH MẶT BẰNG</h2>
-            <div className="input-group mb-3">
-                <input ref={searchRef1} name={"search"} placeholder={"Tìm kiếm theo tên tầng"} className="form-control" />
-                <input ref={searchRef2} name={"search2"} placeholder={"Tìm kiếm theo mã mặt"} className="form-control" />
-                <input ref={searchRef3} name={"search3"} placeholder={"Tìm kiếm theo diện tích"} className="form-control" />
-                <input ref={searchRef4} name={"search4"} placeholder={"Tìm kiếm theo loại mặt"} className="form-control" />
-
-                <button className="input-group-text btn btn-primary" onClick={handleSearch}>
-                    SEARCH
-                </button>
+            <div className="d-flex mb-3">
+                {/* Input tìm kiếm theo tên tầng */}
+                <input
+                    type="text"
+                    className="form-control me-2"
+                    placeholder="Tìm kiếm theo tên tầng"
+                    value={searchFloor}
+                    onChange={(e) => setSearchFloor(e.target.value)} // Cập nhật từ khóa tìm kiếm theo tên tầng
+                />
+                {/* Input tìm kiếm theo mã mặt bằng */}
+                <input
+                    type="text"
+                    className="form-control me-2"
+                    placeholder="Tìm kiếm theo mã mặt bằng"
+                    value={searchCode}
+                    onChange={(e) => setSearchCode(e.target.value)} // Cập nhật từ khóa tìm kiếm theo mã mặt bằng
+                />
+                {/* Input tìm kiếm theo diện tích */}
+                <input
+                    type="text"
+                    className="form-control me-2"
+                    placeholder="Tìm kiếm theo diện tích"
+                    value={searchArea}
+                    onChange={(e) => setSearchArea(e.target.value)} // Cập nhật từ khóa tìm kiếm theo diện tích
+                />
+                {/* Input tìm kiếm theo loại mặt bằng */}
+                <input
+                    type="text"
+                    className="form-control me-2"
+                    placeholder="Tìm kiếm theo loại mặt bằng"
+                    value={searchType}
+                    onChange={(e) => setSearchType(e.target.value)} // Cập nhật từ khóa tìm kiếm theo loại mặt bằng
+                />
             </div>
             <div className="table-responsive">
                 <Link to={`/AddFacilities`} className="btn btn-success btn-sm me-2">Thêm mới</Link>
@@ -71,13 +103,14 @@ const Facilities = () => {
                             <th>Diện tích</th>
                             <th>Trạng thái</th>
                             <th>Giá bán</th>
-                            <th>Phi quản lý</th>
-                            <th>Khach hàng</th>
+                            <th>Phí quản lý</th>
+                            <th>Khách hàng</th>
+                            <th>Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {facilities.length > 0 ? (
-                            facilities.map((facility) => (
+                        {currentItems.length > 0 ? (
+                            currentItems.map((facility) => (
                                 <tr key={facility.id}>
                                     <td>{facility.facility_code}</td>
                                     <td>{facility.facility_type}</td>
@@ -90,56 +123,37 @@ const Facilities = () => {
                                         <Link to={`/facilities/${facility.id}`} className="btn btn-info btn-sm me-2">
                                             Xem
                                         </Link>
-                                        <Link to={`/facilities/${facility.id}`} className="btn btn-warning btn-sm me-2">
+                                        <Link to={`/facilities/${facility.id}/edit`} className="btn btn-warning btn-sm me-2">
                                             Sửa
                                         </Link>
                                         <button
                                             type="button"
-                                            className="btn btn-danger btn-sm"
-                                            onClick={() => handleDeleteFacility(facility.id, facilities, setFacilities)}
-                                        >
+                                            className="btn btn-danger btn-sm" onClick={() => handleDelete(facility.id)}>
                                             Xóa
                                         </button>
-
                                     </td>
                                 </tr>
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="6" className="text-center">Không tìm thấy phòng nào!</td>
+                                <td colSpan="8" className="text-center">Không tìm thấy phòng nào!</td>
                             </tr>
                         )}
                     </tbody>
                 </table>
-            </div>
-            <div className="d-flex justify-content-center mt-4">
-                <nav>
-                    <ul className="pagination">
-                        <li
-                            className={`page-item ${currentPage === 1 ? "disabled" : ""}`}
-                            onClick={() => handlePageChange(currentPage - 1)}
+                {/* Phân trang */}
+                <div className="pagination">
+                    {Array.from({ length: Math.ceil(filteredFacilities.length / itemsPerPage) }, (_, index) => (
+                        <button
+                            key={index + 1}
+                            className={`btn ${index + 1 === currentPage ? 'btn-primary' : 'btn-secondary'} btn-sm me-2`}
+                            onClick={() => paginate(index + 1)}
                         >
-                            <button className="page-link">Trang trước</button>
-                        </li>
-                        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                            <li
-                                key={page}
-                                className={`page-item ${currentPage === page ? "active" : ""}`}
-                                onClick={() => handlePageChange(page)}
-                            >
-                                <button className="page-link">{page}</button>
-                            </li>
-                        ))}
-                        <li
-                            className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}
-                            onClick={() => handlePageChange(currentPage + 1)}
-                        >
-                            <button className="page-link">Trang sau</button>
-                        </li>
-                    </ul>
-                </nav>
+                            {index + 1}
+                        </button>
+                    ))}
+                </div>
             </div>
-
         </div>
     );
 };
