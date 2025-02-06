@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
 import { useParams } from "react-router-dom";
 import { getCustomerById } from "../apiProject/customerService";
 
@@ -25,12 +26,20 @@ function DetailComponent() {
 		};
 		fetchData();
 	}, [id]);
+
 	return (
 		<div>
-			<div className="d-flex align-items-center mb-4">
-				<div className="flex-grow-1 text-center mt-4">
-					<h4>THÔNG TIN KHÁCH HÀNG</h4>
-				</div>
+			{/* Header */}
+			<div
+				className="text-center py-4"
+				style={{
+					backgroundColor: "#e3f2fd",
+					color: "#0056b3",
+					boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+				}}
+			>
+				<h2 className="fw-bold">THÔNG TIN KHÁCH HÀNG</h2>
+				<p className="mb-0">Cập nhật thông tin chi tiết khách hàng</p>
 			</div>
 
 			<Container className="mt-5">
@@ -38,14 +47,14 @@ function DetailComponent() {
 					<Col md={6}>
 						<div>
 							<label className="form-label">Tên khách hàng (*):</label>
-							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.name} />
+							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.name} readOnly />
 						</div>
 					</Col>
 
 					<Col md={6}>
 						<div>
 							<label className="form-label">Số CMND (*):</label>
-							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.identity} />
+							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.identity} readOnly />
 						</div>
 					</Col>
 				</Row>
@@ -53,14 +62,14 @@ function DetailComponent() {
 					<Col md={6}>
 						<div>
 							<label className="form-label">Email (*):</label>
-							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.email} />
+							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.email} readOnly />
 						</div>
 					</Col>
 
 					<Col md={6}>
 						<div>
 							<label className="form-label">Số điện thoại (*):</label>
-							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.phone} />
+							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.phone} readOnly />
 						</div>
 					</Col>
 				</Row>
@@ -68,14 +77,14 @@ function DetailComponent() {
 					<Col md={6}>
 						<div>
 							<label className="form-label">Địa chỉ (*):</label>
-							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.address} />
+							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.address} readOnly />
 						</div>
 					</Col>
 
 					<Col md={6}>
 						<div>
 							<label className="form-label">Website (*):</label>
-							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.website} />
+							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.website} readOnly />
 						</div>
 					</Col>
 				</Row>
@@ -83,14 +92,14 @@ function DetailComponent() {
 					<Col md={6}>
 						<div>
 							<label className="form-label">Công ty (*):</label>
-							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.company} />
+							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.company} readOnly />
 						</div>
 					</Col>
 
 					<Col md={6}>
 						<div>
 							<label className="form-label">Ngày thành lập (*):</label>
-							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.date} />
+							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.date} readOnly />
 						</div>
 					</Col>
 				</Row>
