@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Dropdown, FormControl } from "react-bootstrap";
 
-function CustomSelect({ options, onSelect, placeholder = "Select an option" }) {
+function CustomSelect({ options, onSelect, placeholder = "Nhập để tìm" }) {
 	const [searchTerm, setSearchTerm] = useState(""); // Dùng để lưu giá trị tìm kiếm
 	const [filteredOptions, setFilteredOptions] = useState(options); // Dữ liệu được lọc
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Trạng thái mở/đóng của dropdown

@@ -7,7 +7,7 @@ import { HiArrowPath } from "react-icons/hi2";
 import { FaSearch } from "react-icons/fa";
 import Pagination from "react-bootstrap/Pagination";
 import { changeStatus, getAllCustomer, searchCustomerByName } from "../apiProject/apiCustomer";
-import { getAllContracts } from "../apiProject/apiContract";
+import { getAllContracts, getAllPremises } from "../apiProject/apiPremises";
 import CustomSelect from "./CustomSelect";
 
 function ContractList() {
@@ -23,12 +23,12 @@ function ContractList() {
 	useEffect(() => {
 		const fetchData = async () => {
 			const [data, total] = await getAllCustomer(page, totalSize);
-			const contractData = await getAllContracts();
+			const premisesData = await getAllPremises();
 
 			setCustomers(data);
 			setTotalPage(Math.ceil(total / totalSize));
 			setContracts(
-				contractData.map((contract) => ({
+				premisesData.map((contract) => ({
 					value: contract.id,
 					label: contract.premises,
 				}))
@@ -114,7 +114,9 @@ function ContractList() {
 				</Row>
 			</div>
 			<div className="mb-3">
-				<Link className="btn btn-success me-2">Thêm mới</Link>
+				<Link className="btn btn-success me-2" to="/contracts/add">
+					Thêm mới
+				</Link>
 				<button className="btn btn-secondary" onClick={reloadData}>
 					<HiArrowPath className="d-flex justify-content-center align-items-center" style={{ width: "20px", height: "25px" }} />
 				</button>
