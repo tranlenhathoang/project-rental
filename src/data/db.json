@@ -1,7 +1,7 @@
 {
   "facilities": [
     {
-      "id": 3,
+      "id": "3",
       "facility_code": "MB001",
       "facility_type": "Mặt tiền",
       "area": 100,
@@ -11,7 +11,7 @@
       "customer": "Nguyễn Đình Hòa"
     },
     {
-      "id": 4,
+      "id": "4",
       "facility_code": "MB001",
       "facility_type": "Mặt tiền",
       "area": 100,
@@ -21,17 +21,7 @@
       "customer": "Nguyễn Đình Hòa"
     },
     {
-      "id": 5,
-      "facility_code": "MB001",
-      "facility_type": "Mặt tiền",
-      "area": 100,
-      "status": "Chưa bàn giao",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customer": "Nguyễn Đình Hòa"
-    },
-    {
-      "id": 7,
+      "id": "5",
       "facility_code": "MB001",
       "facility_type": "Mặt tiền",
       "area": 100,
@@ -49,10 +39,10 @@
       "area": "300",
       "prices": "12000000",
       "management_fee": "500000",
-      "id": 8
+      "id": "8"
     },
     {
-      "id": 9,
+      "id": "9",
       "facility_code": "MB001",
       "facility_type": "Mặt tiền",
       "area": 100,
@@ -70,10 +60,10 @@
       "area": "500",
       "prices": "12000000",
       "management_fee": "500000",
-      "id": 10
+      "id": "10"
     },
     {
-      "id": 11,
+      "id": "11",
       "facility_code": "MB001",
       "facility_type": "Mặt tiền",
       "area": 100,
@@ -92,7 +82,7 @@
       "description": "non",
       "prices": "50000",
       "management_fee": "200",
-      "id": 12
+      "id": "12"
     }
   ],
   "users": [
@@ -107,7 +97,8 @@
       "name": "admin",
       "password": "1234567",
       "mail": "admin@gmail.com"
-    },    {
+    },
+    {
       "id": "3",
       "name": "anh",
       "password": "1",
