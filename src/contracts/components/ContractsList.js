@@ -7,12 +7,12 @@ import { HiArrowPath } from "react-icons/hi2";
 import { FaSearch } from "react-icons/fa";
 import Pagination from "react-bootstrap/Pagination";
 import { changeStatus, getAllCustomer, searchCustomerByName } from "../apiProject/apiCustomer";
-import { getAllContracts } from "../apiProject/apiContract";
+import { getAllPremises } from "../apiProject/apiPremises";
 import CustomSelect from "./CustomSelect";
 
 function ContractList() {
 	const [customers, setCustomers] = useState([]);
-	const [contracts, setContracts] = useState([]);
+	const [premises, setPremises] = useState([]);
 	const [totalSize, setTotalSize] = useState(3);
 	const [page, setPage] = useState(1);
 	const [totalPage, setTotalPage] = useState(0);
@@ -23,14 +23,14 @@ function ContractList() {
 	useEffect(() => {
 		const fetchData = async () => {
 			const [data, total] = await getAllCustomer(page, totalSize);
-			const contractData = await getAllContracts();
+			const premisesData = await getAllPremises();
 
 			setCustomers(data);
 			setTotalPage(Math.ceil(total / totalSize));
-			setContracts(
-				contractData.map((contract) => ({
-					value: contract.id,
-					label: contract.premises,
+			setPremises(
+				premisesData.map((premises) => ({
+					value: premises.id,
+					label: premises.premisesName,
 				}))
 			);
 		};
@@ -72,9 +72,9 @@ function ContractList() {
 
 	const handleSearch = async () => {
 		let name = searchCustomerNameRef.current.value.trim();
-		let contractId = selectedOption?.value || "";
+		let premisesId = selectedOption?.value || "";
 
-		let result = await searchCustomerByName(name, contractId, selectedStatus);
+		let result = await searchCustomerByName(name, premisesId, selectedStatus);
 		setCustomers(result);
 	};
 
@@ -90,7 +90,7 @@ function ContractList() {
 					</Col>
 
 					<Col>
-						<CustomSelect options={contracts} placeholder="Tìm kiếm tên mặt bằng" onSelect={(option) => setSelectedOption(option)} />
+						<CustomSelect options={premises} placeholder="Tìm kiếm tên mặt bằng" onSelect={(option) => setSelectedOption(option)} />
 					</Col>
 
 					<Col>
@@ -137,7 +137,7 @@ function ContractList() {
 							</td>
 						</tr>
 					) : (
-						customers.map((contract, i) => <ContractItem key={contract.id} i={i} contract={contract} handleCheckboxChange={handleCheckboxChange} />)
+						customers.map((premises, i) => <ContractItem key={premises.id} i={i} premises={premises} handleCheckboxChange={handleCheckboxChange} />)
 					)}
 				</tbody>
 			</table>
