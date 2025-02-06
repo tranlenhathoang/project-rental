@@ -8,9 +8,12 @@ import { PAGE_SIZE } from "../apiProject/constant";
 import { getAllCustomer, searchByName } from "../apiProject/customerService";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import DeleteComponent from "./DeleteComponent";
 
 function CustomerList() {
 	const [customerList, setCustomerList] = useState([]);
+	const [show, setShow] = useState(false);
+	const [deleteCustomer, setDeleteCustomer] = useState({});
 	const [totalSize, setTotalSize] = useState(PAGE_SIZE); //tổng bản ghi muốn lấy. Hiện tại constant cho PAGE_SIZE = 3
 	const [page, setPage] = useState(1); //(1) là trang đầu tiên
 	const [totalPage, setTotalPage] = useState(0); //tổng bản ghi trong db chia tổng bản ghi muốn lấy (làm tròn đến số nguyên, nếu không kết quả chia sẽ là số thực)
@@ -23,7 +26,7 @@ function CustomerList() {
 			setTotalPage(Math.ceil(totalRecords / PAGE_SIZE));
 		};
 		fetchData();
-	}, [page, reload]);
+	}, [page, reload, show]);
 
 	const reloadData = () => {
 		setReload(!reload);
@@ -50,6 +53,15 @@ function CustomerList() {
 	};
 	const handleLast = () => {
 		setPage(totalPage); //không thể biết trước được trang cuối nên Last sẽ bằng totalPage
+	};
+
+	const showModalDelete = (customer) => {
+		setDeleteCustomer(customer);
+		setShow(true);
+	};
+
+	const closeModal = () => {
+		setShow(false);
 	};
 
 	return (
@@ -148,10 +160,11 @@ function CustomerList() {
 								</td>
 							</tr>
 						) : (
-							customerList.map((c, i) => <CustomerItem key={c.id} customer={c} i={(page - 1) * PAGE_SIZE + i} />)
+							customerList.map((c, i) => <CustomerItem key={c.id} customer={c} i={(page - 1) * PAGE_SIZE + i} showModalDelete={showModalDelete} />)
 						)}
 					</tbody>
 				</table>
+				<DeleteComponent customer={deleteCustomer} show={show} closeModal={closeModal} />
 			</div>
 			<Pagination className="container my-4 d-flex justify-content-center" id="pagination">
 				<Pagination.First onClick={handleFirst} disabled={page === 1} />
