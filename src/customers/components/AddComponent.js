@@ -85,6 +85,12 @@ function AddComponent() {
 						</div>
 
 						<div className="mb-3">
+							<label className="form-label">Ngày sinh (*):</label>
+							<Field type="date" name="date" className="form-control" />
+							<ErrorMessage name="date" component="div" className="text-danger" />
+						</div>
+
+						<div className="mb-3">
 							<label className="form-label">Số điện thoại (*):</label>
 							<Field type="text" name="phone" className="form-control" placeholder="Số điện thoại" />
 							<ErrorMessage name="phone" component="div" className="text-danger" />
@@ -106,12 +112,6 @@ function AddComponent() {
 							<label className="form-label">Tên công ty (*):</label>
 							<Field type="text" name="company" className="form-control" placeholder="Tên công ty" />
 							<ErrorMessage name="company" component="div" className="text-danger" />
-						</div>
-
-						<div className="mb-3">
-							<label className="form-label">Ngày thành lập (*):</label>
-							<Field type="date" name="date" className="form-control" />
-							<ErrorMessage name="date" component="div" className="text-danger" />
 						</div>
 
 						<div className="d-flex justify-content-center">

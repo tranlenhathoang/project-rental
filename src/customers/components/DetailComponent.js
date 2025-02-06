@@ -65,41 +65,39 @@ function DetailComponent() {
 							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.email} readOnly />
 						</div>
 					</Col>
-
+					<Col md={6}>
+						<div>
+							<label className="form-label">Ngày sinh (*):</label>
+							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.date} readOnly />
+						</div>
+					</Col>
+				</Row>
+				<Row className="mb-4">
 					<Col md={6}>
 						<div>
 							<label className="form-label">Số điện thoại (*):</label>
 							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.phone} readOnly />
 						</div>
 					</Col>
-				</Row>
-				<Row className="mb-4">
 					<Col md={6}>
 						<div>
 							<label className="form-label">Địa chỉ (*):</label>
 							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.address} readOnly />
 						</div>
 					</Col>
+				</Row>
 
+				<Row className="mb-4">
 					<Col md={6}>
 						<div>
 							<label className="form-label">Website (*):</label>
 							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.website} readOnly />
 						</div>
 					</Col>
-				</Row>
-				<Row className="mb-4">
 					<Col md={6}>
 						<div>
 							<label className="form-label">Công ty (*):</label>
 							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.company} readOnly />
-						</div>
-					</Col>
-
-					<Col md={6}>
-						<div>
-							<label className="form-label">Ngày thành lập (*):</label>
-							<input type="text" id="disabledTextInput" className="form-control" value={customerDetail.date} readOnly />
 						</div>
 					</Col>
 				</Row>
