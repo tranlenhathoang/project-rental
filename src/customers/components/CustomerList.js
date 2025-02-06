@@ -9,14 +9,15 @@ import { getAllCustomer, searchByName } from "../apiProject/customerService";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import DeleteComponent from "./DeleteComponent";
+import styles from "./Customer.module.css";
 
 function CustomerList() {
 	const [customerList, setCustomerList] = useState([]);
 	const [show, setShow] = useState(false);
 	const [deleteCustomer, setDeleteCustomer] = useState({});
-	const [totalSize, setTotalSize] = useState(PAGE_SIZE); //tổng bản ghi muốn lấy. Hiện tại constant cho PAGE_SIZE = 3
-	const [page, setPage] = useState(1); //(1) là trang đầu tiên
-	const [totalPage, setTotalPage] = useState(0); //tổng bản ghi trong db chia tổng bản ghi muốn lấy (làm tròn đến số nguyên, nếu không kết quả chia sẽ là số thực)
+	const [totalSize, setTotalSize] = useState(PAGE_SIZE);
+	const [page, setPage] = useState(1);
+	const [totalPage, setTotalPage] = useState(0);
 	const [reload, setReload] = useState(true);
 
 	useEffect(() => {
@@ -43,16 +44,16 @@ function CustomerList() {
 	};
 
 	const handleFirst = () => {
-		setPage(1); //page đầu tiên luôn là 1
+		setPage(1);
 	};
 	const handlePrev = () => {
-		setPage(page - 1); //page hiện tại -1, trở về trước
+		setPage(page - 1);
 	};
 	const handleNext = () => {
-		setPage(page + 1); //page hiện tại +1, tiến 1
+		setPage(page + 1);
 	};
 	const handleLast = () => {
-		setPage(totalPage); //không thể biết trước được trang cuối nên Last sẽ bằng totalPage
+		setPage(totalPage);
 	};
 
 	const showModalDelete = (customer) => {
@@ -68,45 +69,47 @@ function CustomerList() {
 		<div>
 			<div className="p-4">
 				<h5 className="mb-4">Tìm kiếm thông tin khách hàng</h5>
-				<Row className="">
-					<Col>
-						<div className=" d-flex align-items-center ">
-							<label htmlFor="customerName" className="text me-2">
+				<Row className="g-4 align-items-center">
+					<Col xs="auto">
+						<div className="d-flex align-items-center">
+							<label htmlFor="customerName" className="me-2" style={{ width: "130px", whiteSpace: "nowrap" }}>
 								Tên khách hàng:
 							</label>
 							<input ref={searchNameRef} type="text" id="customerName" className="form-control" placeholder="Tên khách hàng" />
 						</div>
 					</Col>
 
-					<Col>
-						<div className=" d-flex align-items-center">
-							<label htmlFor="customerID" className="text me-2">
+					<Col xs="auto">
+						<div className="d-flex align-items-center">
+							<label htmlFor="customerID" className="me-2" style={{ width: "130px", whiteSpace: "nowrap" }}>
 								CMND:
 							</label>
 							<input ref={searchIdentityRef} type="text" id="customerID" className="form-control" placeholder="Số chứng minh nhân dân" />
 						</div>
 					</Col>
-					<Col>
-						<div className=" d-flex align-items-center ">
-							<label htmlFor="customerName" className="text me-2">
+
+					<Col xs="auto">
+						<div className="d-flex align-items-center">
+							<label htmlFor="customerPhone" className="me-2" style={{ width: "130px", whiteSpace: "nowrap" }}>
 								Số điện thoại:
 							</label>
-							<input ref={searchPhoneRef} type="text" id="customerName" className="form-control" placeholder="Số điện thoại" />
+							<input ref={searchPhoneRef} type="text" id="customerPhone" className="form-control" placeholder="Số điện thoại" />
 						</div>
 					</Col>
-					<Col>
-						<div className="row">
+
+					<Col xs="auto">
+						<div className="d-flex">
 							<button
 								onClick={handleSearch}
 								type="button"
-								className="btn btn-secondary rounded-circle ms-3 d-flex justify-content-center align-items-center"
+								className="btn btn-secondary rounded-circle d-flex justify-content-center align-items-center"
 								style={{ width: "40px", height: "40px" }}
 							>
 								<IoSearchSharp color="red" />
 							</button>
 							<button
 								type="button"
-								className="btn btn-secondary rounded-circle ms-3 d-flex justify-content-center align-items-center"
+								className="btn btn-secondary rounded-circle ms-2 d-flex justify-content-center align-items-center"
 								style={{ width: "43px", height: "43px" }}
 								onClick={reloadData}
 							>
@@ -117,26 +120,19 @@ function CustomerList() {
 				</Row>
 			</div>
 
-			<div className="list">
-				<div
-					className="header text-center mt-2"
-					style={{
-						color: "#0056b3",
-					}}
-				>
+			<div className={styles.list}>
+				<div className="text-center mt-2">
 					<h2>DANH SÁCH KHÁCH HÀNG</h2>
 				</div>
-				{/* Button */}
 				<div className="d-flex justify-content-start align-items-center gap-2 mb-2 ms-2">
-					<Link className="btn btn-sm btn-success" id="add-link" to="/add_customers">
+					<Link className="btn btn-sm btn-success" to="/add_customers">
 						Thêm mới
 					</Link>
 				</div>
 
-				{/* Table */}
 				<table className="table table-light table-bordered table-striped">
 					<thead>
-						<tr className="text-white">
+						<tr className={styles.tableHeader}>
 							<th className="text-center">STT</th>
 							<th className="text-center">Họ Tên</th>
 							<th className="text-center">CMND</th>
@@ -148,7 +144,6 @@ function CustomerList() {
 							<th className="text-center" style={{ width: 200 }}>
 								Mặt bằng
 							</th>
-
 							<th colSpan={2}></th>
 						</tr>
 					</thead>
@@ -180,4 +175,5 @@ function CustomerList() {
 		</div>
 	);
 }
+
 export default CustomerList;
