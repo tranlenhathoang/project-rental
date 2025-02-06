@@ -15,5 +15,6 @@ Lưu ý:
     - Mỗi 1 tính năng nên tạọ 1 nhánh phụ riêng để dễ kiểm tra và quản lý nhé.
     - Nếu các bạn không hiểu có thể nhắn tin hỏi trước khi thực hiện để tránh ảnh hưởng đến dự án nhé.
     
-
-    json-server --watch db.json --port 3000
+------
+Mọi người chạy db ở cổng 3001 hoặc có thể tạo file .env để tự config nhé 
+    json-server --watch db.json --port 3001

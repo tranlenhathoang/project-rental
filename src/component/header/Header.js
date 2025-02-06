@@ -21,14 +21,11 @@ const Header = () => {
 
 	return (
 		<>
-			<header className="bg-body-tertiary">
-				<div className="container-fluid d-flex align-items-center justify-content-between py-2">
-					{/* Logo */}
-					<div className="d-flex align-items-center">
-						<h1 className="m-0">FLC</h1>
-					</div>
-
-					{/* Navigation */}
+			<header className="d-flex">
+				<div className="">
+					<h1 className="p-5">FLC</h1>
+				</div>
+				<div className="container-fluid d-flex align-items-center fs-4">
 					<nav className="navbar navbar-expand-lg">
 						<button
 							className="navbar-toggler"
@@ -44,22 +41,31 @@ const Header = () => {
 						<div className="collapse navbar-collapse" id="navbarNavDropdown">
 							<ul className="navbar-nav">
 								<li className="nav-item">
-									<Link to="#" className="nav-link">
+									<Link to="/" className="nav-link">
 										Trang Chủ
 									</Link>
 								</li>
 								<li className="nav-item">
-									<Link to="#" className="nav-link">
-										Giới Thiệu
+									<Link to="/services" className="nav-link">
+										Dịch vụ
 									</Link>
 								</li>
 								<li className="nav-item">
+									<Link to="/customers" className="nav-link">
+										Khách hàng
+									</Link>
+								</li>
+								<li className="nav-item">
+									<Link to="/floor" className="nav-link">
+										Mặt bằng
+									</Link>
+								</li>
+								{/* <li className="nav-item">
 									<span className="nav-link dropdown-toggle" role="button" onClick={handleShowDrop} style={{ cursor: "pointer" }}>
-										Khai Thác-Vận Hành
+										Người dùng
 									</span>
 									{isDropdownOpen && (
 										<ul className="dropdown-menu show">
-											{/* Dropdown: Quản lý Toà Nhà */}
 											<li>
 												<Link
 													to="#submenuBuilding"
@@ -87,7 +93,7 @@ const Header = () => {
 												</div>
 											</li>
 
-											{/* Dropdown: Quản lý khách hàng */}
+
 											<li>
 												<Link
 													to="#submenuCustomer"
@@ -116,13 +122,13 @@ const Header = () => {
 											</li>
 										</ul>
 									)}
-								</li>
-								<li className="nav-item">
+								</li> */}
+								{/* <li className="nav-item">
 									<Link to="#" className="nav-link">
 										Tin Tức
 									</Link>
-								</li>
-								<li className="nav-item dropdown">
+								</li> */}
+								{/* <li className="nav-item dropdown">
 									<span href="#" className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 										{account && account.name}
 									</span>
@@ -141,7 +147,7 @@ const Header = () => {
 											</button>
 										</li>
 									</ul>
-								</li>
+								</li> */}
 							</ul>
 						</div>
 					</nav>
