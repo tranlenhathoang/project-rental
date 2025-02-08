@@ -17,80 +17,79 @@ import Facilities from "./component/Facilities";
 import AddlFacilities from "./component/AddFacilities";
 import EditFacilities from "./component/EditFacilities";
 import DetailFacilities from "./component/DetailFacilities";
-
+import { ToastContainer } from "react-toastify";
 
 const LayoutAdmin = () => {
-
-  return (
-    <div>
-      <Header />
-      <Outlet />
-      <footer></footer>
-    </div>
-  )
-}
-
+	return (
+		<div>
+			<Header />
+			<Outlet />
+			<footer></footer>
+			<ToastContainer />
+		</div>
+	);
+};
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    // element: <App />,
-    element: <LayoutAdmin />,
+	{
+		path: "/",
+		// element: <App />,
+		element: <LayoutAdmin />,
 
-    children: [
-      { index: true, element: <App /> },
-      {
-        path: "/services",
-        element: <ServicesPage />
-      },
-      {
-        path: "/login",
-        element: <Login />
-      },
-      {
-        path: "/customers",
-        element: <CustomerList />
-      },
-      {
-        path: "/detail/:id",
-        element: <DetailComponent />
-      },
-      {
-        path: "/services/:id",
-        element: <ServiceDetail />
-      },
-      {
-        path: "/add_customers",
-        element: <AddComponent />
-      },
-      {
-        path: "/register",
-        element: <RegisterAccount />
-      },
-      {
-        path: "/floor",
-        element: <Facilities />
-      },
-      {
-        path: "/floor/AddFacilities",
-        element: <AddlFacilities />
-      },
-      {
-        path: "/floor/facilities/:id/edit",
-        element: <EditFacilities />
-      },
-      {
-        path: "/floor/facilities/:id",
-        element: <DetailFacilities />
-      },
-    ]
-  },
+		children: [
+			{ index: true, element: <Login /> },
+			{
+				path: "/services",
+				element: <ServicesPage />,
+			},
+			{
+				path: "/login",
+				element: <Login />,
+			},
+			{
+				path: "/customers",
+				element: <CustomerList />,
+			},
+			{
+				path: "/detail/:id",
+				element: <DetailComponent />,
+			},
+			{
+				path: "/services/:id",
+				element: <ServiceDetail />,
+			},
+			{
+				path: "/add_customers",
+				element: <AddComponent />,
+			},
+			{
+				path: "/register",
+				element: <RegisterAccount />,
+			},
+			{
+				path: "/floor",
+				element: <Facilities />,
+			},
+			{
+				path: "/floor/AddFacilities",
+				element: <AddlFacilities />,
+			},
+			{
+				path: "/floor/facilities/:id/edit",
+				element: <EditFacilities />,
+			},
+			{
+				path: "/floor/facilities/:id",
+				element: <DetailFacilities />,
+			},
+		],
+	},
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  </React.StrictMode>
+	<React.StrictMode>
+		<Provider store={store}>
+			<RouterProvider router={router} />
+		</Provider>
+	</React.StrictMode>
 );
