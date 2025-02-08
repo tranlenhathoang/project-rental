@@ -60,7 +60,7 @@ const Header = () => {
 										Mặt bằng
 									</Link>
 								</li>
-								{/* <li className="nav-item">
+								<li className="nav-item">
 									<span className="nav-link dropdown-toggle" role="button" onClick={handleShowDrop} style={{ cursor: "pointer" }}>
 										Người dùng
 									</span>
@@ -93,7 +93,6 @@ const Header = () => {
 												</div>
 											</li>
 
-
 											<li>
 												<Link
 													to="#submenuCustomer"
@@ -122,13 +121,13 @@ const Header = () => {
 											</li>
 										</ul>
 									)}
-								</li> */}
-								{/* <li className="nav-item">
+								</li>
+								<li className="nav-item">
 									<Link to="#" className="nav-link">
 										Tin Tức
 									</Link>
-								</li> */}
-								{/* <li className="nav-item dropdown">
+								</li>
+								<li className="nav-item dropdown">
 									<span href="#" className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 										{account && account.name}
 									</span>
@@ -147,7 +146,7 @@ const Header = () => {
 											</button>
 										</li>
 									</ul>
-								</li> */}
+								</li>
 							</ul>
 						</div>
 					</nav>

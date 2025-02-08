@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Formik, Form, Field, useFormik } from "formik";
+import { Formik, Form, Field, useFormik, resetForm } from "formik";
 import CustomSelect from "./CustomSelect";
 import { getAllEmployee } from "../apiProject/apiEmployee";
 import { getAllPremises } from "../apiProject/apiPremises";
@@ -30,6 +30,7 @@ function AddContract() {
 	const [selectedCustomerOption, setSelectedCustomerOption] = useState(null);
 	const [employees, setEmployees] = useState([]);
 	const [customers, setCustomers] = useState([]);
+	const [reload, setReload] = useState(true);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -96,72 +97,106 @@ function AddContract() {
 				<h3>THÊM MỚI HỢP ĐỒNG</h3>
 			</div>
 			<Formik initialValues={contract} onSubmit={handleSubmit}>
-				<Form className="mt-3">
-					<Row>
-						<Col>
-							<label className="mb-3">Mặt bằng</label>
-							<CustomSelect name="premises" options={premises} placeholder="Nhập để tìm" onSelect={(option) => setSelectedPremisesOption(option)} />
+				{({ resetForm }) => (
+					<Form className="mt-3">
+						<Row>
+							<Col>
+								<label className="mb-3">Mặt bằng</label>
+								<CustomSelect
+									name="premises"
+									options={premises}
+									placeholder="Nhập để tìm"
+									value={selectedPremisesOption || ""}
+									onSelect={(option) => setSelectedPremisesOption(option)}
+								/>
 
-							<label className="mt-3">Kì hạn (Tháng)</label>
-							<Field type="number" name="term" className="form-control mt-3" />
-						</Col>
+								<label className="mt-3">Kì hạn (Tháng)</label>
+								<Field type="number" name="term" className="form-control mt-3" />
+							</Col>
 
-						<Col>
-							<label className="mb-3">Họ và tên khách hàng</label>
-							<CustomSelect name="customer" options={customers} placeholder="Nhập để tìm" onSelect={(option) => setSelectedCustomerOption(option)} />
+							<Col>
+								<label className="mb-3">Họ và tên khách hàng</label>
+								<CustomSelect
+									name="customer"
+									options={customers}
+									placeholder="Nhập để tìm"
+									value={selectedCustomerOption || ""}
+									onSelect={(option) => setSelectedCustomerOption(option)}
+								/>
 
-							<label className="mt-3">Ngày bắt đầu thuê</label>
-							<Field type="date" className="form-control mt-3" name="startDate" />
-						</Col>
+								<label className="mt-3">Ngày bắt đầu thuê</label>
+								<Field type="date" className="form-control mt-3" name="startDate" />
+							</Col>
 
-						<Col>
-							<label className="mb-3">Họ và tên nhân viên</label>
-							<CustomSelect name="employee" options={employees} onSelect={(option) => setSelectedEmployeeOption(option)} />
+							<Col>
+								<label className="mb-3">Họ và tên nhân viên</label>
+								<CustomSelect
+									name="employee"
+									options={employees}
+									placeholder="Nhập để tìm"
+									value={selectedEmployeeOption || ""}
+									onSelect={(option) => setSelectedEmployeeOption(option)}
+								/>
 
-							<label className="mt-3">Ngày kết thúc thuê</label>
-							<Field type="date" className="form-control mt-3" name="endDate" />
-						</Col>
-					</Row>
+								<label className="mt-3">Ngày kết thúc thuê</label>
+								<Field type="date" className="form-control mt-3" name="endDate" />
+							</Col>
+						</Row>
 
-					<Row className="mt-4">
-						<Col>
-							<label>Giá tiền mỗi tháng (VNĐ)</label>
-							<Field type="text" name="price" className="form-control mt-3" placeholder="Nhập giá tiền mỗi tháng" />
+						<Row className="mt-4">
+							<Col>
+								<label>Giá tiền mỗi tháng (VNĐ)</label>
+								<Field type="text" name="price" className="form-control mt-3" placeholder="Nhập giá tiền mỗi tháng" />
 
-							<label className="mt-3">Tiền cọc (VNĐ)</label>
-							<Field type="text" name="deposit" placeholder="Nhập tiền cọc" className="form-control mt-3" />
-						</Col>
+								<label className="mt-3">Tiền cọc (VNĐ)</label>
+								<Field type="text" name="deposit" placeholder="Nhập tiền cọc" className="form-control mt-3" />
+							</Col>
 
-						<Col>
-							<label>Tổng tiền (VNĐ)</label>
-							<Field type="text" name="total" className="form-control mt-3" placeholder="Nhập tổng tiền" />
+							<Col>
+								<label>Tổng tiền (VNĐ)</label>
+								<Field type="text" name="total" className="form-control mt-3" placeholder="Nhập tổng tiền" />
 
-							<label className="mt-3">Mã số thuế</label>
-							<Field type="text" name="tax" className="form-control mt-3" />
-						</Col>
-					</Row>
+								<label className="mt-3">Mã số thuế</label>
+								<Field type="text" name="tax" className="form-control mt-3" />
+							</Col>
+						</Row>
 
-					<Row>
-						<label className="mt-3">Hình ảnh hợp đồng</label>
-						<input
-							type="file"
-							className="mt-3"
-							onChange={(event) => {
-								formik.setFieldValue("file", event.currentTarget.files[0]);
-							}}
-						/>
-						<label className="mt-3">Nội dung hợp đồng</label>
-						<Field as="textarea" rows="4" cols="50" className="form-control mt-3" name="content" />
-					</Row>
+						<Row>
+							<label className="mt-3">Hình ảnh hợp đồng</label>
+							<input
+								type="file"
+								className="mt-3"
+								onChange={(event) => {
+									formik.setFieldValue("file", event.currentTarget.files[0]);
+								}}
+							/>
+							<label className="mt-3">Nội dung hợp đồng</label>
+							<Field as="textarea" rows="4" cols="50" className="form-control mt-3" name="content" />
+						</Row>
 
-					<div className="mt-5 d-flex justify-content-end gap-4">
-						<button type="submit" className="btn btn-success" id="buttonSubmit">
-							Lưu
-						</button>
-						<button className="btn btn-danger">Làm mới</button>
-						<button className="btn btn-secondary">Quay về</button>
-					</div>
-				</Form>
+						<div className="mt-5 d-flex justify-content-end gap-4">
+							<button type="submit" className="btn btn-success" id="buttonSubmit">
+								Lưu
+							</button>
+							<button
+								type="reset"
+								className="btn btn-danger"
+								onClick={() => {
+									resetForm();
+									setSelectedPremisesOption(null);
+									setSelectedCustomerOption(null);
+									setSelectedEmployeeOption(null);
+									setReload(!reload);
+								}}
+							>
+								Làm mới
+							</button>
+							<button className="btn btn-secondary" onClick={() => navigate("/contracts")}>
+								Quay về
+							</button>
+						</div>
+					</Form>
+				)}
 			</Formik>
 		</div>
 	);
