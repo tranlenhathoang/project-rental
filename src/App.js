@@ -1,52 +1,17 @@
 import "./App.css";
-import Login from "./login-logout/Login";
-import { Routes, Route, Outlet } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import RegisterAccount from "./login-logout/Register";
-import Header from "./component/header/Header";
-import ServicesPage from "./component/services/service.page";
-import Facilities from "./component/Facilities"; // Đường dẫn tới Facilities
-import AddFacilities from "./component/AddFacilities";
-import DetailFacilities from "./component/DetailFacilities";
-import EditFacilities from "./component/EditFacilities";
-import CustomerList from "./customers/components/CustomerList";
-import AddComponent from "./customers/components/AddComponent";
-import DetailComponent from "./customers/components/DetailComponent";
+
 import "react-toastify/dist/ReactToastify.css";
 
 
-const LayoutAdmin = () => {
 
-	return (
-		<div>
-			<Header />
-			<Outlet />
-			<footer></footer>
-		</div>
-	)
-}
 
 
 
 function App() {
 	return (
-		<>
-			<ToastContainer />
-			<Routes>
-				<Route path="/" element={<LayoutAdmin />}>
-					<Route path="/login" element={<Login />} />
-					<Route path={"/services"} element={<ServicesPage />}></Route>
-					<Route path={"/customers"} element={<CustomerList />}></Route>
-					<Route path={"/detail/:id"} element={<DetailComponent />}></Route>
-					<Route path={"/add_customers"} element={<AddComponent />}></Route>
-					<Route path="/register" element={<RegisterAccount />} />
-					<Route path="/floor" element={<Facilities />} />
-					<Route path="/floor/AddFacilities" element={<AddFacilities />} />
-					<Route path="/floor/facilities/:id/edit" element={<EditFacilities />} />
-					<Route path="/floor/facilities/:id" element={<DetailFacilities />} />
-				</Route>
-			</Routes>
-		</>
+		<div>
+			<h2 style={{ textAlign: "center" }}>Trang chủ</h2>
+		</div>
 	);
 }
 

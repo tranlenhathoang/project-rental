@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
@@ -5,31 +6,13 @@ import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import { toast } from 'react-toastify';
 import "./service.css";
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import CreateServices from './service.create';
 import EditServices from './service.edit';
-import { useFormik } from 'formik';
+import { useParams } from "react-router-dom";
 
-
-const listPremises = [
-    {
-        id: 1,
-        name: "MB001",
-    },
-    {
-        id: 2,
-        name: "MB002",
-    },
-    {
-        id: 3,
-        name: "MB003",
-    }
-];
-
-
-const ServiceTable = () => {
-
+const ServiceDetail = () => {
+    const { id } = useParams();
+    console.log("check id", id);
     const [listService, setListService] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedService, setSelectedService] = useState(null);
@@ -52,11 +35,10 @@ const ServiceTable = () => {
         }
         setListCustomer(res.data)
     }
-
     const getData = async () => {
         const res = await axios.get("http://localhost:3001/services", {
             params: {
-                premises: dropdownSelected,
+                customer: id,
             }
         });
         if (!res) {
@@ -64,60 +46,16 @@ const ServiceTable = () => {
         }
         setListService(res.data)
     }
-    console.log(listService);
-
-    const handlePayment = (item) => {
-        setIsModalOpen(true);
-        setSelectedService(item);
-    }
-
     const handleSave = () => {
         setIsModalOpen(false)
     }
 
-    const handleSelect = (item) => {
-        setDropdownSelected(item.name);
-    }
-    console.log("check dropdownSelected", dropdownSelected);
-
-    const handleSearch = () => {
-        // let customerId = listCustomer.find(i => i.name === formik.values.customer)?.id;
-        // console.log(">>>check customerId", customerId);
-        getData();
-    }
-
-
-
-
     return (
         <div className='container'>
             <h2 style={{
-                marginBottom: "20px"
+                marginBottom: "20px",
+                color: "red"
             }}>Dịch vụ</h2>
-            <div className="row mb-5">
-                <div className="col d-flex align-items-center gap-3">
-                    <span className='title'>Mặt Bằng: </span>
-                    <div>
-                        <DropdownButton id="dropdown-basic-button" title={dropdownSelected || "Chọn mặt bằng"} >
-                            {listPremises.map(item => {
-                                return (
-                                    <Dropdown.Item key={item.id} onClick={() => handleSelect(item)}>{item.name}</Dropdown.Item>
-                                )
-                            })}
-                        </DropdownButton>
-                    </div>
-
-                </div>
-                <div className="col">
-                    {/* <span className='title'>Tên khách hàng: </span>
-                    <input type="text" className='input' name="customer" value={formik.values.customer} onChange={formik.handleChange} /> */}
-                    <Button variant="primary" style={{
-                        marginRight: "10px"
-                    }} onClick={() => handleSearch()}>Tìm kiếm</Button>
-                    <Button variant="secondary" onClick={() => setIsOpenModalCreate(true)}>Thêm dịch vụ</Button>
-                </div>
-
-            </div>
 
             <Table striped bordered hover >
                 <thead>
@@ -129,7 +67,7 @@ const ServiceTable = () => {
                         <th>Tiêu thụ</th>
                         <th>Đơn giá</th>
                         <th>Thành tiền</th>
-                        <th>Thanh toán</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -143,19 +81,6 @@ const ServiceTable = () => {
                                 <td>{item.quantity}</td>
                                 <td>{item.consume}</td>
                                 <td>{item.consume * item.quantity}</td>
-                                <td style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: "10px"
-                                }}>
-                                    <Button onClick={() => handlePayment(item)}>Thanh toán</Button>
-                                    <Button variant='secondary' onClick={() => {
-                                        setIsOpenModalEdit(true);
-                                        setDataUpdate(item);
-                                    }}>Chỉnh sửa</Button>
-
-                                </td>
-
                             </tr>
                         )
                     })}
@@ -198,7 +123,6 @@ const ServiceTable = () => {
                         setDataUpdate={setDataUpdate}
                         isOpenModalEdit={isOpenModalEdit}
                         setIsOpenModalEdit={setIsOpenModalEdit} />
-
                 )
             }
         </div>
@@ -206,4 +130,4 @@ const ServiceTable = () => {
     );
 };
 
-export default ServiceTable;
+export default ServiceDetail;

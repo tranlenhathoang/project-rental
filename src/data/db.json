@@ -108,40 +108,53 @@
   "services": [
     {
       "id": "1381",
-      "name": "Nước",
+      "name": "MB1_cus2",
       "consume": 4000,
       "date": "2025-02-04",
       "premises": "MB002",
-      "quantity": 50
+      "quantity": 50,
+      "customer": "2"
     },
     {
       "id": "39d6",
-      "name": "Điện",
+      "name": "MB2_cus1",
       "consume": 5000,
       "date": "2025-02-01",
       "premises": "MB002",
-      "quantity": 30
+      "quantity": 30,
+      "customer": "1"
     },
     {
       "id": "1498",
-      "name": "demo_mb1",
+      "name": "mb1_cus3",
       "consume": 30000,
       "date": "2025-02-05",
       "premises": "MB001",
-      "quantity": 1000
+      "quantity": 1000,
+      "customer": "3"
     },
     {
       "id": "bd68",
-      "name": "demo_mb3",
+      "name": "mb3_cus2",
       "consume": 10000,
       "date": "2025-02-06",
       "premises": "MB003",
-      "quantity": 100
+      "quantity": 100,
+      "customer": "2"
+    },
+    {
+      "id": "92b1",
+      "name": "mb1_cus2",
+      "consume": 1000,
+      "date": "2025-02-08",
+      "premises": "MB001",
+      "quantity": 1000,
+      "customer": "2"
     }
   ],
   "customerList": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Nguyễn Đình Hoà",
       "identity": "343432423",
       "email": "hoadeptrai@gmail.com",
@@ -152,7 +165,7 @@
       "company": "Hoa Thiên Phú"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Lê Đình Quốc",
       "identity": "343432423",
       "email": "nhanvanlam@gmail.com",
@@ -163,7 +176,7 @@
       "company": "Hoa Mặt Trời"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Nguyễn Minh Hùng",
       "identity": "343432423",
       "email": "hung@gmail.com",
@@ -174,7 +187,7 @@
       "company": "Hoa Hướng Dương"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Phạm Minh Hưng",
       "identity": "343432423",
       "email": "hungmapdeptrai@gmail.com",
@@ -185,7 +198,7 @@
       "company": "Hoa Vạn Thọ"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Nguyễn Văn Tiến",
       "identity": "343432423",
       "email": "tieni@gmail.com",
@@ -204,7 +217,7 @@
       "website": "tranhuahua.com",
       "company": "Trăn hua hua",
       "date": "07/02/2025",
-      "id": 6
+      "id": "6"
     }
   ]
 }

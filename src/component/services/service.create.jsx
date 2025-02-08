@@ -1,8 +1,9 @@
 import { Button, Modal } from "react-bootstrap"
-import { useField, Form, FormikProps, Formik, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from "yup";
 import axios from 'axios';
 import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
 
 
 const listPremises = [
@@ -22,13 +23,28 @@ const listPremises = [
 
 
 const CreateServices = (props) => {
+    const [listCustomer, setListCustomer] = useState([]);
+
+
+    useEffect(() => {
+        fetchListCustomer();
+    }, []);
+
+
+    useEffect(() => {
+        if (listCustomer.length > 0) {
+            formik.setFieldValue('customer', listCustomer[0]?.id);
+        }
+    }, [listCustomer]);
+
     const formik = useFormik({
         initialValues: {
             name: "",
             consume: "",
             date: "",
             premises: "MB001",
-            quantity: ""
+            quantity: "",
+            customer: listCustomer[0]?.id
         },
         onSubmit: values => {
             console.log(values);
@@ -41,9 +57,6 @@ const CreateServices = (props) => {
                     toast.error("Tạo dịch vụ thất bại")
                 }
             })
-
-
-
         },
         validationSchema: Yup.object({
             name: Yup.string().required("Tên dịch vụ không được để trống"),
@@ -54,8 +67,6 @@ const CreateServices = (props) => {
         }),
     })
     console.log(">>>check formik", formik);
-
-
 
     const { isOpenModalCreate, setIsOpenModalCreate, getData } = props;
 
@@ -68,8 +79,17 @@ const CreateServices = (props) => {
             formik.handleSubmit();
         }
         console.log(values);
-
     }
+
+    const fetchListCustomer = async () => {
+        const res = await axios.get(`http://localhost:3001/customerList`)
+        console.log(">>>check res", res);
+        if (!res) {
+            toast.error("error fetch data")
+        }
+        setListCustomer(res.data)
+    }
+
     return (
         <>
             <div
@@ -109,6 +129,17 @@ const CreateServices = (props) => {
                                         listPremises.map((item) => {
                                             return (
                                                 <option key={item.id} value={item.name}>{item.name}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+
+                                <label className="p-2">Khách hàng</label>
+                                <select onBlur={formik.handleBlur} onChange={formik.handleChange} name="customer" style={{ padding: "3px 5px", borderRadius: "6px", outline: "none", border: "1px solid #ccc" }}>
+                                    {
+                                        listCustomer.map((item) => {
+                                            return (
+                                                <option key={item.id} value={item.id}>{item.name}</option>
                                             )
                                         })
                                     }
