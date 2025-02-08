@@ -27,7 +27,9 @@ function CustomerItem(props) {
 				</Link>
 			</td>
 			<td className="text-center">
-				<button className="btn btn-warning me-3">Sửa</button>
+				<Link className="btn btn-warning me-3" to={"/edit/" + id}>
+					Sửa
+				</Link>
 				<button onClick={() => props.showModalDelete(props.customer)} className="btn btn-danger me-3">
 					Xoá
 				</button>
