@@ -1,16 +1,15 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import Table from 'react-bootstrap/Table';
-import { toast } from 'react-toastify';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import Table from "react-bootstrap/Table";
+import { toast } from "react-toastify";
 import "./service.css";
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import CreateServices from './service.create';
-import EditServices from './service.edit';
-import { useFormik } from 'formik';
-
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import CreateServices from "./service.create";
+import EditServices from "./service.edit";
+import { useFormik } from "formik";
 
 const listPremises = [
 	{
@@ -40,82 +39,94 @@ const ServiceTable = () => {
 	useEffect(() => {
 		getData();
 		fetchListCustomer();
-	}, [])
+	}, []);
 
 	const fetchListCustomer = async () => {
-		const res = await axios.get(`http://localhost:3001/customerList`)
+		const res = await axios.get(`http://localhost:3001/customerList`);
 		console.log(">>>check res", res);
 		if (!res) {
-			toast.error("error fetch data")
+			toast.error("error fetch data");
 		}
-		setListCustomer(res.data)
-	}
+		setListCustomer(res.data);
+	};
 
 	const getData = async () => {
-		const res = await axios.get("http://localhost:3001/services", {
-			params: {
-				premises: dropdownSelected,
-			}
-		});
-		if (!res) {
-			toast.error("error fetch data")
+		const params = {};
+		if (dropdownSelected) {
+			params.premises = dropdownSelected;
 		}
-		setListService(res.data)
-	}
+
+		const res = await axios.get("http://localhost:3001/services", { params });
+
+		if (!res) {
+			toast.error("error fetch data");
+		}
+		setListService(res.data);
+	};
 	console.log(listService);
 
-
-
 	const handleSave = () => {
-		setIsModalOpen(false)
-	}
+		setIsModalOpen(false);
+	};
 
 	const handleSelect = (item) => {
 		setDropdownSelected(item.name);
-	}
+	};
 	console.log("check dropdownSelected", dropdownSelected);
 
 	const handleSearch = () => {
 		// let customerId = listCustomer.find(i => i.name === formik.values.customer)?.id;
 		// console.log(">>>check customerId", customerId);
 		getData();
-	}
+	};
 	const handlePayment = (item) => {
 		setIsModalOpen(true);
 		setSelectedService(item);
 	};
 
 	return (
-		<div className='container'>
-			<h2 style={{
-				marginBottom: "20px"
-			}}>Dịch vụ</h2>
+		<div className="container">
+			<h2
+				style={{
+					marginBottom: "20px",
+				}}
+			>
+				Dịch vụ
+			</h2>
 			<div className="row mb-5">
 				<div className="col d-flex align-items-center gap-3">
-					<span className='title'>Mặt Bằng: </span>
+					<span className="title">Mặt Bằng: </span>
 					<div>
-						<DropdownButton id="dropdown-basic-button" title={dropdownSelected || "Chọn mặt bằng"} >
-							{listPremises.map(item => {
+						<DropdownButton id="dropdown-basic-button" title={dropdownSelected || "Chọn mặt bằng"}>
+							{listPremises.map((item) => {
 								return (
-									<Dropdown.Item key={item.id} onClick={() => handleSelect(item)}>{item.name}</Dropdown.Item>
-								)
+									<Dropdown.Item key={item.id} onClick={() => handleSelect(item)}>
+										{item.name}
+									</Dropdown.Item>
+								);
 							})}
 						</DropdownButton>
 					</div>
-
 				</div>
 				<div className="col">
 					{/* <span className='title'>Tên khách hàng: </span>
                     <input type="text" className='input' name="customer" value={formik.values.customer} onChange={formik.handleChange} /> */}
-					<Button variant="primary" style={{
-						marginRight: "10px"
-					}} onClick={() => handleSearch()}>Tìm kiếm</Button>
-					<Button variant="secondary" onClick={() => setIsOpenModalCreate(true)}>Thêm dịch vụ</Button>
+					<Button
+						variant="primary"
+						style={{
+							marginRight: "10px",
+						}}
+						onClick={() => handleSearch()}
+					>
+						Tìm kiếm
+					</Button>
+					<Button variant="secondary" onClick={() => setIsOpenModalCreate(true)}>
+						Thêm dịch vụ
+					</Button>
 				</div>
-
 			</div>
 
-			<Table striped bordered hover >
+			<Table striped bordered hover>
 				<thead>
 					<tr>
 						<th>#</th>
@@ -135,68 +146,64 @@ const ServiceTable = () => {
 								<td>{index + 1}</td>
 								<td>{item.name}</td>
 								<td>{item.date}</td>
-								<td>{listCustomer.find(i => i.id === item.customer)?.name}</td>
+								<td>{listCustomer.find((i) => i.id === item.customer)?.name}</td>
 								<td>{item.quantity}</td>
 								<td>{item.consume}</td>
 								<td>{item.consume * item.quantity}</td>
-								<td style={{
-									display: "flex",
-									alignItems: "center",
-									gap: "10px"
-								}}>
+								<td
+									style={{
+										display: "flex",
+										alignItems: "center",
+										gap: "10px",
+									}}
+								>
 									<Button onClick={() => handlePayment(item)}>Thanh toán</Button>
-									<Button variant='secondary' onClick={() => {
-										setIsOpenModalEdit(true);
-										setDataUpdate(item);
-									}}>Chỉnh sửa</Button>
-
+									<Button
+										variant="secondary"
+										onClick={() => {
+											setIsOpenModalEdit(true);
+											setDataUpdate(item);
+										}}
+									>
+										Chỉnh sửa
+									</Button>
 								</td>
-
 							</tr>
-						)
+						);
 					})}
 				</tbody>
 			</Table>
-			{
-				isModalOpen && (
-					<div
-						className="modal show"
-						style={{ display: 'block', position: 'static', }}
-					>
-						<Modal.Dialog>
-							<Modal.Header>
-								<Modal.Title>Thanh Toán</Modal.Title>
-							</Modal.Header>
+			{isModalOpen && (
+				<div className="modal show" style={{ display: "block", position: "static" }}>
+					<Modal.Dialog>
+						<Modal.Header>
+							<Modal.Title>Thanh Toán</Modal.Title>
+						</Modal.Header>
 
-							<Modal.Body>
-								{selectedService && (
-									<p>Thanh toán số tiền: {selectedService.consume * selectedService.quantity} VND</p>
-								)}
-							</Modal.Body>
-							<Modal.Footer>
-								<Button variant="secondary" onClick={() => setIsModalOpen(false)}>Close</Button>
-								<Button variant="primary" onClick={() => handleSave()}>Save changes</Button>
-							</Modal.Footer>
-						</Modal.Dialog>
-					</div>
-				)
-			}
-
-			{isOpenModalCreate && (
-				<CreateServices isOpenModalCreate={isOpenModalCreate} setIsOpenModalCreate={setIsOpenModalCreate} getData={getData} />
+						<Modal.Body>{selectedService && <p>Thanh toán số tiền: {selectedService.consume * selectedService.quantity} VND</p>}</Modal.Body>
+						<Modal.Footer>
+							<Button variant="secondary" onClick={() => setIsModalOpen(false)}>
+								Close
+							</Button>
+							<Button variant="primary" onClick={() => handleSave()}>
+								Save changes
+							</Button>
+						</Modal.Footer>
+					</Modal.Dialog>
+				</div>
 			)}
 
-			{
-				isOpenModalEdit && (
-					<EditServices
-						getData={getData}
-						dataUpdate={dataUpdate}
-						setDataUpdate={setDataUpdate}
-						isOpenModalEdit={isOpenModalEdit}
-						setIsOpenModalEdit={setIsOpenModalEdit} />
+			{isOpenModalCreate && <CreateServices isOpenModalCreate={isOpenModalCreate} setIsOpenModalCreate={setIsOpenModalCreate} getData={getData} />}
 
-				)
-			}
+			{isOpenModalEdit && (
+				<EditServices
+					getData={getData}
+					dataUpdate={dataUpdate}
+					setDataUpdate={setDataUpdate}
+					isOpenModalEdit={isOpenModalEdit}
+					setIsOpenModalEdit={setIsOpenModalEdit}
+				/>
+			)}
 		</div>
 	);
 };

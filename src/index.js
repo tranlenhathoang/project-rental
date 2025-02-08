@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
-import { BrowserRouter, RouterProvider, Link, createBrowserRouter, Outlet } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import ServicesPage from "./component/services/service.page";
@@ -12,6 +11,7 @@ import CustomerList from "./customers/components/CustomerList";
 import DetailComponent from "./customers/components/DetailComponent";
 import ServiceDetail from "./component/services/service.detail";
 import AddComponent from "./customers/components/AddComponent";
+import EditComponent from "./customers/components/EditComponent";
 import RegisterAccount from "./login-logout/Register";
 import Facilities from "./component/Facilities";
 import AddlFacilities from "./component/AddFacilities";
@@ -53,6 +53,10 @@ const router = createBrowserRouter([
 			{
 				path: "/detail/:id",
 				element: <DetailComponent />,
+			},
+			{
+				path: "/edit/:id",
+				element: <EditComponent />,
 			},
 			{
 				path: "/services/:id",
