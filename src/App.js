@@ -1,3 +1,11 @@
+// import "./App.css";
+
+// function App() {
+// 	return <h1>Trang chu</h1>;
+// }
+
+// export default App;
+
 import "./App.css";
 import Login from "./login-logout/Login";
 import { Routes, Route } from "react-router-dom";
