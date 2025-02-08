@@ -21,15 +21,4 @@
 	margin-top: 5%;
 } */
 
-.tableHeader th {
-	background-color: #343a40 !important;
-	color: white;
-}
-.table-bordered {
-	border: 1px solid #ddd;
-}
-th,
-td {
-	min-width: 200px; /* Đảm bảo chiều rộng tối thiểu cho các cột */
-	white-space: nowrap;
-}
+
