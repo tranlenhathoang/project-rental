@@ -30,6 +30,5 @@
 }
 th,
 td {
-	min-width: 200px; /* Đảm bảo chiều rộng tối thiểu cho các cột */
 	white-space: nowrap;
 }

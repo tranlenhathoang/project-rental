@@ -55,3 +55,12 @@ export async function deleteCustomerById(id) {
 		return null;
 	}
 }
+
+export async function updateCustomer(id, customer) {
+	try {
+		const response = await axios.put(`${BASE_URL}/customerList/${id}`, customer);
+		return response.data;
+	} catch (e) {
+		return null;
+	}
+}

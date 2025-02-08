@@ -133,7 +133,9 @@ function CustomerList() {
 				<table className="table table-light table-bordered table-striped">
 					<thead>
 						<tr className={styles.tableHeader}>
-							<th className="text-center">STT</th>
+							<th className="text-center" style={{ width: "40px" }}>
+								STT
+							</th>
 							<th className="text-center">Họ Tên</th>
 							<th className="text-center">CMND</th>
 							<th className="text-center">Email</th>
