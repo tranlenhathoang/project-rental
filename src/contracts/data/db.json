@@ -1,164 +1,162 @@
 {
-	"customer": [
-		{
-			"id": 1,
-			"name": "Nguyễn Đình Hòa",
-			"identity": "343432423",
-			"email": "hoadeptrai@gmail.com",
-			"phone": "096543453",
-			"dob": "05/05/1994",
-			"address": "12 Lê Duẩn, Đà Nẵng",
-			"status": true,
-			"premisesId": 1
-		},
-		{
-			"id": 2,
-			"name": "Nguyễn Văn Anh",
-			"identity": "343432423",
-			"email": "vananh@gmail.com",
-			"phone": "096543453",
-			"dob": "05/05/1994",
-			"address": "12 Lê Duẩn, Đà Nẵng",
-			"status": false,
-			"premisesId": 2
-		},
-		{
-			"id": 3,
-			"name": "Nguyễn Đình Cựu",
-			"identity": "343432423",
-			"email": "cuu@gmail.com",
-			"phone": "096543453",
-			"dob": "05/05/1994",
-			"address": "12 Lê Duẩn, Đà Nẵng",
-			"status": false,
-			"premisesId": 2
-		},
-		{
-			"id": 4,
-			"name": "Nhân Văn Lam",
-			"identity": "343432423",
-			"email": "lamvannhan@gmail.com",
-			"phone": "096543453",
-			"dob": "05/05/1994",
-			"address": "12 Lê Duẩn, Đà Nẵng",
-			"status": false,
-			"premisesId": 1
-		},
-		{
-			"id": 5,
-			"name": "Nguyễn Mỹ Linh",
-			"identity": "343432423",
-			"email": "linh@gmail.com",
-			"phone": "096543453",
-			"dob": "05/05/1994",
-			"address": "12 Lê Duẩn, Đà Nẵng",
-			"status": true,
-			"premisesId": 3
-		}
-	],
-	"premises": [
-		{
-			"id": 1,
-			"premisesName": "MB001"
-		},
-		{
-			"id": 2,
-			"premisesName": "MB002"
-		},
-		{
-			"id": 3,
-			"premisesName": "MB003"
-		}
-	],
-
-	"contract": [
-		{
-			"id": 1,
-			"customerId": 1,
-			"tax": 2020202020,
-			"validity": "còn hiệu lực",
-			"term": "1 tháng",
-			"startDate": "09/09/2020",
-			"endDate": "09/10/2020",
-			"price": "12.000.000 VNĐ",
-			"deposit": "5.000.000 VNĐ",
-			"total": "12.000.000 VNĐ",
-			"content": ""
-		},
-		{
-			"id": 2,
-			"customerId": 2,
-			"tax": 2020202020,
-			"validity": "còn hiệu lực",
-			"term": "1 tháng",
-			"startDate": "09/09/2020",
-			"endDate": "09/10/2020",
-			"price": "12.000.000 VNĐ",
-			"deposit": "5.000.000 VNĐ",
-			"total": "12.000.000 VNĐ",
-			"content": ""
-		},
-		{
-			"id": 3,
-			"customerId": 3,
-			"tax": 2020202020,
-			"validity": "còn hiệu lực",
-			"term": "1 tháng",
-			"startDate": "09/09/2020",
-			"endDate": "09/10/2020",
-			"price": "12.000.000 VNĐ",
-			"deposit": "5.000.000 VNĐ",
-			"total": "12.000.000 VNĐ",
-			"content": ""
-		},
-		{
-			"id": 4,
-			"customerId": 4,
-			"tax": 2020202020,
-			"validity": "còn hiệu lực",
-			"term": "1 tháng",
-			"startDate": "09/09/2020",
-			"endDate": "09/10/2020",
-			"price": "12.000.000 VNĐ",
-			"deposit": "5.000.000 VNĐ",
-			"total": "12.000.000 VNĐ",
-			"content": ""
-		},
-		{
-			"id": 5,
-			"customerId": 5,
-			"tax": 2020202020,
-			"validity": "còn hiệu lực",
-			"term": "1 tháng",
-			"startDate": "09/09/2020",
-			"endDate": "09/10/2020",
-			"price": "12.000.000 VNĐ",
-			"deposit": "5.000.000 VNĐ",
-			"total": "12.000.000 VNĐ",
-			"content": ""
-		}
-	],
-
-	"employee": [
-		{
-			"id": 1,
-			"name": "Nguyễn Minh Hùng"
-		},
-		{
-			"id": 2,
-			"name": "Lê Đình Quốc"
-		},
-		{
-			"id": 3,
-			"name": "Đào Dung Sỹ My"
-		},
-		{
-			"id": 4,
-			"name": "Lê Đình Thám"
-		},
-		{
-			"id": 5,
-			"name": "Phạm Anh Hào"
-		}
-	]
+  "customers": [
+    {
+      "id": 1,
+      "name": "Nguyễn Đình Hòa",
+      "identity": "343432423",
+      "email": "hoadeptrai@gmail.com",
+      "phone": "096543453",
+      "dob": "05/05/1994",
+      "address": "12 Lê Duẩn, Đà Nẵng",
+      "status": true
+    },
+    {
+      "id": 2,
+      "name": "Nguyễn Văn Anh",
+      "identity": "343432423",
+      "email": "vananh@gmail.com",
+      "phone": "096543453",
+      "dob": "05/05/1994",
+      "address": "12 Lê Duẩn, Đà Nẵng",
+      "status": false
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Đình Cựu",
+      "identity": "343432423",
+      "email": "cuu@gmail.com",
+      "phone": "096543453",
+      "dob": "05/05/1994",
+      "address": "12 Lê Duẩn, Đà Nẵng",
+      "status": false
+    },
+    {
+      "id": 4,
+      "name": "Nhân Văn Lam",
+      "identity": "343432423",
+      "email": "lamvannhan@gmail.com",
+      "phone": "096543453",
+      "dob": "05/05/1994",
+      "address": "12 Lê Duẩn, Đà Nẵng",
+      "status": false
+    },
+    {
+      "id": 5,
+      "name": "Nguyễn Mỹ Linh",
+      "identity": "343432423",
+      "email": "linh@gmail.com",
+      "phone": "096543453",
+      "dob": "05/05/1994",
+      "address": "12 Lê Duẩn, Đà Nẵng",
+      "status": true
+    }
+  ],
+  "premises": [
+    {
+      "id": 1,
+      "premisesName": "MB001"
+    },
+    {
+      "id": 2,
+      "premisesName": "MB002"
+    },
+    {
+      "id": 3,
+      "premisesName": "MB003"
+    }
+  ],
+  "contracts": [
+    {
+      "id": 1,
+      "customerId": 1,
+      "premisesId": 1,
+      "tax": 2020202020,
+      "validity": "còn hiệu lực",
+      "term": "1 tháng",
+      "startDate": "09/09/2020",
+      "endDate": "09/10/2020",
+      "price": "12.000.000 VNĐ",
+      "deposit": "5.000.000 VNĐ",
+      "total": "12.000.000 VNĐ",
+      "content": ""
+    },
+    {
+      "id": 2,
+      "customerId": 2,
+      "premisesId": 2,
+      "tax": 2020202020,
+      "validity": "còn hiệu lực",
+      "term": "1 tháng",
+      "startDate": "09/09/2020",
+      "endDate": "09/10/2020",
+      "price": "12.000.000 VNĐ",
+      "deposit": "5.000.000 VNĐ",
+      "total": "12.000.000 VNĐ",
+      "content": ""
+    },
+    {
+      "id": 3,
+      "customerId": 3,
+      "premisesId": 3,
+      "tax": 2020202020,
+      "validity": "còn hiệu lực",
+      "term": "1 tháng",
+      "startDate": "09/09/2020",
+      "endDate": "09/10/2020",
+      "price": "12.000.000 VNĐ",
+      "deposit": "5.000.000 VNĐ",
+      "total": "12.000.000 VNĐ",
+      "content": ""
+    },
+    {
+      "id": 4,
+      "customerId": 4,
+      "premisesId": 1,
+      "tax": 2020202020,
+      "validity": "còn hiệu lực",
+      "term": "1 tháng",
+      "startDate": "09/09/2020",
+      "endDate": "09/10/2020",
+      "price": "12.000.000 VNĐ",
+      "deposit": "5.000.000 VNĐ",
+      "total": "12.000.000 VNĐ",
+      "content": ""
+    },
+    {
+      "id": 5,
+      "customerId": 5,
+      "premisesId": 1,
+      "tax": 2020202020,
+      "validity": "còn hiệu lực",
+      "term": "1 tháng",
+      "startDate": "09/09/2020",
+      "endDate": "09/10/2020",
+      "price": "12.000.000 VNĐ",
+      "deposit": "5.000.000 VNĐ",
+      "total": "12.000.000 VNĐ",
+      "content": ""
+    }
+  ],
+  "employee": [
+    {
+      "id": 1,
+      "name": "Nguyễn Minh Hùng"
+    },
+    {
+      "id": 2,
+      "name": "Lê Đình Quốc"
+    },
+    {
+      "id": 3,
+      "name": "Đào Dung Sỹ My"
+    },
+    {
+      "id": 4,
+      "name": "Lê Đình Thám"
+    },
+    {
+      "id": 5,
+      "name": "Phạm Anh Hào"
+    }
+  ]
 }

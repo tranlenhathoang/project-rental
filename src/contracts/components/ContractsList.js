@@ -6,31 +6,42 @@ import Col from "react-bootstrap/Col";
 import { HiArrowPath } from "react-icons/hi2";
 import { FaSearch } from "react-icons/fa";
 import Pagination from "react-bootstrap/Pagination";
-import { changeStatus, getAllCustomer, searchCustomerByName } from "../apiProject/apiCustomer";
+import { changeStatus, getAllCustomer, search } from "../apiProject/apiCustomer";
 import { getAllPremises } from "../apiProject/apiPremises";
 import CustomSelect from "./CustomSelect";
+import { getAllContract } from "../apiProject/apiContract";
+import { PAGE_SIZE } from "../apiProject/constant";
 
 function ContractList() {
 	const [customers, setCustomers] = useState([]);
 	const [premises, setPremises] = useState([]);
-	const [totalSize, setTotalSize] = useState(3);
+	const [contract, setContract] = useState([]);
+	const [totalSize, setTotalSize] = useState(PAGE_SIZE);
 	const [page, setPage] = useState(1);
 	const [totalPage, setTotalPage] = useState(0);
-	const [reload, setReload] = useState(true);
 	const [selectedOption, setSelectedOption] = useState(null);
+	const [selectedCustomerOption, setSelectedCustomerOption] = useState(null);
 	const [selectedStatus, setSelectedStatus] = useState("");
+	const [reload, setReload] = useState(true);
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const [data, total] = await getAllCustomer(page, totalSize);
+			const [data, total] = await getAllContract(page, totalSize);
 			const premisesData = await getAllPremises();
+			const customerData = await getAllCustomer();
 
-			setCustomers(data);
-			setTotalPage(Math.ceil(total / totalSize));
+			setContract(data);
+			setTotalPage(Math.ceil(total / PAGE_SIZE));
 			setPremises(
 				premisesData.map((premises) => ({
 					value: premises.id,
 					label: premises.premisesName,
+				}))
+			);
+			setCustomers(
+				customerData.map((item) => ({
+					value: item.id,
+					label: item.name,
 				}))
 			);
 		};
@@ -45,8 +56,8 @@ function ContractList() {
 		await changeStatus(id, status);
 
 		const fetchData = async () => {
-			const [data, total] = await getAllCustomer(page, totalSize);
-			setCustomers(data);
+			const [data, total] = await getAllContract(page, totalSize);
+			setContract(data);
 			setTotalPage(Math.ceil(total / totalSize));
 		};
 		fetchData();
@@ -71,11 +82,11 @@ function ContractList() {
 	const searchCustomerNameRef = useRef();
 
 	const handleSearch = async () => {
-		let name = searchCustomerNameRef.current.value.trim();
 		let premisesId = selectedOption?.value || "";
+		let customerId = selectedCustomerOption?.value || "";
 
-		let result = await searchCustomerByName(name, premisesId, selectedStatus);
-		setCustomers(result);
+		let result = await search(customerId, premisesId, selectedStatus);
+		setContract(result);
 	};
 
 	return (
@@ -86,7 +97,7 @@ function ContractList() {
 			<div className="mb-3">
 				<Row>
 					<Col>
-						<input name="searchCustomerName" placeholder="Tìm kiếm theo tên khách hàng" className="form-control" ref={searchCustomerNameRef} />
+						<CustomSelect options={customers} placeholder="Tìm kiếm tên khách hàng" onSelect={(option) => setSelectedCustomerOption(option)} />
 					</Col>
 
 					<Col>
@@ -132,14 +143,16 @@ function ContractList() {
 					</tr>
 				</thead>
 				<tbody>
-					{customers.length === 0 ? (
+					{contract.length === 0 ? (
 						<tr>
 							<td colSpan="8" className="text-center">
 								Không có dữ liệu
 							</td>
 						</tr>
 					) : (
-						customers.map((premises, i) => <ContractItem key={premises.id} i={i} premises={premises} handleCheckboxChange={handleCheckboxChange} />)
+						contract.map((item, i) => (
+							<ContractItem key={item.id} i={(page - 1) * PAGE_SIZE + i} item={item} handleCheckboxChange={handleCheckboxChange} />
+						))
 					)}
 				</tbody>
 			</table>

@@ -1,15 +1,15 @@
 import React from "react";
 
 function ContractItem(props) {
-	const { name, premises, status } = props.premises;
+	const { customer, premises } = props.item;
 
 	return (
 		<tr>
 			<td className="text-center">{+props.i + 1}</td>
-			<td className="text-center">{name}</td>
+			<td className="text-center">{customer.name}</td>
 			<td className="text-center">{premises ? premises.premisesName : ""}</td>
 			<td className="text-center">
-				<input type="checkbox" checked={status} onChange={() => props.handleCheckboxChange(props.premises.id, !status)} />
+				<input type="checkbox" checked={customer.status} onChange={() => props.handleCheckboxChange(premises.id, !customer.status)} />
 			</td>
 			<td className="text-center">
 				<button type="button" className="btn btn-info">

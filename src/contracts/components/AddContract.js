@@ -1,32 +1,43 @@
 import React, { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, useFormik } from "formik";
 import CustomSelect from "./CustomSelect";
 import { getAllEmployee } from "../apiProject/apiEmployee";
 import { getAllPremises } from "../apiProject/apiPremises";
+import { useNavigate } from "react-router-dom";
+import { addNewContract } from "../apiProject/apiContract";
+import { getAllCustomer } from "../apiProject/apiCustomer";
 
 function AddContract() {
 	const [contract, setContract] = useState({
+		customerId: undefined,
+		premisesId: undefined,
 		tax: "",
+		validity: "còn hiệu lực",
 		term: "",
 		startDate: "",
 		endDate: "",
 		price: "",
 		deposit: "",
 		total: "",
+		content: "",
+		status: true,
 	});
 	const [premises, setPremises] = useState([]);
-	const [selectedOption, setSelectedOption] = useState(null);
+	const [selectedPremisesOption, setSelectedPremisesOption] = useState(null);
+	const [selectedEmployeeOption, setSelectedEmployeeOption] = useState(null);
+	const [selectedCustomerOption, setSelectedCustomerOption] = useState(null);
 	const [employees, setEmployees] = useState([]);
+	const [customers, setCustomers] = useState([]);
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const contractData = await getAllPremises();
+			const premisesData = await getAllPremises();
 			setPremises(
-				contractData.map((contract) => ({
-					value: contract.id,
-					label: contract.premises,
+				premisesData.map((premises) => ({
+					value: premises.id,
+					label: premises.premisesName,
 				}))
 			);
 
@@ -37,11 +48,47 @@ function AddContract() {
 					label: employee.name,
 				}))
 			);
+
+			const customerData = await getAllCustomer();
+			setCustomers(
+				customerData.map((customers) => ({
+					value: customers.id,
+					label: customers.name,
+				}))
+			);
 		};
 		fetchData();
-	}, []);
+	}, [contract]);
 
-	const handleSubmit = async (value) => {};
+	const navigate = useNavigate();
+
+	const formik = useFormik({
+		initialValues: { file: null },
+		onSubmit: (values) => {
+			console.log("File đã chọn:", values.file);
+		},
+	});
+
+	const handleSubmit = async (value) => {
+		const contract = {
+			...value,
+			premisesId: selectedPremisesOption.value,
+			customerId: selectedCustomerOption.value,
+			startDate: new Date(value.startDate).toLocaleDateString("vi-VN", {
+				day: "2-digit",
+				month: "2-digit",
+				year: "numeric",
+			}),
+			endDate: new Date(value.endDate).toLocaleDateString("vi-VN", {
+				day: "2-digit",
+				month: "2-digit",
+				year: "numeric",
+			}),
+		};
+
+		await addNewContract(contract);
+		navigate("/contracts");
+	};
 
 	return (
 		<div className="container mb-3">
@@ -53,15 +100,15 @@ function AddContract() {
 					<Row>
 						<Col>
 							<label className="mb-3">Mặt bằng</label>
-							<CustomSelect options={premises} onSelect={(option) => setSelectedOption(option)} />
+							<CustomSelect name="premises" options={premises} placeholder="Nhập để tìm" onSelect={(option) => setSelectedPremisesOption(option)} />
 
 							<label className="mt-3">Kì hạn (Tháng)</label>
-							<Field type="text" name="term" className="form-control mt-3" />
+							<Field type="number" name="term" className="form-control mt-3" />
 						</Col>
 
 						<Col>
-							<label>Họ và tên khách hàng</label>
-							<Field type="text" name="customerName" className="form-control mt-3" placeholder="Nhập để tìm" />
+							<label className="mb-3">Họ và tên khách hàng</label>
+							<CustomSelect name="customer" options={customers} placeholder="Nhập để tìm" onSelect={(option) => setSelectedCustomerOption(option)} />
 
 							<label className="mt-3">Ngày bắt đầu thuê</label>
 							<Field type="date" className="form-control mt-3" name="startDate" />
@@ -69,7 +116,7 @@ function AddContract() {
 
 						<Col>
 							<label className="mb-3">Họ và tên nhân viên</label>
-							<CustomSelect options={employees} onSelect={(option) => setSelectedOption(option)} />
+							<CustomSelect name="employee" options={employees} onSelect={(option) => setSelectedEmployeeOption(option)} />
 
 							<label className="mt-3">Ngày kết thúc thuê</label>
 							<Field type="date" className="form-control mt-3" name="endDate" />
@@ -79,27 +126,32 @@ function AddContract() {
 					<Row className="mt-4">
 						<Col>
 							<label>Giá tiền mỗi tháng (VNĐ)</label>
-							<Field type="text" name="customerName" className="form-control mt-3" placeholder="Nhập để tìm" />
+							<Field type="text" name="price" className="form-control mt-3" placeholder="Nhập giá tiền mỗi tháng" />
 
 							<label className="mt-3">Tiền cọc (VNĐ)</label>
-							<Field type="text" name="customerName" className="form-control mt-3" />
+							<Field type="text" name="deposit" placeholder="Nhập tiền cọc" className="form-control mt-3" />
 						</Col>
 
 						<Col>
 							<label>Tổng tiền (VNĐ)</label>
-							<Field type="text" name="customerName" className="form-control mt-3" placeholder="Nhập để tìm" />
+							<Field type="text" name="total" className="form-control mt-3" placeholder="Nhập tổng tiền" />
 
 							<label className="mt-3">Mã số thuế</label>
-							<Field type="text" name="customerName" className="form-control mt-3" />
+							<Field type="text" name="tax" className="form-control mt-3" />
 						</Col>
 					</Row>
 
 					<Row>
 						<label className="mt-3">Hình ảnh hợp đồng</label>
-						<Field type="file" className="mt-3" />
-
+						<input
+							type="file"
+							className="mt-3"
+							onChange={(event) => {
+								formik.setFieldValue("file", event.currentTarget.files[0]);
+							}}
+						/>
 						<label className="mt-3">Nội dung hợp đồng</label>
-						<Field as="textarea" rows="4" cols="50" className="form-control mt-3" />
+						<Field as="textarea" rows="4" cols="50" className="form-control mt-3" name="content" />
 					</Row>
 
 					<div className="mt-5 d-flex justify-content-end gap-4">
