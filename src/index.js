@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "react-datepicker/dist/react-datepicker.css";
 import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
@@ -17,7 +20,10 @@ import Facilities from "./component/Facilities";
 import AddlFacilities from "./component/AddFacilities";
 import EditFacilities from "./component/EditFacilities";
 import DetailFacilities from "./component/DetailFacilities";
+import ContractList from "./contracts/components/ContractsList";
+import AddContract from "./contracts/components/AddContract";
 import { ToastContainer } from "react-toastify";
+import App from "./App";
 
 const LayoutAdmin = () => {
 	return (
@@ -35,9 +41,8 @@ const router = createBrowserRouter([
 		path: "/",
 		// element: <App />,
 		element: <LayoutAdmin />,
-
 		children: [
-			{ index: true, element: <Login /> },
+			{ index: true, element: <App /> },
 			{
 				path: "/services",
 				element: <ServicesPage />,
@@ -85,6 +90,14 @@ const router = createBrowserRouter([
 			{
 				path: "/floor/facilities/:id",
 				element: <DetailFacilities />,
+			},
+			{
+				path: "/contracts",
+				element: <ContractList />,
+			},
+			{
+				path: "/contracts/add",
+				element: <AddContract />,
 			},
 		],
 	},
