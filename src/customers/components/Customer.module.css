@@ -1,0 +1,24 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.list {
+	background-color: #e3f2fd;
+	overflow-x: auto; /* Đảm bảo không xuất hiện thanh trượt ngang, chỉ khi cần */
+}
+/* .header {
+	position: fixed;
+	top: 25%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1000;
+	padding: 10px 20px;
+	width: 100%;
+	text-align: center;
+}
+.table {
+	margin-top: 5%;
+} */
+
+

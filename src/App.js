@@ -1,19 +1,23 @@
 import "./App.css";
-import Header from "./component/header/Header";
-import AddContract from "./contracts/components/AddContract";
-import ContractList from "./contracts/components/ContractsList";
+import Login from "./login-logout/Login";
 import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import RegisterAccount from "./login-logout/Register";
+import Header from "./component/header/Header";
+import ServicesPage from "./component/services/service.page";
 
 function App() {
-	return (
-		<>
-			<Header />
-			<Routes>
-				<Route path={"/contracts"} element={<ContractList />}></Route>
-				<Route path={"/contracts/add"} element={<AddContract />}></Route>
-			</Routes>
-		</>
-	);
+  return (
+    <>
+      <ToastContainer />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<RegisterAccount />} />
+        <Route path="/trangchu" element={<Header />} />
+        <Route path="/services" element={<ServicesPage />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
