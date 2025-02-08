@@ -58,7 +58,7 @@ function AddComponent() {
 			.matches(/^0[0-9]{9}$/, "Số điện thoại không hợp lệ"),
 		address: Yup.string().required("Địa chỉ là bắt buộc"),
 		company: Yup.string().required("Tên công ty là bắt buộc"),
-		date: Yup.date().required("Ngày thành lập là bắt buộc"),
+		date: Yup.date().required("Ngày sinh là bắt buộc"),
 	});
 	return (
 		<div className="container d-flex justify-content-center align-items-center mt-5">
