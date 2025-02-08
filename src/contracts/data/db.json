@@ -9,7 +9,7 @@
 			"dob": "05/05/1994",
 			"address": "12 Lê Duẩn, Đà Nẵng",
 			"status": true,
-			"contractId": 1
+			"premisesId": 1
 		},
 		{
 			"id": 2,
@@ -20,7 +20,7 @@
 			"dob": "05/05/1994",
 			"address": "12 Lê Duẩn, Đà Nẵng",
 			"status": false,
-			"contractId": 2
+			"premisesId": 2
 		},
 		{
 			"id": 3,
@@ -31,7 +31,7 @@
 			"dob": "05/05/1994",
 			"address": "12 Lê Duẩn, Đà Nẵng",
 			"status": false,
-			"contractId": 2
+			"premisesId": 2
 		},
 		{
 			"id": 4,
@@ -42,7 +42,7 @@
 			"dob": "05/05/1994",
 			"address": "12 Lê Duẩn, Đà Nẵng",
 			"status": false,
-			"contractId": 1
+			"premisesId": 1
 		},
 		{
 			"id": 5,
@@ -53,10 +53,9 @@
 			"dob": "05/05/1994",
 			"address": "12 Lê Duẩn, Đà Nẵng",
 			"status": true,
-			"contractId": 3
+			"premisesId": 3
 		}
 	],
-
 	"premises": [
 		{
 			"id": 1,
