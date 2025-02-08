@@ -23,6 +23,7 @@ import DetailFacilities from "./component/DetailFacilities";
 import ContractList from "./contracts/components/ContractsList";
 import AddContract from "./contracts/components/AddContract";
 import { ToastContainer } from "react-toastify";
+import App from "./App";
 
 const LayoutAdmin = () => {
 	return (
@@ -40,11 +41,6 @@ const router = createBrowserRouter([
 		path: "/",
 		// element: <App />,
 		element: <LayoutAdmin />,
-	{
-		path: "/",
-		// element: <App />,
-		element: <LayoutAdmin />,
-
 		children: [
 			{ index: true, element: <App /> },
 			{
