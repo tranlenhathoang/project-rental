@@ -1,4 +1,90 @@
 {
+  "facilities": [
+    {
+      "id": "3",
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+      "status": "Chưa bàn giao",
+      "prices": "12000000",
+      "management_fee": "500000",
+      "customer": "Nguyễn Đình Hòa"
+    },
+    {
+      "id": "4",
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+      "status": "Chưa bàn giao",
+      "prices": "12000000",
+      "management_fee": "500000",
+      "customer": "Nguyễn Đình Hòa"
+    },
+    {
+      "id": "5",
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+      "status": "Chưa bàn giao",
+      "prices": "12000000",
+      "management_fee": "500000",
+      "customer": "Nguyễn Đình Hòa"
+    },
+    {
+      "building": "BUILDING 1",
+      "floor": "Tầng 5",
+      "facility_type": "Mặt Hậu",
+      "facility_code": "MB001",
+      "status": "Chưa bàn giao",
+      "area": "300",
+      "prices": "12000000",
+      "management_fee": "500000",
+      "id": "8"
+    },
+    {
+      "id": "9",
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+      "status": "Chưa bàn giao",
+      "prices": "12000000",
+      "management_fee": "500000",
+      "customer": "Nguyễn Đình Hòa"
+    },
+    {
+      "building": "BUILDING 1",
+      "floor": "Tầng 5",
+      "facility_type": "Mặt Cắt",
+      "facility_code": "MB001",
+      "status": "Chưa bàn giao",
+      "area": "500",
+      "prices": "12000000",
+      "management_fee": "500000",
+      "id": "10"
+    },
+    {
+      "id": "11",
+      "facility_code": "MB001",
+      "facility_type": "Mặt tiền",
+      "area": 100,
+      "status": "Chưa bàn giao",
+      "prices": "12000000",
+      "management_fee": "500000",
+      "customer": "Nguyễn Đình Hòa"
+    },
+    {
+      "building": "BUILDING 1",
+      "floor": "Tầng 5",
+      "facility_type": "Mặt Tiền",
+      "facility_code": "MB009",
+      "status": "Đang Vào Ở",
+      "area": "500",
+      "description": "non",
+      "prices": "50000",
+      "management_fee": "200",
+      "id": "12"
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -10,6 +96,12 @@
       "id": "2",
       "name": "admin",
       "password": "1234567",
+      "mail": "admin@gmail.com"
+    },
+    {
+      "id": "3",
+      "name": "anh",
+      "password": "1",
       "mail": "admin@gmail.com"
     }
   ],
@@ -45,6 +137,74 @@
       "date": "2025-02-06",
       "premises": "MB003",
       "quantity": 100
+    }
+  ],
+  "customerList": [
+    {
+      "id": 1,
+      "name": "Nguyễn Đình Hoà",
+      "identity": "343432423",
+      "email": "hoadeptrai@gmail.com",
+      "phone": "096543453",
+      "date": "05/05/1994",
+      "address": "12 Lê Quý Kỳ, Đà Nẵng",
+      "website": "hoaminnzy.com",
+      "company": "Hoa Thiên Phú"
+    },
+    {
+      "id": 2,
+      "name": "Lê Đình Quốc",
+      "identity": "343432423",
+      "email": "nhanvanlam@gmail.com",
+      "phone": "096543453",
+      "date": "05/05/1994",
+      "address": "12 Nguyễn Phước Nguyên, Đà Nẵng",
+      "website": "abc.com",
+      "company": "Hoa Mặt Trời"
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Minh Hùng",
+      "identity": "343432423",
+      "email": "hung@gmail.com",
+      "phone": "096543453",
+      "date": "05/05/1994",
+      "address": "12 Lê Duẩn, Đà Nẵng",
+      "website": "hoaminnzy.com",
+      "company": "Hoa Hướng Dương"
+    },
+    {
+      "id": 4,
+      "name": "Phạm Minh Hưng",
+      "identity": "343432423",
+      "email": "hungmapdeptrai@gmail.com",
+      "phone": "096543453",
+      "date": "05/05/1994",
+      "address": "12 Trường Chinh, Đà Nẵng",
+      "website": "vipnha.com",
+      "company": "Hoa Vạn Thọ"
+    },
+    {
+      "id": 5,
+      "name": "Nguyễn Văn Tiến",
+      "identity": "343432423",
+      "email": "tieni@gmail.com",
+      "phone": "096543453",
+      "date": "05/05/1994",
+      "address": "12 Lê Văn Quý, Đà Nẵng",
+      "website": "build.com",
+      "company": "Hoa Cúc"
+    },
+    {
+      "name": "Đinh Thanh Hằng",
+      "identity": "001303016742",
+      "email": "dinhhang440@gmail.com",
+      "phone": "0334534831",
+      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
+      "website": "tranhuahua.com",
+      "company": "Trăn hua hua",
+      "date": "07/02/2025",
+      "id": 6
     }
   ]
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 
-const RegisterAccount = ()=>{
+const RegisterAccount = () => {
     return (
         <>
-        <h1>hello</h1>
+            <h1>Trang đăng ký</h1>
         </>
     )
 }
