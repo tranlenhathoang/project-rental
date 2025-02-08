@@ -1,17 +1,5 @@
 import "./App.css";
-import Login from "./login-logout/Login";
-import { Routes, Route, Outlet } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import RegisterAccount from "./login-logout/Register";
-import Header from "./component/header/Header";
-import ServicesPage from "./component/services/service.page";
-import Facilities from "./component/Facilities"; // Đường dẫn tới Facilities
-import AddFacilities from "./component/AddFacilities";
-import DetailFacilities from "./component/DetailFacilities";
-import EditFacilities from "./component/EditFacilities";
-import CustomerList from "./customers/components/CustomerList";
-import AddComponent from "./customers/components/AddComponent";
-import DetailComponent from "./customers/components/DetailComponent";
+
 import "react-toastify/dist/ReactToastify.css";
 import EditComponent from "./customers/components/EditComponent";
 
