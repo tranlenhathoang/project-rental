@@ -21,3 +21,17 @@ export async function deleteById(id) {
 		return response.data;
 	} catch (error) {}
 }
+
+export async function getContractById(id) {
+	try {
+		const response = await axios.get(`${BASE_URL}/contracts/${id}?_expand=premises&_expand=customer&_expand=employee`);
+		return response.data;
+	} catch (error) {}
+}
+
+export async function updateContract(id, contract) {
+	try {
+		const response = await axios.put(`${BASE_URL}/contracts/${id}`, contract);
+		return response.data;
+	} catch (error) {}
+}

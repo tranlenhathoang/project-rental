@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ContractItem(props) {
-	const { customer, premises } = props.item;
+	const { id, customer, premises } = props.item;
 
 	return (
 		<tr>
@@ -12,14 +13,14 @@ function ContractItem(props) {
 				<input type="checkbox" checked={customer.status} onChange={() => props.handleCheckboxChange(premises.id, !customer.status)} />
 			</td>
 			<td className="text-center">
-				<button type="button" className="btn btn-info">
+				<Link type="button" className="btn btn-info">
 					Chi tiết
-				</button>
+				</Link>
 			</td>
 			<td className="text-center">
-				<button type="button" className="btn btn-warning">
+				<Link type="button" className="btn btn-warning" to={"/contracts/edit/" + id}>
 					Sửa
-				</button>
+				</Link>
 			</td>
 
 			<td className="text-center">
