@@ -9,8 +9,9 @@ import Pagination from "react-bootstrap/Pagination";
 import { changeStatus, getAllCustomer, search } from "../apiProject/apiCustomer";
 import { getAllPremises } from "../apiProject/apiPremises";
 import CustomSelect from "./CustomSelect";
-import { getAllContract } from "../apiProject/apiContract";
+import { deleteById, getAllContract } from "../apiProject/apiContract";
 import { PAGE_SIZE } from "../apiProject/constant";
+import DeleteContract from "./DeleteContract";
 
 function ContractList() {
 	const [customers, setCustomers] = useState([]);
@@ -23,6 +24,8 @@ function ContractList() {
 	const [selectedCustomerOption, setSelectedCustomerOption] = useState(null);
 	const [selectedStatus, setSelectedStatus] = useState("");
 	const [reload, setReload] = useState(true);
+	const [show, setShow] = useState(false);
+	const [deleteContract, setDeleteContract] = useState();
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -46,7 +49,7 @@ function ContractList() {
 			);
 		};
 		fetchData();
-	}, [page, reload]);
+	}, [page, reload, show]);
 
 	const reloadData = () => {
 		setReload(!reload);
@@ -85,6 +88,23 @@ function ContractList() {
 
 		let result = await search(customerId, premisesId, selectedStatus);
 		setContract(result);
+	};
+
+	const handleShow = (contract) => {
+		setShow(true);
+		setDeleteContract(contract);
+	};
+
+	const handleClose = (contract) => {
+		setShow(false);
+		setDeleteContract(null);
+	};
+
+	const handleDelete = async () => {
+		try {
+			await deleteById(deleteContract.id);
+			handleClose();
+		} catch (error) {}
 	};
 
 	return (
@@ -159,7 +179,13 @@ function ContractList() {
 						</tr>
 					) : (
 						contract.map((item, i) => (
-							<ContractItem key={item.id} i={(page - 1) * PAGE_SIZE + i} item={item} handleCheckboxChange={handleCheckboxChange} />
+							<ContractItem
+								key={item.id}
+								i={(page - 1) * PAGE_SIZE + i}
+								item={item}
+								handleCheckboxChange={handleCheckboxChange}
+								handleShow={handleShow}
+							/>
 						))
 					)}
 				</tbody>
@@ -181,6 +207,8 @@ function ContractList() {
 					Trang cuối
 				</Pagination.Item>
 			</Pagination>
+
+			<DeleteContract show={show} contracts={deleteContract} handleClose={handleClose} handleDelete={handleDelete} />
 		</div>
 	);
 }

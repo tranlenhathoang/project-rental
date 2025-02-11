@@ -14,3 +14,10 @@ export async function addNewContract(contract) {
 		return response.data;
 	} catch (error) {}
 }
+
+export async function deleteById(id) {
+	try {
+		const response = await axios.delete(`${BASE_URL}/contracts/${id}`);
+		return response.data;
+	} catch (error) {}
+}
