@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "react-datepicker/dist/react-datepicker.css";
-import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
-import { Provider } from "react-redux";
+import { RouterProvider, createBrowserRouter, Outlet, useNavigate } from "react-router-dom";
+import { Provider, useSelector } from "react-redux";
 import { store } from "./redux/store";
 import ServicesPage from "./component/services/service.page";
 import Header from "./component/header/Header";
@@ -26,6 +26,17 @@ import { ToastContainer } from "react-toastify";
 import App from "./App";
 
 const LayoutAdmin = () => {
+	const navigate = useNavigate();
+	const account = useSelector((state) => state?.accountReducer?.account);
+	console.log("account", account);
+
+	useEffect(() => {
+		if (!account) {
+			navigate("/login");
+		}
+	}, [account, navigate]);
+
+
 	return (
 		<div>
 			<Header />
@@ -39,7 +50,6 @@ const LayoutAdmin = () => {
 const router = createBrowserRouter([
 	{
 		path: "/",
-		// element: <App />,
 		element: <LayoutAdmin />,
 		children: [
 			{ index: true, element: <App /> },
