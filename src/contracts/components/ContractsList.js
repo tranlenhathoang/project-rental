@@ -90,14 +90,14 @@ function ContractList() {
 		setContract(result);
 	};
 
-	const handleShow = (contracts) => {
+	const handleShow = (contract) => {
 		setShow(true);
-		setDeleteContract(contracts);
+		setDeleteContract(contract);
 	};
 
-	const handleClose = (contracts) => {
+	const handleClose = (contract) => {
 		setShow(false);
-		setDeleteContract({});
+		setDeleteContract(null);
 	};
 
 	const handleDelete = async () => {
@@ -179,7 +179,13 @@ function ContractList() {
 						</tr>
 					) : (
 						contract.map((item, i) => (
-							<ContractItem key={item.id} i={(page - 1) * PAGE_SIZE + i} item={item} handleCheckboxChange={handleCheckboxChange} />
+							<ContractItem
+								key={item.id}
+								i={(page - 1) * PAGE_SIZE + i}
+								item={item}
+								handleCheckboxChange={handleCheckboxChange}
+								handleShow={handleShow}
+							/>
 						))
 					)}
 				</tbody>
