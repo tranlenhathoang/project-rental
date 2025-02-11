@@ -11,20 +11,6 @@ import CreateServices from "./service.create";
 import EditServices from "./service.edit";
 import { useFormik } from "formik";
 
-const listPremises = [
-	{
-		id: 1,
-		name: "MB001",
-	},
-	{
-		id: 2,
-		name: "MB002",
-	},
-	{
-		id: 3,
-		name: "MB003",
-	},
-];
 
 const ServiceTable = () => {
 	const [listService, setListService] = useState([]);
@@ -35,10 +21,12 @@ const ServiceTable = () => {
 	const [isOpenModalEdit, setIsOpenModalEdit] = useState(false);
 	const [dataUpdate, setDataUpdate] = useState(null);
 	const [listCustomer, setListCustomer] = useState([]);
+	const [listPremises, setListPremises] = useState([]);
 
 	useEffect(() => {
 		getData();
 		fetchListCustomer();
+		fetchListPremises();
 	}, []);
 
 	const fetchListCustomer = async () => {
@@ -48,6 +36,15 @@ const ServiceTable = () => {
 			toast.error("error fetch data");
 		}
 		setListCustomer(res.data);
+	};
+
+	const fetchListPremises = async () => {
+		const res = await axios.get(`http://localhost:3001/premises`);
+		// console.log(">>>check res", res);
+		if (!res) {
+			toast.error("error fetch data");
+		}
+		setListPremises(res.data);
 	};
 
 	const getData = async () => {
@@ -70,7 +67,7 @@ const ServiceTable = () => {
 	};
 
 	const handleSelect = (item) => {
-		setDropdownSelected(item.name);
+		setDropdownSelected(item.premisesName);
 	};
 	console.log("check dropdownSelected", dropdownSelected);
 
@@ -101,7 +98,7 @@ const ServiceTable = () => {
 							{listPremises.map((item) => {
 								return (
 									<Dropdown.Item key={item.id} onClick={() => handleSelect(item)}>
-										{item.name}
+										{item.premisesName}
 									</Dropdown.Item>
 								);
 							})}
@@ -109,8 +106,6 @@ const ServiceTable = () => {
 					</div>
 				</div>
 				<div className="col">
-					{/* <span className='title'>Tên khách hàng: </span>
-                    <input type="text" className='input' name="customer" value={formik.values.customer} onChange={formik.handleChange} /> */}
 					<Button
 						variant="primary"
 						style={{
@@ -173,6 +168,7 @@ const ServiceTable = () => {
 					})}
 				</tbody>
 			</Table>
+
 			{isModalOpen && (
 				<div className="modal show" style={{ display: "block", position: "static" }}>
 					<Modal.Dialog>
