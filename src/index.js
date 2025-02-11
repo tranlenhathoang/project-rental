@@ -24,6 +24,7 @@ import ContractList from "./contracts/components/ContractsList";
 import AddContract from "./contracts/components/AddContract";
 import { ToastContainer } from "react-toastify";
 import App from "./App";
+import EditContract from "./contracts/components/EditContract";
 
 const LayoutAdmin = () => {
 	const navigate = useNavigate();
@@ -108,6 +109,10 @@ const router = createBrowserRouter([
 			{
 				path: "/contracts/add",
 				element: <AddContract />,
+			},
+			{
+				path: "/contracts/edit/:id",
+				element: <EditContract />,
 			},
 		],
 	},

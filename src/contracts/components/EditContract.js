@@ -5,26 +5,12 @@ import { Formik, Form, Field, useFormik, resetForm } from "formik";
 import CustomSelect from "./CustomSelect";
 import { getAllEmployee } from "../apiProject/apiEmployee";
 import { getAllPremises } from "../apiProject/apiPremises";
-import { useNavigate } from "react-router-dom";
-import { addNewContract } from "../apiProject/apiContract";
+import { useNavigate, useParams } from "react-router-dom";
+import { getContractById, updateContract } from "../apiProject/apiContract";
 import { getAllCustomer } from "../apiProject/apiCustomer";
 
-function AddContract() {
-	const [contract, setContract] = useState({
-		customerId: undefined,
-		premisesId: undefined,
-		employee: "",
-		tax: "",
-		validity: "còn hiệu lực",
-		term: "",
-		startDate: "",
-		endDate: "",
-		price: "",
-		deposit: "",
-		total: "",
-		content: "",
-		status: true,
-	});
+function EditContract() {
+	const [contract, setContract] = useState(null);
 	const [premises, setPremises] = useState([]);
 	const [selectedPremisesOption, setSelectedPremisesOption] = useState(null);
 	const [selectedEmployeeOption, setSelectedEmployeeOption] = useState(null);
@@ -32,9 +18,32 @@ function AddContract() {
 	const [employees, setEmployees] = useState([]);
 	const [customers, setCustomers] = useState([]);
 	const [reload, setReload] = useState(true);
+	const { id } = useParams();
 
 	useEffect(() => {
 		const fetchData = async () => {
+			const data = await getContractById(id);
+			setContract(data);
+			if (data.customer) {
+				setSelectedCustomerOption({
+					label: data.customer.name,
+					value: data.customer.id,
+				});
+			}
+			if (data.premises) {
+				setSelectedPremisesOption({
+					label: data.premises.premisesName,
+					value: data.premises.id,
+				});
+			}
+
+			if (data.employee) {
+				setSelectedEmployeeOption({
+					label: data.employee.name,
+					value: data.employee.id,
+				});
+			}
+
 			const premisesData = await getAllPremises();
 			setPremises(
 				premisesData.map((premises) => ({
@@ -60,7 +69,7 @@ function AddContract() {
 			);
 		};
 		fetchData();
-	}, [contract]);
+	}, [id]);
 
 	const navigate = useNavigate();
 
@@ -77,26 +86,19 @@ function AddContract() {
 			premisesId: selectedPremisesOption.value,
 			customerId: selectedCustomerOption.value,
 			employeeId: selectedEmployeeOption.value,
-			// startDate: new Date(value.startDate).toLocaleDateString("vi-VN", {
-			// 	day: "2-digit",
-			// 	month: "2-digit",
-			// 	year: "numeric",
-			// }),
-			// endDate: new Date(value.endDate).toLocaleDateString("vi-VN", {
-			// 	day: "2-digit",
-			// 	month: "2-digit",
-			// 	year: "numeric",
-			// }),
 		};
 
-		await addNewContract(contract);
+		await updateContract(contract.id, contract);
 		navigate("/contracts");
 	};
 
+	if (!contract) {
+		return <div className="container">Đang tải dữ liệu...</div>;
+	}
 	return (
 		<div className="container mb-3">
 			<div className="text-center mb-4">
-				<h3>THÊM MỚI HỢP ĐỒNG</h3>
+				<h3>CHỈNH SỬA THÔNG TIN HỢP ĐỒNG</h3>
 			</div>
 			<Formik initialValues={contract} onSubmit={handleSubmit}>
 				{({ resetForm }) => (
@@ -204,4 +206,4 @@ function AddContract() {
 	);
 }
 
-export default AddContract;
+export default EditContract;
