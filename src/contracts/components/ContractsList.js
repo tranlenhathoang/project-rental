@@ -79,8 +79,6 @@ function ContractList() {
 		setPage(totalPage);
 	};
 
-	const searchCustomerNameRef = useRef();
-
 	const handleSearch = async () => {
 		let premisesId = selectedOption?.value || "";
 		let customerId = selectedCustomerOption?.value || "";
@@ -97,11 +95,21 @@ function ContractList() {
 			<div className="mb-3">
 				<Row>
 					<Col>
-						<CustomSelect options={customers} placeholder="Tìm kiếm tên khách hàng" onSelect={(option) => setSelectedCustomerOption(option)} />
+						<CustomSelect
+							options={customers}
+							placeholder="Tìm kiếm tên khách hàng"
+							value={selectedCustomerOption}
+							onSelect={(option) => setSelectedCustomerOption(option)}
+						/>
 					</Col>
 
 					<Col>
-						<CustomSelect options={premises} placeholder="Tìm kiếm tên mặt bằng" onSelect={(option) => setSelectedOption(option)} />
+						<CustomSelect
+							options={premises}
+							placeholder="Tìm kiếm tên mặt bằng"
+							value={selectedOption}
+							onSelect={(option) => setSelectedOption(option)}
+						/>
 					</Col>
 
 					<Col>
