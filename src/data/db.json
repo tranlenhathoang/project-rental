@@ -246,6 +246,7 @@
 			"deposit": "4.000.000 VNĐ",
 			"total": "12.000.000 VNĐ",
 			"content": "test",
+			"status": true,
 			"premises": {
 				"id": 1,
 				"premisesName": "MB001"
@@ -278,7 +279,8 @@
 			"price": "12.000.000 VNĐ",
 			"deposit": "5.000.000 VNĐ",
 			"total": "12.000.000 VNĐ",
-			"content": ""
+			"content": "",
+			"status": false
 		},
 		{
 			"id": 3,
@@ -293,7 +295,8 @@
 			"price": "12.000.000 VNĐ",
 			"deposit": "5.000.000 VNĐ",
 			"total": "12.000.000 VNĐ",
-			"content": ""
+			"content": "",
+			"status": false
 		},
 		{
 			"id": 4,
@@ -308,7 +311,8 @@
 			"price": "12.000.000 VNĐ",
 			"deposit": "5.000.000 VNĐ",
 			"total": "12.000.000 VNĐ",
-			"content": ""
+			"content": "",
+			"status": false
 		},
 		{
 			"id": 5,
@@ -323,7 +327,8 @@
 			"price": "12.000.000 VNĐ",
 			"deposit": "5.000.000 VNĐ",
 			"total": "12.000.000 VNĐ",
-			"content": ""
+			"content": "",
+			"status": true
 		}
 	],
 	"employees": [
