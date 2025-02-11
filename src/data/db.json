@@ -1,417 +1,417 @@
 {
-  "facilities": [
-    {
-      "id": "3",
-      "facility_code": "MB001",
-      "facility_type": "Mặt tiền",
-      "area": 100,
-      "status": "Chưa bàn giao",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customer": "Nguyễn Đình Hòa"
-    },
-    {
-      "id": "4",
-      "facility_code": "MB001",
-      "facility_type": "Mặt tiền",
-      "area": 100,
-      "status": "Chưa bàn giao",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customer": "Nguyễn Đình Hòa"
-    },
-    {
-      "id": "5",
-      "facility_code": "MB001",
-      "facility_type": "Mặt tiền",
-      "area": 100,
-      "status": "Chưa bàn giao",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customer": "Nguyễn Đình Hòa"
-    },
-    {
-      "building": "BUILDING 1",
-      "floor": "Tầng 5",
-      "facility_type": "Mặt Hậu",
-      "facility_code": "MB001",
-      "status": "Chưa bàn giao",
-      "area": "300",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "id": "8"
-    },
-    {
-      "id": "9",
-      "facility_code": "MB001",
-      "facility_type": "Mặt tiền",
-      "area": 100,
-      "status": "Chưa bàn giao",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customer": "Nguyễn Đình Hòa"
-    },
-    {
-      "building": "BUILDING 1",
-      "floor": "Tầng 5",
-      "facility_type": "Mặt Cắt",
-      "facility_code": "MB001",
-      "status": "Chưa bàn giao",
-      "area": "500",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "id": "10"
-    },
-    {
-      "id": "11",
-      "facility_code": "MB001",
-      "facility_type": "Mặt tiền",
-      "area": 100,
-      "status": "Chưa bàn giao",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customer": "Nguyễn Đình Hòa"
-    },
-    {
-      "building": "BUILDING 1",
-      "floor": "Tầng 5",
-      "facility_type": "Mặt Tiền",
-      "facility_code": "MB009",
-      "status": "Đang Vào Ở",
-      "area": "500",
-      "description": "non",
-      "prices": "50000",
-      "management_fee": "200",
-      "id": "12"
-    }
-  ],
-  "users": [
-    {
-      "id": "1",
-      "name": "nhathoang",
-      "password": "123456",
-      "mail": "tranlenhathoang357@gmail.com"
-    },
-    {
-      "id": "2",
-      "name": "admin",
-      "password": "1234567",
-      "mail": "admin@gmail.com"
-    },
-    {
-      "id": "3",
-      "name": "anh",
-      "password": "1",
-      "mail": "admin@gmail.com"
-    }
-  ],
-  "services": [
-    {
-      "id": "1381",
-      "name": "MB1_cus2",
-      "consume": 4000,
-      "date": "2025-02-04",
-      "premises": "MB002",
-      "quantity": 50,
-      "customer": "2"
-    },
-    {
-      "id": "39d6",
-      "name": "MB2_cus1",
-      "consume": 5000,
-      "date": "2025-02-01",
-      "premises": "MB002",
-      "quantity": 30,
-      "customer": "1"
-    },
-    {
-      "id": "1498",
-      "name": "mb1_cus3",
-      "consume": 30000,
-      "date": "2025-02-05",
-      "premises": "MB001",
-      "quantity": 1000,
-      "customer": "3"
-    },
-    {
-      "id": "bd68",
-      "name": "mb3_cus2",
-      "consume": 10000,
-      "date": "2025-02-06",
-      "premises": "MB003",
-      "quantity": 100,
-      "customer": "2"
-    },
-    {
-      "id": "92b1",
-      "name": "mb1_cus2",
-      "consume": 1000,
-      "date": "2025-02-08",
-      "premises": "MB001",
-      "quantity": 1000,
-      "customer": "2"
-    }
-  ],
-  "customerList": [
-    {
-      "id": "1",
-      "name": "Nguyễn Đình Hoà",
-      "identity": "343432423548",
-      "email": "hoadeptrai@gmail.com",
-      "phone": "0965434571",
-      "date": "1994-05-05",
-      "address": "12 Lê Quý Kỳ, Đà Nẵng",
-      "website": "hoaminnzy.com",
-      "company": "Hoa Thiên"
-    },
-    {
-      "id": "2",
-      "name": "Lê Đình Quốc",
-      "identity": "343432423",
-      "email": "nhanvanlam@gmail.com",
-      "phone": "096543453",
-      "date": "05/05/1994",
-      "address": "12 Nguyễn Phước Nguyên, Đà Nẵng",
-      "website": "abc.com",
-      "company": "Hoa Mặt Trời"
-    },
-    {
-      "id": "3",
-      "name": "Nguyễn Minh Hùng",
-      "identity": "343432423",
-      "email": "hung@gmail.com",
-      "phone": "096543453",
-      "date": "05/05/1994",
-      "address": "12 Lê Duẩn, Đà Nẵng",
-      "website": "hoaminnzy.com",
-      "company": "Hoa Hướng Dương"
-    },
-    {
-      "id": "4",
-      "name": "Phạm Minh Hưng",
-      "identity": "343432423",
-      "email": "hungmapdeptrai@gmail.com",
-      "phone": "096543453",
-      "date": "05/05/1994",
-      "address": "12 Trường Chinh, Đà Nẵng",
-      "website": "vipnha.com",
-      "company": "Hoa Vạn Thọ"
-    },
-    {
-      "id": "5",
-      "name": "Nguyễn Văn Tiến",
-      "identity": "343432423",
-      "email": "tieni@gmail.com",
-      "phone": "096543453",
-      "date": "05/05/1994",
-      "address": "12 Lê Văn Quý, Đà Nẵng",
-      "website": "build.com",
-      "company": "Hoa Cúc"
-    },
-    {
-      "name": "Đinh Thanh Hằng",
-      "identity": "001303016742",
-      "email": "dinhhang440@gmail.com",
-      "phone": "0334534831",
-      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
-      "website": "tranhuahua.com",
-      "company": "Trăn hua hua",
-      "date": "07/02/2025",
-      "id": 6
-    },
-    {
-      "name": "Thanh Hằng",
-      "identity": "040048000389",
-      "email": "dinhhang440@gmail.com",
-      "phone": "0334534831",
-      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
-      "website": "tranhuahua.com",
-      "company": "Trăn hua hua",
-      "date": "14/02/2025",
-      "id": 7
-    }
-  ],
-  "contracts": [
-    {
-      "id": 1,
-      "customerId": 1,
-      "premisesId": 2,
-      "employeeId": 1,
-      "tax": 2020202020,
-      "validity": "còn hiệu lực",
-      "term": 1,
-      "startDate": "2020-09-09",
-      "endDate": "2020-10-09",
-      "price": "12.000.000 VNĐ",
-      "deposit": "4.000.000 VNĐ",
-      "total": "12.000.000 VNĐ",
-      "content": "test",
-      "premises": {
-        "id": 1,
-        "premisesName": "MB001"
-      },
-      "customer": {
-        "id": 1,
-        "name": "Nguyễn Đình Hòa",
-        "identity": "343432423",
-        "email": "hoadeptrai@gmail.com",
-        "phone": "096543453",
-        "dob": "05/05/1994",
-        "address": "12 Lê Duẩn, Đà Nẵng",
-        "status": true
-      },
-      "employee": {
-        "id": 1,
-        "name": "Nguyễn Minh Hùng"
-      }
-    },
-    {
-      "id": 2,
-      "customerId": 2,
-      "premisesId": 2,
-      "employeeId": 2,
-      "tax": 2020202020,
-      "validity": "còn hiệu lực",
-      "term": 1,
-      "startDate": "2020-09-09",
-      "endDate": "2020-10-09",
-      "price": "12.000.000 VNĐ",
-      "deposit": "5.000.000 VNĐ",
-      "total": "12.000.000 VNĐ",
-      "content": ""
-    },
-    {
-      "id": 3,
-      "customerId": 3,
-      "premisesId": 3,
-      "employeeId": 3,
-      "tax": 2020202020,
-      "validity": "còn hiệu lực",
-      "term": 1,
-      "startDate": "2020-09-09",
-      "endDate": "2020-10-09",
-      "price": "12.000.000 VNĐ",
-      "deposit": "5.000.000 VNĐ",
-      "total": "12.000.000 VNĐ",
-      "content": ""
-    },
-    {
-      "id": 4,
-      "customerId": 4,
-      "premisesId": 1,
-      "employeeId": 4,
-      "tax": 2020202020,
-      "validity": "còn hiệu lực",
-      "term": 1,
-      "startDate": "2020-09-09",
-      "endDate": "2020-10-09",
-      "price": "12.000.000 VNĐ",
-      "deposit": "5.000.000 VNĐ",
-      "total": "12.000.000 VNĐ",
-      "content": ""
-    },
-    {
-      "id": 5,
-      "customerId": 5,
-      "premisesId": 1,
-      "employeeId": 5,
-      "tax": 2020202020,
-      "validity": "còn hiệu lực",
-      "term": 1,
-      "startDate": "2020-09-09",
-      "endDate": "2020-10-09",
-      "price": "12.000.000 VNĐ",
-      "deposit": "5.000.000 VNĐ",
-      "total": "12.000.000 VNĐ",
-      "content": ""
-    }
-  ],
-  "employees": [
-    {
-      "id": 1,
-      "name": "Nguyễn Minh Hùng"
-    },
-    {
-      "id": 2,
-      "name": "Lê Đình Quốc"
-    },
-    {
-      "id": 3,
-      "name": "Đào Dung Sỹ My"
-    },
-    {
-      "id": 4,
-      "name": "Lê Đình Thám"
-    },
-    {
-      "id": 5,
-      "name": "Phạm Anh Hào"
-    }
-  ],
-  "customers": [
-    {
-      "id": 1,
-      "name": "Nguyễn Đình Hòa",
-      "identity": "343432423",
-      "email": "hoadeptrai@gmail.com",
-      "phone": "096543453",
-      "dob": "05/05/1994",
-      "address": "12 Lê Duẩn, Đà Nẵng",
-      "status": true
-    },
-    {
-      "id": 2,
-      "name": "Nguyễn Văn Anh",
-      "identity": "343432423",
-      "email": "vananh@gmail.com",
-      "phone": "096543453",
-      "dob": "05/05/1994",
-      "address": "12 Lê Duẩn, Đà Nẵng",
-      "status": false
-    },
-    {
-      "id": 3,
-      "name": "Nguyễn Đình Cựu",
-      "identity": "343432423",
-      "email": "cuu@gmail.com",
-      "phone": "096543453",
-      "dob": "05/05/1994",
-      "address": "12 Lê Duẩn, Đà Nẵng",
-      "status": false
-    },
-    {
-      "id": 4,
-      "name": "Nhân Văn Lam",
-      "identity": "343432423",
-      "email": "lamvannhan@gmail.com",
-      "phone": "096543453",
-      "dob": "05/05/1994",
-      "address": "12 Lê Duẩn, Đà Nẵng",
-      "status": false
-    },
-    {
-      "id": 5,
-      "name": "Nguyễn Mỹ Linh",
-      "identity": "343432423",
-      "email": "linh@gmail.com",
-      "phone": "096543453",
-      "dob": "05/05/1994",
-      "address": "12 Lê Duẩn, Đà Nẵng",
-      "status": true
-    }
-  ],
-  "premises": [
-    {
-      "id": 1,
-      "premisesName": "MB001"
-    },
-    {
-      "id": 2,
-      "premisesName": "MB002"
-    },
-    {
-      "id": 3,
-      "premisesName": "MB003"
-    }
-  ]
+	"facilities": [
+		{
+			"id": "3",
+			"facility_code": "MB001",
+			"facility_type": "Mặt tiền",
+			"area": 100,
+			"status": "Chưa bàn giao",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"customer": "Nguyễn Đình Hòa"
+		},
+		{
+			"id": "4",
+			"facility_code": "MB001",
+			"facility_type": "Mặt tiền",
+			"area": 100,
+			"status": "Chưa bàn giao",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"customer": "Nguyễn Đình Hòa"
+		},
+		{
+			"id": "5",
+			"facility_code": "MB001",
+			"facility_type": "Mặt tiền",
+			"area": 100,
+			"status": "Chưa bàn giao",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"customer": "Nguyễn Đình Hòa"
+		},
+		{
+			"building": "BUILDING 1",
+			"floor": "Tầng 5",
+			"facility_type": "Mặt Hậu",
+			"facility_code": "MB001",
+			"status": "Chưa bàn giao",
+			"area": "300",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"id": "8"
+		},
+		{
+			"id": "9",
+			"facility_code": "MB001",
+			"facility_type": "Mặt tiền",
+			"area": 100,
+			"status": "Chưa bàn giao",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"customer": "Nguyễn Đình Hòa"
+		},
+		{
+			"building": "BUILDING 1",
+			"floor": "Tầng 5",
+			"facility_type": "Mặt Cắt",
+			"facility_code": "MB001",
+			"status": "Chưa bàn giao",
+			"area": "500",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"id": "10"
+		},
+		{
+			"id": "11",
+			"facility_code": "MB001",
+			"facility_type": "Mặt tiền",
+			"area": 100,
+			"status": "Chưa bàn giao",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"customer": "Nguyễn Đình Hòa"
+		},
+		{
+			"building": "BUILDING 1",
+			"floor": "Tầng 5",
+			"facility_type": "Mặt Tiền",
+			"facility_code": "MB009",
+			"status": "Đang Vào Ở",
+			"area": "500",
+			"description": "non",
+			"prices": "50000",
+			"management_fee": "200",
+			"id": "12"
+		}
+	],
+	"users": [
+		{
+			"id": "1",
+			"name": "nhathoang",
+			"password": "123456",
+			"mail": "tranlenhathoang357@gmail.com"
+		},
+		{
+			"id": "2",
+			"name": "admin",
+			"password": "1234567",
+			"mail": "admin@gmail.com"
+		},
+		{
+			"id": "3",
+			"name": "anh",
+			"password": "1",
+			"mail": "admin@gmail.com"
+		}
+	],
+	"services": [
+		{
+			"id": "1381",
+			"name": "MB1_cus2",
+			"consume": 4000,
+			"date": "2025-02-04",
+			"premises": "MB002",
+			"quantity": 50,
+			"customer": "2"
+		},
+		{
+			"id": "39d6",
+			"name": "MB2_cus1",
+			"consume": 5000,
+			"date": "2025-02-01",
+			"premises": "MB002",
+			"quantity": 30,
+			"customer": "1"
+		},
+		{
+			"id": "1498",
+			"name": "mb1_cus3",
+			"consume": 30000,
+			"date": "2025-02-05",
+			"premises": "MB001",
+			"quantity": 1000,
+			"customer": "3"
+		},
+		{
+			"id": "bd68",
+			"name": "mb3_cus2",
+			"consume": 10000,
+			"date": "2025-02-06",
+			"premises": "MB003",
+			"quantity": 100,
+			"customer": "2"
+		},
+		{
+			"id": "92b1",
+			"name": "mb1_cus2",
+			"consume": 1000,
+			"date": "2025-02-08",
+			"premises": "MB001",
+			"quantity": 1000,
+			"customer": "2"
+		}
+	],
+	"customerList": [
+		{
+			"id": "1",
+			"name": "Nguyễn Đình Hoà",
+			"identity": "343432423548",
+			"email": "hoadeptrai@gmail.com",
+			"phone": "0965434571",
+			"date": "1994-05-05",
+			"address": "12 Lê Quý Kỳ, Đà Nẵng",
+			"website": "hoaminnzy.com",
+			"company": "Hoa Thiên Lý"
+		},
+		{
+			"id": "2",
+			"name": "Lê Đình Quốc",
+			"identity": "343432423",
+			"email": "nhanvanlam@gmail.com",
+			"phone": "096543453",
+			"date": "1994-05-05",
+			"address": "12 Nguyễn Phước Nguyên, Đà Nẵng",
+			"website": "abc.com",
+			"company": "Hoa Mặt Trời"
+		},
+		{
+			"id": "3",
+			"name": "Nguyễn Minh Hùng",
+			"identity": "343432423",
+			"email": "hung@gmail.com",
+			"phone": "096543453",
+			"date": "1994-05-05",
+			"address": "12 Lê Duẩn, Đà Nẵng",
+			"website": "hoaminnzy.com",
+			"company": "Hoa Hướng Dương"
+		},
+		{
+			"id": "4",
+			"name": "Phạm Minh Hưng",
+			"identity": "343432423",
+			"email": "hungmapdeptrai@gmail.com",
+			"phone": "096543453",
+			"date": "1994-05-05",
+			"address": "12 Trường Chinh, Đà Nẵng",
+			"website": "vipnha.com",
+			"company": "Hoa Vạn Thọ"
+		},
+		{
+			"id": "5",
+			"name": "Nguyễn Văn Tiến",
+			"identity": "343432423",
+			"email": "tieni@gmail.com",
+			"phone": "096543453",
+			"date": "1994-05-05",
+			"address": "12 Lê Văn Quý, Đà Nẵng",
+			"website": "build.com",
+			"company": "Hoa Cúc"
+		},
+		{
+			"name": "Đinh Thanh Hằng",
+			"identity": "001303016742",
+			"email": "dinhhang440@gmail.com",
+			"phone": "0334534831",
+			"address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
+			"website": "tranhuahua.com",
+			"company": "Trăn hua hua",
+			"date": "1994-05-05",
+			"id": 6
+		},
+		{
+			"name": "Thanh Hằng",
+			"identity": "040048000389",
+			"email": "dinhhang440@gmail.com",
+			"phone": "0334534831",
+			"address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
+			"website": "tranhuahua.com",
+			"company": "Trăn hua hua",
+			"date": "14/02/2025",
+			"id": 7
+		}
+	],
+	"contracts": [
+		{
+			"id": 1,
+			"customerId": 1,
+			"premisesId": 2,
+			"employeeId": 1,
+			"tax": 2020202020,
+			"validity": "còn hiệu lực",
+			"term": 1,
+			"startDate": "2020-09-09",
+			"endDate": "2020-10-09",
+			"price": "12.000.000 VNĐ",
+			"deposit": "4.000.000 VNĐ",
+			"total": "12.000.000 VNĐ",
+			"content": "test",
+			"premises": {
+				"id": 1,
+				"premisesName": "MB001"
+			},
+			"customer": {
+				"id": 1,
+				"name": "Nguyễn Đình Hòa",
+				"identity": "343432423",
+				"email": "hoadeptrai@gmail.com",
+				"phone": "096543453",
+				"dob": "05/05/1994",
+				"address": "12 Lê Duẩn, Đà Nẵng",
+				"status": true
+			},
+			"employee": {
+				"id": 1,
+				"name": "Nguyễn Minh Hùng"
+			}
+		},
+		{
+			"id": 2,
+			"customerId": 2,
+			"premisesId": 2,
+			"employeeId": 2,
+			"tax": 2020202020,
+			"validity": "còn hiệu lực",
+			"term": 1,
+			"startDate": "2020-09-09",
+			"endDate": "2020-10-09",
+			"price": "12.000.000 VNĐ",
+			"deposit": "5.000.000 VNĐ",
+			"total": "12.000.000 VNĐ",
+			"content": ""
+		},
+		{
+			"id": 3,
+			"customerId": 3,
+			"premisesId": 3,
+			"employeeId": 3,
+			"tax": 2020202020,
+			"validity": "còn hiệu lực",
+			"term": 1,
+			"startDate": "2020-09-09",
+			"endDate": "2020-10-09",
+			"price": "12.000.000 VNĐ",
+			"deposit": "5.000.000 VNĐ",
+			"total": "12.000.000 VNĐ",
+			"content": ""
+		},
+		{
+			"id": 4,
+			"customerId": 4,
+			"premisesId": 1,
+			"employeeId": 4,
+			"tax": 2020202020,
+			"validity": "còn hiệu lực",
+			"term": 1,
+			"startDate": "2020-09-09",
+			"endDate": "2020-10-09",
+			"price": "12.000.000 VNĐ",
+			"deposit": "5.000.000 VNĐ",
+			"total": "12.000.000 VNĐ",
+			"content": ""
+		},
+		{
+			"id": 5,
+			"customerId": 5,
+			"premisesId": 1,
+			"employeeId": 5,
+			"tax": 2020202020,
+			"validity": "còn hiệu lực",
+			"term": 1,
+			"startDate": "2020-09-09",
+			"endDate": "2020-10-09",
+			"price": "12.000.000 VNĐ",
+			"deposit": "5.000.000 VNĐ",
+			"total": "12.000.000 VNĐ",
+			"content": ""
+		}
+	],
+	"employees": [
+		{
+			"id": 1,
+			"name": "Nguyễn Minh Hùng"
+		},
+		{
+			"id": 2,
+			"name": "Lê Đình Quốc"
+		},
+		{
+			"id": 3,
+			"name": "Đào Dung Sỹ My"
+		},
+		{
+			"id": 4,
+			"name": "Lê Đình Thám"
+		},
+		{
+			"id": 5,
+			"name": "Phạm Anh Hào"
+		}
+	],
+	"customers": [
+		{
+			"id": 1,
+			"name": "Nguyễn Đình Hòa",
+			"identity": "343432423",
+			"email": "hoadeptrai@gmail.com",
+			"phone": "096543453",
+			"dob": "05/05/1994",
+			"address": "12 Lê Duẩn, Đà Nẵng",
+			"status": true
+		},
+		{
+			"id": 2,
+			"name": "Nguyễn Văn Anh",
+			"identity": "343432423",
+			"email": "vananh@gmail.com",
+			"phone": "096543453",
+			"dob": "05/05/1994",
+			"address": "12 Lê Duẩn, Đà Nẵng",
+			"status": false
+		},
+		{
+			"id": 3,
+			"name": "Nguyễn Đình Cựu",
+			"identity": "343432423",
+			"email": "cuu@gmail.com",
+			"phone": "096543453",
+			"dob": "05/05/1994",
+			"address": "12 Lê Duẩn, Đà Nẵng",
+			"status": false
+		},
+		{
+			"id": 4,
+			"name": "Nhân Văn Lam",
+			"identity": "343432423",
+			"email": "lamvannhan@gmail.com",
+			"phone": "096543453",
+			"dob": "05/05/1994",
+			"address": "12 Lê Duẩn, Đà Nẵng",
+			"status": false
+		},
+		{
+			"id": 5,
+			"name": "Nguyễn Mỹ Linh",
+			"identity": "343432423",
+			"email": "linh@gmail.com",
+			"phone": "096543453",
+			"dob": "05/05/1994",
+			"address": "12 Lê Duẩn, Đà Nẵng",
+			"status": true
+		}
+	],
+	"premises": [
+		{
+			"id": 1,
+			"premisesName": "MB001"
+		},
+		{
+			"id": 2,
+			"premisesName": "MB002"
+		},
+		{
+			"id": 3,
+			"premisesName": "MB003"
+		}
+	]
 }
