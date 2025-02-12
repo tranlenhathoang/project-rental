@@ -13,7 +13,7 @@ function ContractItem(props) {
 				<input type="checkbox" checked={customer.status} onChange={() => props.handleCheckboxChange(premises.id, !customer.status)} />
 			</td>
 			<td className="text-center">
-				<Link type="button" className="btn btn-info">
+				<Link type="button" className="btn btn-info" to={"/contracts/detail/" + id}>
 					Chi tiết
 				</Link>
 			</td>
