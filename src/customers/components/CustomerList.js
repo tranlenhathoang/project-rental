@@ -39,10 +39,11 @@ function CustomerList() {
 		let searchName = searchNameRef.current.value.trim();
 		let searchPhone = searchPhoneRef.current.value.trim();
 		let searchIdentity = searchIdentityRef.current.value.trim();
-		const fetchData = await searchByName(searchName, searchIdentity, searchPhone);
-		setCustomerList(() => [...fetchData]);
+		const [data, totalRecords] = await searchByName(searchName, searchIdentity, searchPhone, page, PAGE_SIZE);
+		setCustomerList(() => [...data]);
+		setTotalPage(Math.ceil(totalRecords / PAGE_SIZE));
 	};
-
+	//sau khi search thì phải cập nhật lại giao diện phân trang
 	const handleFirst = () => {
 		setPage(1);
 	};
@@ -164,7 +165,9 @@ function CustomerList() {
 				<DeleteComponent customer={deleteCustomer} show={show} closeModal={closeModal} />
 			</div>
 			<Pagination className="container my-4 d-flex justify-content-center" id="pagination">
-				<Pagination.First onClick={handleFirst} disabled={page === 1} />
+				<Pagination.First onClick={handleFirst} disabled={page === 1}>
+					Trang đầu
+				</Pagination.First>
 				<Pagination.Prev onClick={handlePrev} disabled={page === 1} />
 				{[...Array(totalPage || 0)].map((_, index) => (
 					<Pagination.Item key={index} active={page === index + 1} onClick={() => setPage(index + 1)}>
@@ -172,7 +175,9 @@ function CustomerList() {
 					</Pagination.Item>
 				))}
 				<Pagination.Next onClick={handleNext} disabled={page === totalPage} />
-				<Pagination.Last onClick={handleLast} disabled={page === totalPage} />
+				<Pagination.Last onClick={handleLast} disabled={page === totalPage}>
+					Trang cuối
+				</Pagination.Last>
 			</Pagination>
 		</div>
 	);

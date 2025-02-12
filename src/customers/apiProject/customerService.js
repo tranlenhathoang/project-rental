@@ -10,22 +10,20 @@ export async function getAllCustomer(page, limit) {
 		return {};
 	}
 }
-export async function searchByName(name, identity, phone) {
+export async function searchByName(name, identity, phone, page, limit) {
 	try {
 		let response = [];
-		if ((name, identity, phone)) {
-			response = await axios.get(`${BASE_URL}/customerList?name_like=${name}&identity_like=${identity}&phone=${phone}`);
-		} else if (name) {
-			response = await axios.get(`${BASE_URL}/customerList?name_like=${name}`);
-		} else if (identity) {
-			response = await axios.get(`${BASE_URL}/customerList?identity_like=${identity}`);
-		} else if (phone) {
-			response = await axios.get(`${BASE_URL}/customerList?phone=${phone}`);
+
+		if (name || identity || phone) {
+			response = await axios.get(
+				`${BASE_URL}/customerList?_page=${page}&_limit=${limit}&name_like=${name}&identity_like=${identity}&phone_like=${phone}`
+			);
 		} else {
-			response = await axios.get(`${BASE_URL}/customerList`);
+			response = await axios.get(`${BASE_URL}/customerList?_page=${page}&_limit=${limit}`);
 		}
 
-		return response.data;
+		const totalRecords = response.headers["x-total-count"];
+		return [response.data, totalRecords];
 	} catch (e) {
 		return [];
 	}
