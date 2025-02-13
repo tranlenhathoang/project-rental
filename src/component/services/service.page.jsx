@@ -4,7 +4,7 @@ import ServiceTable from './service.table';
 const ServicesPage = () => {
     return (
         <div style={{
-            padding: "20px"
+            padding: "10px"
         }}>
             <ServiceTable />
         </div>

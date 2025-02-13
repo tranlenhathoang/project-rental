@@ -26,6 +26,7 @@ import { ToastContainer } from "react-toastify";
 import App from "./App";
 import EditContract from "./contracts/components/EditContract";
 import DetailContract from "./contracts/components/DetailContract";
+import Footer from "./component/footer/Footer";
 
 const LayoutAdmin = () => {
 	const navigate = useNavigate();
@@ -42,7 +43,7 @@ const LayoutAdmin = () => {
 		<div>
 			<Header />
 			<Outlet />
-			<footer></footer>
+			<Footer></Footer>
 			<ToastContainer />
 		</div>
 	);

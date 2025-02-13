@@ -113,15 +113,6 @@
   ],
   "services": [
     {
-      "id": "1381",
-      "name": "MB1_cus2",
-      "consume": 4000,
-      "date": "2025-02-04",
-      "premises": "MB002",
-      "quantity": 50,
-      "customer": "2"
-    },
-    {
       "id": "39d6",
       "name": "MB2_cus1",
       "consume": 5000,
@@ -140,20 +131,11 @@
       "customer": "3"
     },
     {
-      "id": "bd68",
-      "name": "mb3_cus2",
-      "consume": 10000,
-      "date": "2025-02-06",
-      "premises": "MB003",
-      "quantity": 100,
-      "customer": "2"
-    },
-    {
-      "id": "92b1",
-      "name": "mb1_cus2",
-      "consume": 1000,
-      "date": "2025-02-08",
-      "premises": "MB001",
+      "id": "68e4",
+      "name": "mb3_cus1",
+      "consume": 3000,
+      "date": "2025-02-05",
+      "premises": "MB002",
       "quantity": 1000,
       "customer": "2"
     }
@@ -424,15 +406,24 @@
   "premises": [
     {
       "id": 1,
-      "premisesName": "MB001"
+      "premisesName": "MB001",
+      "src": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Tầng 1",
+      "desc": "Không gian mở gồm khu lễ tân, phòng khách và bếp liên thông, tạo cảm giác rộng rãi."
     },
     {
       "id": 2,
-      "premisesName": "MB002"
+      "premisesName": "MB002",
+      "src": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Mặt bằng tầng lửng",
+      "desc": "Thiết kế linh hoạt với phòng làm việc và khu thư giãn, tối ưu ánh sáng tự nhiên."
     },
     {
       "id": 3,
-      "premisesName": "MB003"
+      "premisesName": "MB003",
+      "src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Mặt bằng tầng 2",
+      "desc": "ố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt."
     }
   ]
 }
