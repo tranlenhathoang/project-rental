@@ -6,10 +6,10 @@ import Col from "react-bootstrap/Col";
 import { HiArrowPath } from "react-icons/hi2";
 import { FaSearch } from "react-icons/fa";
 import Pagination from "react-bootstrap/Pagination";
-import { changeStatus, getAllCustomer } from "../apiProject/apiCustomer";
+import { getAllCustomer } from "../apiProject/apiCustomer";
 import { getAllPremises } from "../apiProject/apiPremises";
 import CustomSelect from "./CustomSelect";
-import { getAllContract, search } from "../apiProject/apiContract";
+import { changeStatus, getAllContract, search } from "../apiProject/apiContract";
 import { PAGE_SIZE } from "../apiProject/constant";
 
 function ContractList() {
@@ -27,6 +27,7 @@ function ContractList() {
 	useEffect(() => {
 		const fetchData = async () => {
 			const [data, total] = await getAllContract(page, totalSize);
+			console.log(data);
 			const premisesData = await getAllPremises();
 			const customerData = await getAllCustomer();
 
@@ -52,15 +53,9 @@ function ContractList() {
 		setReload(!reload);
 	};
 
-	const handleCheckboxChange = async (id, status) => {
-		await changeStatus(id, status);
-
-		const fetchData = async () => {
-			const [data, total] = await getAllContract(page, totalSize);
-			setContract(data);
-			setTotalPage(Math.ceil(total / totalSize));
-		};
-		fetchData();
+	const handleCheckboxChange = async (item) => {
+		await changeStatus(item.id, !item.status);
+		reloadData();
 	};
 
 	const handleFirst = () => {
@@ -92,7 +87,7 @@ function ContractList() {
 	return (
 		<div className="container my-3">
 			<div className="text-center mb-5">
-				<h3>DANH SÁCH HỢP ĐỒNG </h3>
+				<h2>DANH SÁCH HỢP ĐỒNG </h2>
 			</div>
 			<div className="mb-3">
 				<Row>
