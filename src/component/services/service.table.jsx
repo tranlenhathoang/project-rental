@@ -62,8 +62,20 @@ const ServiceTable = () => {
 	};
 	console.log(listService);
 
-	const handleSave = () => {
+	console.log(">>>>check selectedService", selectedService);
+
+
+	const handleSave = async () => {
+		const res = await axios.delete(`http://localhost:3001/services/${selectedService.id}`);
+		console.log(">>>check res", res);
+		if (res.status === 200) {
+			toast.success("Xóa dịch vụ thành công!")
+			getData();
+		} else {
+			toast.error("Xóa dịch vụ thất bại")
+		}
 		setIsModalOpen(false);
+
 	};
 
 	const handleSelect = (item) => {
@@ -170,7 +182,7 @@ const ServiceTable = () => {
 			</Table>
 
 			{isModalOpen && (
-				<div className="modal show" style={{ display: "block", position: "static" }}>
+				<div className="modal show" style={{ display: "block" }}>
 					<Modal.Dialog>
 						<Modal.Header>
 							<Modal.Title>Thanh Toán</Modal.Title>

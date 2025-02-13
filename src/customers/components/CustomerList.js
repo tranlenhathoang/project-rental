@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import CustomerItem from "./CustomerItem";
 import { Link } from "react-router-dom";
-import { IoSearchSharp } from "react-icons/io5";
+import { FaSearch } from "react-icons/fa";
 import Pagination from "react-bootstrap/Pagination";
-import { HiMiniArrowPath } from "react-icons/hi2";
+import { HiArrowPath } from "react-icons/hi2";
 import { PAGE_SIZE } from "../apiProject/constant";
 import { getAllCustomer, searchByName } from "../apiProject/customerService";
 import Row from "react-bootstrap/Row";
@@ -68,33 +68,47 @@ function CustomerList() {
 
 	return (
 		<div>
-			<div className="p-4">
-				<h5 className="mb-4">Tìm kiếm thông tin khách hàng</h5>
+			<div className="container my-3">
+				<div className="text-center mb-5">
+					<h2>DANH SÁCH KHÁCH HÀNG</h2>
+				</div>
 				<Row className="g-4 align-items-center">
 					<Col xs="auto">
 						<div className="d-flex align-items-center">
-							<label htmlFor="customerName" className="me-2" style={{ width: "130px", whiteSpace: "nowrap" }}>
-								Tên khách hàng:
-							</label>
-							<input ref={searchNameRef} type="text" id="customerName" className="form-control" placeholder="Tên khách hàng" />
+							<input
+								ref={searchNameRef}
+								type="text"
+								id="customerName"
+								className="form-control"
+								style={{ width: "250px" }}
+								placeholder="Tên khách hàng"
+							/>
 						</div>
 					</Col>
 
 					<Col xs="auto">
 						<div className="d-flex align-items-center">
-							<label htmlFor="customerID" className="me-2" style={{ width: "130px", whiteSpace: "nowrap" }}>
-								CMND:
-							</label>
-							<input ref={searchIdentityRef} type="text" id="customerID" className="form-control" placeholder="Số chứng minh nhân dân" />
+							<input
+								ref={searchIdentityRef}
+								type="text"
+								id="customerID"
+								className="form-control"
+								style={{ width: "250px" }}
+								placeholder="Số chứng minh nhân dân"
+							/>
 						</div>
 					</Col>
 
 					<Col xs="auto">
 						<div className="d-flex align-items-center">
-							<label htmlFor="customerPhone" className="me-2" style={{ width: "130px", whiteSpace: "nowrap" }}>
-								Số điện thoại:
-							</label>
-							<input ref={searchPhoneRef} type="text" id="customerPhone" className="form-control" placeholder="Số điện thoại" />
+							<input
+								ref={searchPhoneRef}
+								type="text"
+								id="customerPhone"
+								className="form-control"
+								style={{ width: "250px" }}
+								placeholder="Số điện thoại"
+							/>
 						</div>
 					</Col>
 
@@ -106,27 +120,24 @@ function CustomerList() {
 								className="btn btn-secondary rounded-circle d-flex justify-content-center align-items-center"
 								style={{ width: "40px", height: "40px" }}
 							>
-								<IoSearchSharp color="red" />
+								<FaSearch color="red" size={20} />
 							</button>
 							<button
 								type="button"
 								className="btn btn-secondary rounded-circle ms-2 d-flex justify-content-center align-items-center"
-								style={{ width: "43px", height: "43px" }}
+								style={{ width: "40px", height: "40px" }}
 								onClick={reloadData}
 							>
-								<HiMiniArrowPath />
+								<HiArrowPath style={{ width: "20px", height: "20px" }} />
 							</button>
 						</div>
 					</Col>
 				</Row>
 			</div>
 
-			<div className={styles.list}>
-				<div className="text-center mt-2">
-					<h2>DANH SÁCH KHÁCH HÀNG</h2>
-				</div>
-				<div className="d-flex justify-content-start align-items-center gap-2 mb-2 ms-2">
-					<Link className="btn btn-sm btn-success" to="/add_customers">
+			<div className="container" id={styles.list}>
+				<div className="d-flex justify-content-start align-items-center gap-2 mb-3">
+					<Link className="btn btn-success" to="/add_customers">
 						Thêm mới
 					</Link>
 				</div>
