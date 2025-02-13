@@ -30,7 +30,7 @@ import DetailContract from "./contracts/components/DetailContract";
 const LayoutAdmin = () => {
 	const navigate = useNavigate();
 	const account = useSelector((state) => state?.accountReducer?.account);
-	console.log("account", account);
+
 
 	useEffect(() => {
 		if (!account) {
