@@ -9,8 +9,9 @@ import Pagination from "react-bootstrap/Pagination";
 import { getAllCustomer } from "../apiProject/apiCustomer";
 import { getAllPremises } from "../apiProject/apiPremises";
 import CustomSelect from "./CustomSelect";
-import { changeStatus, getAllContract, search } from "../apiProject/apiContract";
+import { changeStatus, deleteById, getAllContract, search } from "../apiProject/apiContract";
 import { PAGE_SIZE } from "../apiProject/constant";
+import DeleteContract from "./DeleteContract";
 
 function ContractList() {
 	const [customers, setCustomers] = useState([]);
@@ -23,6 +24,8 @@ function ContractList() {
 	const [selectedCustomerOption, setSelectedCustomerOption] = useState(null);
 	const [selectedStatus, setSelectedStatus] = useState("");
 	const [reload, setReload] = useState(true);
+	const [show, setShow] = useState(false);
+	const [deleteContract, setDeleteContract] = useState();
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -47,7 +50,7 @@ function ContractList() {
 			);
 		};
 		fetchData();
-	}, [page, reload]);
+	}, [page, reload, show]);
 
 	const reloadData = () => {
 		setReload(!reload);
@@ -84,6 +87,21 @@ function ContractList() {
 	};
 	//sau khi search thì phải cập nhật lại giao diện phân trang
 
+	const handleShow = (contract) => {
+		setShow(true);
+		setDeleteContract(contract);
+	};
+	const handleClose = (contract) => {
+		setShow(false);
+		setDeleteContract(null);
+	};
+	const handleDelete = async () => {
+		try {
+			await deleteById(deleteContract.id);
+			handleClose();
+		} catch (error) {}
+	};
+
 	return (
 		<div className="container my-3">
 			<div className="text-center mb-5">
@@ -112,7 +130,7 @@ function ContractList() {
 					<Col>
 						<select className="form-select" value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)}>
 							<option value="">Tất cả trạng thái</option>
-							<option value="true">Đã Thuê</option>
+							<option value="true">Đã thuê</option>
 							<option value="false">Trống</option>
 						</select>
 					</Col>
@@ -133,7 +151,7 @@ function ContractList() {
 				<Link className="btn btn-success me-2" to="/contracts/add">
 					Thêm mới
 				</Link>
-				<button className="btn btn-secondary" onClick={reloadData}>
+				<button className="btn btn-secondary" title="Tải lại dữ liệu" onClick={reloadData}>
 					<HiArrowPath className="d-flex justify-content-center align-items-center" style={{ width: "20px", height: "25px" }} />
 				</button>
 			</div>
@@ -142,9 +160,13 @@ function ContractList() {
 					<tr className="table-dark">
 						<th className="text-center">ID</th>
 						<th className="text-center">Tên Khách Hàng</th>
-						<th className="text-center">Tên Mặt Bằng</th>
-						<th className="text-center">Đang Thuê</th>
-						<th className="text-center" colSpan="3"></th>
+						<th className="text-center" style={{ width: "150px" }}>
+							Tên Mặt Bằng
+						</th>
+						<th className="text-center" style={{ width: "150px" }}>
+							Đang Thuê
+						</th>
+						<th className="text-center" style={{ width: "220px" }}></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -156,7 +178,13 @@ function ContractList() {
 						</tr>
 					) : (
 						contract.map((item, i) => (
-							<ContractItem key={item.id} i={(page - 1) * PAGE_SIZE + i} item={item} handleCheckboxChange={handleCheckboxChange} />
+							<ContractItem
+								key={item.id}
+								i={(page - 1) * PAGE_SIZE + i}
+								item={item}
+								handleCheckboxChange={handleCheckboxChange}
+								handleShow={handleShow}
+							/>
 						))
 					)}
 				</tbody>
@@ -178,6 +206,8 @@ function ContractList() {
 					Trang cuối
 				</Pagination.Item>
 			</Pagination>
+
+			<DeleteContract show={show} contracts={deleteContract} handleClose={handleClose} handleDelete={handleDelete} />
 		</div>
 	);
 }

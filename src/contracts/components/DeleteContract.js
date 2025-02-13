@@ -9,12 +9,12 @@ function DeleteContract(props) {
 				<Modal.Header closeButton>
 					<Modal.Title>Xóa hợp đồng </Modal.Title>
 				</Modal.Header>
-				<Modal.Body>Bạn có chắc muốn xóa hợp đồng</Modal.Body>
+				<Modal.Body>Bạn có muốn xóa hợp đồng này không?</Modal.Body>
 				<Modal.Footer>
 					<Button variant="secondary" onClick={props.handleClose}>
 						Hủy
 					</Button>
-					<Button variant="primary" onClick={props.handleDelete}>
+					<Button variant="danger" onClick={props.handleDelete}>
 						Xóa
 					</Button>
 				</Modal.Footer>
