@@ -6,16 +6,10 @@ function CustomerItem(props) {
 	return (
 		<tr>
 			<td className="text-center">{+props.i + 1}</td>
-			<td className="text-center">{name}</td>
-			<td className="text-center">{identity}</td>
-			<td className="text-center">{email}</td>
-			<td className="text-center">{phone}</td>
-
-			<td className="text-center">
-				<Link className="btn btn-primary me-3" to={"/detail/" + id}>
-					Chi tiết
-				</Link>
-			</td>
+			<td className="text-start">{name}</td>
+			<td className="text-end">{identity}</td>
+			<td className="text-start">{email}</td>
+			<td className="text-end">{phone}</td>
 			<td className="text-center">
 				<Link className="btn btn-primary me-3" to={"/"}>
 					Chi tiết
@@ -27,6 +21,9 @@ function CustomerItem(props) {
 				</Link>
 			</td>
 			<td className="text-center">
+				<Link className="btn btn-primary me-3" to={"/detail/" + id}>
+					Chi tiết
+				</Link>
 				<Link className="btn btn-warning me-3" to={"/edit/" + id}>
 					Sửa
 				</Link>

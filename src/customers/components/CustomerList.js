@@ -153,11 +153,9 @@ function CustomerList() {
 							<th className="text-center">Email</th>
 							<th className="text-center">Số điện thoại</th>
 							<th className="text-center" style={{ width: 200 }}>
-								Khách hàng
-							</th>
-							<th className="text-center" style={{ width: 200 }}>
 								Mặt bằng
 							</th>
+							<th className="text-center" style={{ width: 200 }}></th>
 							<th colSpan={2}></th>
 						</tr>
 					</thead>

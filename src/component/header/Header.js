@@ -27,7 +27,6 @@ const Header = () => {
 	};
 
 	return (
-
 		<>
 			{!account ? (
 				<></>
@@ -136,8 +135,7 @@ const Header = () => {
 									</li>
 									<li className="nav-item">
 										<span className="nav-link dropdown-toggle" role="button" onClick={handleShow} style={{ cursor: "pointer" }}>
-											<img src={account.avatar} alt="avatar" style={{ width: "50px", height: "50px", objectFit: "cover", borderRadius: "50%" }}
-											/>
+											<img src={account.avatar} alt="avatar" style={{ width: "50px", height: "50px", objectFit: "cover", borderRadius: "50%" }} />
 											{avarOpen && (
 												<ul className="dropdown-menu show">
 													<li>
@@ -152,21 +150,16 @@ const Header = () => {
 															Đăng xuất
 														</span>
 													</li>
-
 												</ul>
 											)}
 										</span>
-
 									</li>
-
 								</ul>
 							</div>
 						</nav>
 					</div>
 				</header>
 			)}
-
-
 		</>
 	);
 };
