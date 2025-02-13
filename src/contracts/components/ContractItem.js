@@ -12,23 +12,20 @@ function ContractItem(props) {
 	return (
 		<tr>
 			<td className="text-center">{+props.i + 1}</td>
-			<td className="text-center">{customer.name}</td>
-			<td className="text-center">{premises ? premises.premisesName : ""}</td>
+			<td className="text-left">{customer.name}</td>
+			<td className="text-left">
+				<Link to={`/floor/facilities/${premises.id}`}>{premises ? premises.premisesName : ""}</Link>
+			</td>
 			<td className="text-center">
 				<input type="checkbox" checked={status} onChange={() => changeStatusContract()} />
 			</td>
-			<td className="text-center">
+			<td className="text-center d-flex gap-2">
 				<Link type="button" className="btn btn-primary" to={"/contracts/detail/" + id}>
 					Chi tiết
 				</Link>
-			</td>
-			<td className="text-center">
 				<Link type="button" className="btn btn-warning" to={"/contracts/edit/" + id}>
 					Sửa
 				</Link>
-			</td>
-
-			<td className="text-center">
 				<button type="button" className="btn btn-danger" onClick={() => props.handleShow(props.item)}>
 					Xóa
 				</button>

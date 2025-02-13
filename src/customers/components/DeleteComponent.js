@@ -41,7 +41,7 @@ function DeleteComponent(props) {
 					<Modal.Title>Modal heading</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					Bạn có muốn khách hàng{" "}
+					Bạn có muốn xóa khách hàng{" "}
 					<strong>
 						{props.customer?.id} - {props.customer?.name}
 					</strong>{" "}
@@ -49,10 +49,10 @@ function DeleteComponent(props) {
 				</Modal.Body>
 				<Modal.Footer>
 					<Button variant="secondary" onClick={handleClose}>
-						Close
+						Hủy
 					</Button>
-					<Button variant="primary" onClick={handleDelete}>
-						Delete
+					<Button variant="danger" onClick={handleDelete}>
+						Xóa
 					</Button>
 				</Modal.Footer>
 			</Modal>
