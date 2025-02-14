@@ -469,5 +469,14 @@
 			"title": "SHARED WORKSPACE – Định Nghĩa, Ưu Điểm và Những Lưu Ý",
 			"text": "“Shared workspace” là gì? Shared workspace đang trở thành một giải pháp ngày càng hấp"
 		}
+	],
+	"card": [
+		{
+			"id": 1,
+			"superficies": 4.5062,
+			"text1": "Tầng 1: Trung tâm thương mại, giải trí, nhà hàng và coffee shop",
+			"text2": "Tầng 2: Căn hộ dịch vụ",
+			"text3": "Tầng 3: Tiktak Co-woking Space"
+		}
 	]
 }

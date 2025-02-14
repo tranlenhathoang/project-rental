@@ -64,9 +64,6 @@ const Header = () => {
 										Hợp đồng
 									</NavDropdown.Item>
 								</NavDropdown>
-								<Nav.Link as={Link} to="/" className="text-dark mx-2">
-									Liên hệ
-								</Nav.Link>
 
 								{/* Avatar & Logout */}
 								<NavDropdown

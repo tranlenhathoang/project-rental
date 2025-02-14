@@ -9,8 +9,15 @@ import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
+import { FaComputer } from "react-icons/fa6";
+import { FaPeopleArrows } from "react-icons/fa6";
+import { Modal, Button } from "react-bootstrap";
+
 const Slider = () => {
 	const [listPremises, setListPremises] = useState([]);
+	const [information, setInformation] = useState([]);
+	const [card, setCard] = useState([]);
+	const [show, setShow] = useState(false);
 	const fetchListPremises = async () => {
 		const res = await axios.get(`http://localhost:3001/premises`);
 		// console.log(">>>check res", res);
@@ -23,11 +30,15 @@ const Slider = () => {
 		const fetch = await axios.get(`http://localhost:3001/information`);
 		setInformation(fetch.data);
 	};
+	const fetchCard = async () => {
+		const fetchCard = await axios.get(`http://localhost:3001/card`);
+		setCard(fetchCard.data);
+	};
 
-	const [information, setInformation] = useState([]);
 	useEffect(() => {
 		fetchListPremises();
 		fetchInformation();
+		fetchCard();
 	}, []);
 
 	return (
@@ -97,36 +108,52 @@ const Slider = () => {
 					</Link>
 				</div>
 			</div>
-			<div className="container pb-5 ">
+
+			<div className="container pb-5">
 				<Card className="text-black shadow-sm" style={{ minHeight: "300px", backgroundColor: "#f2f2f2", border: "none" }}>
 					<Row className="g-0 align-items-center">
-						<Col md={7}>
-							<Card.Body className="p-5">
-								<Card.Title className="fw-bold" style={{ fontSize: "48px", color: "#452d14" }}>
-									Mang không gian chuyên nghiệp và thoải mái tới khách hàng
-								</Card.Title>
-								<br />
-								<Card.Text style={{ textAlign: "justify" }}>
-									Mang phong cách kiến trúc hiện đại, Tòa nhà phức hợp Diamond Time – 35 Thái Phiên – Đà Nẵng sở hữu nội thất gỗ tự nhiên được thiết
-									kế tinh tế, trau chuốt tỉ mỉ đảm bảo mang đến sự hài lòng cho khách hàng.
-								</Card.Text>
-							</Card.Body>
-						</Col>
+						{card &&
+							card.map((c) => (
+								<>
+									{/* Cột bên trái (Nội dung chính) */}
+									<Col md={7} key={c.id}>
+										<div
+											className="position-absolute top-0 end-0 p-3 text-white"
+											style={{
+												backgroundColor: "#E5A63B",
+												width: "250px",
+												textAlign: "center",
+											}}
+										>
+											<h4 className="fw-bold">{c.superficies}m2</h4>
+											<p className="mb-0">Tổng diện tích sử dụng</p>
+										</div>
+										<Card.Body className="p-5">
+											<Card.Title className="fw-bold" style={{ fontSize: "48px", color: "#452d14" }}>
+												Mang không gian chuyên nghiệp và thoải mái tới khách hàng
+											</Card.Title>
+											<br />
+											<Card.Text style={{ textAlign: "justify" }}>
+												Mang phong cách kiến trúc hiện đại, Tòa nhà phức hợp Diamond Time – 35 Thái Phiên – Đà Nẵng sở hữu nội thất gỗ tự nhiên được
+												thiết kế tinh tế, trau chuốt tỉ mỉ đảm bảo mang đến sự hài lòng cho khách hàng.
+											</Card.Text>
+										</Card.Body>
+									</Col>
 
-						{/* Cột nội dung */}
-						<Col md={5}>
-							<Card.Body>
-								<Card.Title className="fw-bold">4.5062m2 Tổng diện tích sử dụng</Card.Title>
-								<br />
-								<br />
-								<br />
-								<Card.Text className="ms-5">
-									<p>Tầng 1: Trung tâm thương mại, giải trí, nhà hàng và coffee shop</p>
-									<p>Tầng 2: Căn hộ dịch vụ</p>
-									<p>Tầng 3: Tiktak Co-woking Space</p>
-								</Card.Text>
-							</Card.Body>
-						</Col>
+									{/* Cột bên phải (Thông tin thêm) */}
+									<Col md={5}>
+										<Card.Body>
+											<br />
+											<br />
+											<Card.Text className="ms-5">
+												<p>{c.text1}</p>
+												<p>{c.text2}</p>
+												<p>{c.text3}</p>
+											</Card.Text>
+										</Card.Body>
+									</Col>
+								</>
+							))}
 					</Row>
 				</Card>
 			</div>
@@ -136,7 +163,7 @@ const Slider = () => {
 					<Row className="g-0 align-items-center">
 						<Col md={5}>
 							<Card.Img
-								src="https://via.placeholder.com/600x300" // Thay ảnh thực tế
+								src="https://diamondtime.vn/wp-content/uploads/2021/06/image-311.jpg"
 								alt="Card Image"
 								style={{ height: "100%", width: "100%", objectFit: "cover" }}
 							/>
@@ -155,8 +182,14 @@ const Slider = () => {
 									vị trí “vàng” với hai mặt tiền, thuận tiện cho việc giao thương và di chuyển.
 								</Card.Text>
 								<Row>
-									<Col>Vị trí thuận tiện</Col>
-									<Col>Kết nối doanh nghiệp</Col>
+									<Col>
+										<FaComputer color="#E5A63B" size={"70"} className="me-2" />
+										Vị trí thuận tiện
+									</Col>
+									<Col>
+										<FaPeopleArrows color="#E5A63B" size={"70"} className="me-2" />
+										Kết nối doanh nghiệp
+									</Col>
 								</Row>
 								<br />
 								<Card.Text style={{ textAlign: "justify" }}>
@@ -164,7 +197,7 @@ const Slider = () => {
 									vị trí “vàng” với hai mặt tiền, thuận tiện cho việc giao thương và di chuyển.
 								</Card.Text>
 
-								<Link
+								<button
 									className="btn btn-warning fw-bold d-flex align-items-center justify-content-center mt-4 mb-4 rounded-4"
 									style={{
 										backgroundColor: "#E5A63B",
@@ -175,17 +208,32 @@ const Slider = () => {
 										borderRadius: "0",
 										fontSize: "16px",
 									}}
-									to={"/"}
+									onClick={() => setShow(true)}
 								>
 									Xem chi tiết <FaChevronRight className="ms-2" />
-								</Link>
+								</button>
+								<Modal show={show} onHide={() => setShow(false)} size="lg" centered>
+									<Modal.Header closeButton>
+										<Modal.Title>Vị trí trên Google Maps</Modal.Title>
+									</Modal.Header>
+									<Modal.Body>
+										<iframe
+											title="Google Maps"
+											width="100%"
+											height="400"
+											style={{ border: 0 }}
+											allowFullScreen
+											src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.060004971111!2d108.21995747608702!3d16.068430584622766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219c805a7701d%3A0x1a3241a3c2a39558!2zMzUgVGjDoWkgUGhpw6puLCBI4bqjaSBDaGF1LCDEkMOgIE5hbmc!5e0!3m2!1sen!2s!4v1707912345678"
+										></iframe>
+									</Modal.Body>
+								</Modal>
 							</Card.Body>
 						</Col>
 					</Row>
 				</Card>
 			</div>
 
-			<div className="container pb-5">
+			<div className="pb-5">
 				<Card className="bg-white text-black shadow-lg" style={{ minHeight: "400px", border: "none" }}>
 					{/* Hiển thị hình ảnh nền */}
 					<Card.Img
