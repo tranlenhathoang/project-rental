@@ -32,7 +32,6 @@ const LayoutAdmin = () => {
 	const navigate = useNavigate();
 	const account = useSelector((state) => state?.accountReducer?.account);
 
-
 	useEffect(() => {
 		if (!account) {
 			navigate("/login");
@@ -42,6 +41,7 @@ const LayoutAdmin = () => {
 	return (
 		<div>
 			<Header />
+
 			<Outlet />
 			<Footer></Footer>
 			<ToastContainer />
