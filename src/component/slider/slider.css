@@ -1,16 +1,42 @@
-.carousel-inner{
-    position: relative;
-    max-height: 600px;
-    
+.carousel-inner {
+	position: relative;
+	max-height: 600px;
 }
-.carousel-caption{
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translate(-50%, 0);
+.carousel-caption {
+	position: absolute;
+	bottom: 5%;
+	left: 50%;
+	transform: translate(-50%, 0);
 }
 .carousel-item > img {
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
+	width: 100%;
+	height: 600px;
+	object-fit: cover;
+}
+
+.btn-phone {
+	background-color: #e5a63b;
+	color: white;
+	border: none;
+	width: 200px; /* Tăng kích thước nút */
+	height: 45px;
+	font-size: 20px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 15px; /* Tạo khoảng cách giữa icon và chữ */
+	cursor: pointer;
+}
+
+.btn-phone:hover {
+	background-color: #d98c00;
+}
+
+.icon {
+	font-size: 20px;
+}
+
+.btn-text {
+	white-space: nowrap; /* Giữ chữ không bị xuống dòng */
 }
