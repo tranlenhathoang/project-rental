@@ -19,9 +19,15 @@ const Slider = () => {
 		}
 		setListPremises(res.data);
 	};
+	const fetchInformation = async () => {
+		const fetch = await axios.get(`http://localhost:3001/information`);
+		setInformation(fetch.data);
+	};
 
+	const [information, setInformation] = useState([]);
 	useEffect(() => {
 		fetchListPremises();
+		fetchInformation();
 	}, []);
 
 	return (
@@ -42,6 +48,7 @@ const Slider = () => {
 						})}
 				</Carousel>
 			</div>
+
 			<div>
 				<div className="text-center py-4">
 					<h4>Cập nhật những thông tin mới nhất</h4>
@@ -50,19 +57,26 @@ const Slider = () => {
 			</div>
 			<div className="container">
 				<Row xs={1} md={3} className="g-4">
-					{Array.from({ length: 6 }).map((_, idx) => (
-						<Col key={idx}>
-							<Card>
-								<Card.Img variant="top" src="holder.js/100px160" />
-								<Card.Body>
-									<Card.Title>Card title</Card.Title>
-									<Card.Text>
-										This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-									</Card.Text>
-								</Card.Body>
-							</Card>
-						</Col>
-					))}
+					{information &&
+						information.map((i) => (
+							<Col key={i.id} information={i}>
+								<Card style={{ border: "none" }}>
+									<Card.Img
+										variant="top"
+										src={i.imgSrc}
+										alt={i.imgAlt}
+										style={{
+											height: "200px",
+											objectFit: "cover",
+										}}
+									/>
+									<Card.Body>
+										<Card.Title>{i.title}</Card.Title>
+										<Card.Text>{i.text}</Card.Text>
+									</Card.Body>
+								</Card>
+							</Col>
+						))}
 				</Row>
 				<div className="d-flex justify-content-center">
 					<Link
@@ -77,6 +91,7 @@ const Slider = () => {
 							fontSize: "16px",
 						}}
 						to={"/"}
+						onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} //Dùng window.scrollTo({ top: 0, behavior: "smooth" }) để cuộn lên đầu trang một cách mượt mà.
 					>
 						Xem thêm <FaChevronRight className="ms-2" />
 					</Link>
@@ -174,7 +189,7 @@ const Slider = () => {
 				<Card className="bg-white text-black shadow-lg" style={{ minHeight: "400px", border: "none" }}>
 					{/* Hiển thị hình ảnh nền */}
 					<Card.Img
-						src="https://files.oaiusercontent.com/file-2x1Lrmq5Mrrcv1NqBua3Cc?se=2025-02-13T19%3A42%3A52Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Dbe03c19b-a4b7-4015-b941-b04e15a31946.webp&sig=9IhTyGHG4fCVlBwT9qUBlTW5QE51KbJB/kFeeXAdwJo%3D"
+						src="https://mychair.vn/wp-content/uploads/2023/11/ban-hop-hinh-chu-nhat-lam-bang-go-3.jpg"
 						alt="Bàn họp hình chữ nhật"
 						style={{ objectFit: "cover", height: "400px", filter: "brightness(0.6)" }} // Làm tối ảnh
 					/>

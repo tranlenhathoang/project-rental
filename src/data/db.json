@@ -425,5 +425,49 @@
 			"title": "Mặt bằng tầng 2",
 			"desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt."
 		}
+	],
+	"information": [
+		{
+			"id": 1,
+			"imgSrc": "https://diamondtime.vn/wp-content/uploads/2024/12/img3703-173339989848421729102-1860-1733417379.jpg",
+			"imgAlt": "Image 1",
+			"title": "CEO Jensen Huang: Hôm nay là ngày khai sinh Nvidia Việt Nam",
+			"text": "Nhà sáng lập Nvidia Jensen Huang cho biết 5/12 là ngày khai sinh của Nvidia"
+		},
+		{
+			"id": 2,
+			"imgSrc": "https://diamondtime.vn/wp-content/uploads/2024/07/20240708.jpg",
+			"imgAlt": "Image 2",
+			"title": "6 LỜI KHUYÊN KHI LÀM VIỆC TẠI CÁC WEB FREELANCER NƯỚC NGOÀI",
+			"text": "Trong nhiều năm trở lại đây, giới Freelancer Việt hẳn không còn xa lạ với"
+		},
+		{
+			"id": 3,
+			"imgSrc": "https://diamondtime.vn/wp-content/uploads/2024/05/8E3A3322-scaled.jpg",
+			"imgAlt": "Image 3",
+			"title": "CO-WORKING SPACE VÀ NHỮNG ĐIỀU DOANH NGHIỆP CẦN BIẾT",
+			"text": "Khi co-working xuất hiện trên thị trường, chủ yếu hướng đến các khách hàng mục"
+		},
+		{
+			"id": 4,
+			"imgSrc": "https://diamondtime.vn/wp-content/uploads/2024/05/C6_n.jpg",
+			"imgAlt": "Image 4",
+			"title": "GIẢI MÃ XU HƯỚNG THUÊ VĂN PHÒNG LÀM VIỆC TẠI CO-WORKING SPACES",
+			"text": "Ngày nay, không gian làm việc đã trở thành một yếu tố quan trọng được"
+		},
+		{
+			"id": 5,
+			"imgSrc": "https://diamondtime.vn/wp-content/uploads/2021/12/258397390_303082458283999_5979908283113307618_n.jpg",
+			"imgAlt": "Image 5",
+			"title": "TƯƠNG LAI CỦA LÀM VIỆC TỪ XA (REMOTE) VÀ KHÔNG GIAN LÀM VIỆC CHUNG (CO-WORKING SPACE)",
+			"text": "Trong bài viết này, chúng ta đang khám phá bối cảnh ngày càng phát triển"
+		},
+		{
+			"id": 6,
+			"imgSrc": "https://diamondtime.vn/wp-content/uploads/2024/04/NEWS-1.png",
+			"imgAlt": "Image 6",
+			"title": "SHARED WORKSPACE – Định Nghĩa, Ưu Điểm và Những Lưu Ý",
+			"text": "“Shared workspace” là gì? Shared workspace đang trở thành một giải pháp ngày càng hấp"
+		}
 	]
 }
