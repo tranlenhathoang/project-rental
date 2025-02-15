@@ -79,7 +79,7 @@
 			"identity": "343432423548",
 			"email": "hoadeptrai@gmail.com",
 			"phone": "0965434571",
-			"date": "1994-05-05",
+			"dob": "1994-05-05",
 			"address": "12 Lê Quý Kỳ, Đà Nẵng",
 			"website": "hoaminnzy.com",
 			"company": "Hoa Thiên Lý"
@@ -90,7 +90,7 @@
 			"identity": "343432423",
 			"email": "nhanvanlam@gmail.com",
 			"phone": "096543453",
-			"date": "1994-05-05",
+			"dob": "1994-05-05",
 			"address": "12 Nguyễn Phước Nguyên, Đà Nẵng",
 			"website": "abc.com",
 			"company": "Hoa Mặt Trời"
@@ -101,7 +101,7 @@
 			"identity": "343432423",
 			"email": "hung@gmail.com",
 			"phone": "096543453",
-			"date": "1994-05-05",
+			"dob": "1994-05-05",
 			"address": "12 Lê Duẩn, Đà Nẵng",
 			"website": "hoaminnzy.com",
 			"company": "Hoa Hướng Dương"
@@ -112,7 +112,7 @@
 			"identity": "343432423",
 			"email": "hungmapdeptrai@gmail.com",
 			"phone": "096543453",
-			"date": "1994-05-05",
+			"dob": "1994-05-05",
 			"address": "12 Trường Chinh, Đà Nẵng",
 			"website": "vipnha.com",
 			"company": "Hoa Vạn Thọ"
@@ -123,7 +123,7 @@
 			"identity": "343432423",
 			"email": "tieni@gmail.com",
 			"phone": "096543453",
-			"date": "1994-05-05",
+			"dob": "1994-05-05",
 			"address": "12 Lê Văn Quý, Đà Nẵng",
 			"website": "build.com",
 			"company": "Hoa Cúc"
@@ -136,7 +136,7 @@
 			"address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
 			"website": "tranhuahua.com",
 			"company": "Trăn hua hua",
-			"date": "1994-05-05",
+			"dob": "1994-05-05",
 			"id": 6
 		},
 		{
@@ -147,7 +147,7 @@
 			"address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
 			"website": "tranhuahua.com",
 			"company": "Trăn hua hua",
-			"date": "1994-05-05",
+			"dob": "1994-05-05",
 			"id": 7
 		}
 	],
