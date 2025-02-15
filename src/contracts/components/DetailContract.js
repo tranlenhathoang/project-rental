@@ -311,7 +311,7 @@ function DetailContract() {
 				</fieldset>
 
 				<div className="form-check mt-4">
-					<input className="form-check-input" type="checkbox" defaultValue id="flexCheckChecked" defaultChecked />
+					<input className="form-check-input" type="checkbox" defaultValue id="flexCheckChecked" checked defaultChecked />
 					<label className="form-check-label" htmlFor="flexCheckChecked">
 						Hai bên đã thống nhất với hợp đồng
 					</label>
