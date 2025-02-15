@@ -31,7 +31,7 @@ const ServiceTable = () => {
 	}, []);
 
 	const fetchListCustomer = async () => {
-		const res = await axios.get(`http://localhost:3001/customerList`);
+		const res = await axios.get(`http://localhost:3001/customers`);
 		if (!res) {
 			toast.error("error fetch data");
 		}
