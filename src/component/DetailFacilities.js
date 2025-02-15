@@ -49,7 +49,7 @@ function DetailFacilities() {
 					<tbody>
 						{facilities.map((facility) => (
 							<tr key={facility.id}>
-								<td>{facility.facility_code}</td>
+								<td>{facility.premisesName}</td>
 								<td>{facility.facility_type}</td>
 								<td>{facility.area}</td>
 								<td>{facility.status || "N/A"}</td>

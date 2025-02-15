@@ -20,7 +20,7 @@ function AddlFacilities() {
     building: Yup.string().required("Không được để trống !!!"),
     floor: Yup.string().required("Không được để trống !!!"),
     facility_type: Yup.string().required("Không được để trống !!!"),
-    facility_code: Yup.string()
+    premisesName: Yup.string()
       .matches(/^MB\d{3}$/, "Nhập đúng định dạng: MBxxx !!!")
       .required("Không được để trống !!!"),
     status: Yup.string().required("Không được để trống !!!"),
@@ -45,7 +45,7 @@ function AddlFacilities() {
               building: "",
               floor: "",
               facility_type: "",
-              facility_code: "",
+              premisesName: "",
               status: "",
               area: "",
               description: "",
@@ -76,7 +76,7 @@ function AddlFacilities() {
                     Loại mặt bằng (*)
                   </label>
                   <Field as="select" name="facility_type" id="facility_type" className="form-control">
-                  <option value="">Chọn</option>
+                    <option value="">Chọn</option>
                     <option value="Mặt Tiền">Mặt Tiền</option>
                     <option value="Mặt Hậu">Mặt Hậu</option>
                     <option value="Mặt Cắt">Mặt Cắt</option>
@@ -86,11 +86,11 @@ function AddlFacilities() {
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="facility_code" className="form-label">
+                  <label htmlFor="premisesName" className="form-label">
                     Mã mặt bằng (*)
                   </label>
-                  <Field type="text" name="facility_code" id="facility_code" className="form-control" />
-                  <ErrorMessage name="facility_code" component="div" className="text-danger" />
+                  <Field type="text" name="premisesName" id="premisesName" className="form-control" />
+                  <ErrorMessage name="premisesName" component="div" className="text-danger" />
                 </div>
 
                 <div className="mb-3">
@@ -98,7 +98,7 @@ function AddlFacilities() {
                     Trạng thái
                   </label>
                   <Field as="select" name="status" id="status" className="form-control">
-                  <option value="">Chọn</option>
+                    <option value="">Chọn</option>
                     <option value="Chưa Bàn Giao">Chưa Bàn Giao</option>
                     <option value="Đang Vào Ở">Đang Vào Ở</option>
                     <option value="Đang Sửa Chữa">Đang Sửa Chữa</option>

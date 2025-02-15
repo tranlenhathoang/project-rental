@@ -37,7 +37,7 @@ export default function EditFacilities() {
 		building: Yup.string().required("Không được để trống !!!"),
 		floor: Yup.string().required("Không được để trống !!!"),
 		facility_type: Yup.string().required("Không được để trống !!!"),
-		facility_code: Yup.string()
+		premisesName: Yup.string()
 			.matches(/^MB\d{3}$/, "Nhập đúng định dạng: MBxxx !!!")
 			.required("Không được để trống !!!"),
 		status: Yup.string().required("Không được để trống !!!"),
@@ -56,7 +56,7 @@ export default function EditFacilities() {
 							building: facilities.building,
 							floor: facilities.floor,
 							facility_type: facilities.facility_type,
-							facility_code: facilities.facility_code,
+							premisesName: facilities.premisesName,
 							status: facilities.status,
 							area: facilities.area,
 							description: facilities.description,
@@ -97,11 +97,11 @@ export default function EditFacilities() {
 								</div>
 
 								<div className="mb-3">
-									<label htmlFor="facility_code" className="form-label">
+									<label htmlFor="premisesName" className="form-label">
 										Mã mặt bằng (*)
 									</label>
-									<Field type="text" name="facility_code" id="facility_code" className="form-control" />
-									<ErrorMessage name="facility_code" component="div" className="text-danger" />
+									<Field type="text" name="premisesName" id="premisesName" className="form-control" />
+									<ErrorMessage name="premisesName" component="div" className="text-danger" />
 								</div>
 
 								<div className="mb-3">

@@ -22,7 +22,7 @@ const Facilities = () => {
 		const filteredData = facilities.filter(
 			(facility) =>
 				(facility.floor?.toLowerCase().includes(searchFloor.toLowerCase()) || searchFloor === "") &&
-				(facility.facility_code?.toLowerCase().includes(searchCode.toLowerCase()) || searchCode === "") &&
+				(facility.premisesname?.toLowerCase().includes(searchCode.toLowerCase()) || searchCode === "") &&
 				(facility.area.toString().includes(searchArea) || searchArea === "") &&
 				((typeof facility.facility_type === "string" && facility.facility_type.toLowerCase().includes(searchType.toLowerCase())) || searchType === "")
 		);
@@ -107,7 +107,7 @@ const Facilities = () => {
 						{currentItems.length > 0 ? (
 							currentItems.map((facility) => (
 								<tr key={facility.id}>
-									<td>{facility.facility_code}</td>
+									<td>{facility.premisesName}</td>
 									<td>{facility.facility_type}</td>
 									<td className="text-end">{facility.area}</td>
 									<td>{facility.status || "N/A"}</td>

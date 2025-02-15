@@ -99,7 +99,7 @@ function ContractList() {
 		try {
 			await deleteById(deleteContract.id);
 			handleClose();
-		} catch (error) {}
+		} catch (error) { }
 	};
 
 	return (
