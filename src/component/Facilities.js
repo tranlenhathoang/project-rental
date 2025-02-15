@@ -25,7 +25,7 @@ const Facilities = () => {
 		const filteredData = facilities.filter(
 			(facility) =>
 				(facility.floor?.toLowerCase().includes(searchFloor.toLowerCase()) || searchFloor === "") &&
-				(facility.premisesname?.toLowerCase().includes(searchCode.toLowerCase()) || searchCode === "") &&
+				(facility.premisesName?.toLowerCase().includes(searchCode.toLowerCase()) || searchCode === "") &&
 				(facility.area.toString().includes(searchArea) || searchArea === "") &&
 				((typeof facility.facility_type === "string" && facility.facility_type.toLowerCase().includes(searchType.toLowerCase())) || searchType === "")
 		);
