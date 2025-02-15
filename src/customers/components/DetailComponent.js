@@ -15,7 +15,7 @@ function DetailComponent() {
 		address: "",
 		website: "",
 		company: "",
-		date: "",
+		dob: "",
 	});
 
 	const { id } = useParams();
@@ -69,7 +69,7 @@ function DetailComponent() {
 					<Col md={6}>
 						<div>
 							<label className="form-label">Ngày sinh (*):</label>
-							<input type="date" id="disabledTextInput" className="form-control" value={customerDetail.date} readOnly />
+							<input type="date" id="disabledTextInput" className="form-control" value={customerDetail.dob} readOnly />
 						</div>
 					</Col>
 				</Row>

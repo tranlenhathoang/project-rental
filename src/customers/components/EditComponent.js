@@ -52,7 +52,7 @@ function EditComponent() {
 			.matches(/^0[0-9]{9}$/, "Số điện thoại không hợp lệ"),
 		address: Yup.string().required("Địa chỉ là bắt buộc"),
 		company: Yup.string().required("Tên công ty là bắt buộc"),
-		date: Yup.date().required("Ngày sinh là bắt buộc"),
+		dob: Yup.date().required("Ngày sinh là bắt buộc"),
 	});
 	if (!customer) {
 		return <div className="container">Đang tải dữ liệu...</div>;
@@ -83,8 +83,8 @@ function EditComponent() {
 
 						<div className="mb-3">
 							<label className="form-label">Ngày sinh (*):</label>
-							<Field type="date" name="date" className="form-control" />
-							<ErrorMessage name="date" component="div" className="text-danger" />
+							<Field type="date" name="dob" className="form-control" />
+							<ErrorMessage name="dob" component="div" className="text-danger" />
 						</div>
 
 						<div className="mb-3">
