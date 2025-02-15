@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../redux/accountAction";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Logo from "../../LogoDiamondTime.png";
 
 const Header = () => {
 	const account = useSelector((state) => state.user.account);
@@ -24,14 +25,16 @@ const Header = () => {
 				<Navbar bg="white" expand="lg" variant="light" className="shadow-sm py-3">
 					<Container>
 						{/* Logo */}
-						<Navbar.Brand as={Link} to="/" className="fw-bold fs-3 text-dark"></Navbar.Brand>
+						<Navbar.Brand as={Link} to="/" className="fw-bold fs-3 text-dark">
+							<img src={Logo} alt="logo" className="imgLogo" style={{ width: "20%" }} />
+						</Navbar.Brand>
 
 						{/* Toggle button cho mobile */}
 						<Navbar.Toggle aria-controls="navbar-nav" />
 
 						{/* Navbar Content */}
 						<Navbar.Collapse id="navbar-nav">
-							<Nav className="ms-auto fs-5">
+							<Nav className="ms-auto fs-5" style={{ whiteSpace: "noWrap" }}>
 								<Nav.Link as={Link} to="/" className="text-dark mx-2">
 									Trang Chủ
 								</Nav.Link>
