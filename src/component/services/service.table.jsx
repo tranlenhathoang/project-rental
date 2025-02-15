@@ -9,7 +9,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import CreateServices from "./service.create";
 import EditServices from "./service.edit";
-import ReactPaginate from 'react-paginate';
+import ReactPaginate from "react-paginate";
 
 const ServiceTable = () => {
 	const [listService, setListService] = useState([]);
@@ -63,10 +63,10 @@ const ServiceTable = () => {
 	const handleSave = async () => {
 		const res = await axios.delete(`http://localhost:3001/services/${selectedService.id}`);
 		if (res.status === 200) {
-			toast.success("Xóa dịch vụ thành công!")
+			toast.success("Xóa dịch vụ thành công!");
 			getData();
 		} else {
-			toast.error("Xóa dịch vụ thất bại")
+			toast.error("Xóa dịch vụ thất bại");
 		}
 		setIsModalOpen(false);
 	};
@@ -86,31 +86,26 @@ const ServiceTable = () => {
 
 	// vừa vào thì currentPage =  0 => offset = 0
 	const offset = currentPage * itemsPerPage;
-	// currentItems chạy từ 0 đến itemsPerPage - 1 
+	// currentItems chạy từ 0 đến itemsPerPage - 1
 	const currentItems = listService.slice(offset, offset + itemsPerPage);
 	const pageCount = Math.ceil(listService.length / itemsPerPage);
 
-	// selected => trang hiện tại đầu tiên là 1 => selected = 0 
+	// selected => trang hiện tại đầu tiên là 1 => selected = 0
 	const handlePageClick = ({ selected }) => {
 		setCurrentPage(selected);
 		console.log(selected);
-
 	};
 
 	return (
 		<div className="container">
-			<h2
-				style={{
-					marginBottom: "20px",
-					color: "blueviolet",
-					fontWeight: "700",
-				}}
-			>
-				Dịch vụ
-			</h2>
+			<div className="text-center mb-5">
+				<h2>DANH SÁCH DỊCH VỤ</h2>
+			</div>
 			<div className="row mb-5">
 				<div className="col d-flex align-items-center gap-3">
-					<span className="title" style={{ fontWeight: "500" }}>Mặt Bằng: </span>
+					<span className="title" style={{ fontWeight: "500" }}>
+						Mặt Bằng:{" "}
+					</span>
 					<div>
 						<DropdownButton id="dropdown-basic-button" title={dropdownSelected || "Chọn mặt bằng"}>
 							{listPremises.map((item) => {
@@ -127,15 +122,18 @@ const ServiceTable = () => {
 					<Button
 						style={{
 							marginRight: "10px",
-							backgroundColor: "#FFC107"
+							backgroundColor: "#FFC107",
 						}}
 						onClick={() => handleSearch()}
 					>
 						Tìm kiếm
 					</Button>
-					<Button style={{
-						backgroundColor: "#198754"
-					}} onClick={() => setIsOpenModalCreate(true)}>
+					<Button
+						style={{
+							backgroundColor: "#198754",
+						}}
+						onClick={() => setIsOpenModalCreate(true)}
+					>
 						Thêm dịch vụ
 					</Button>
 				</div>
@@ -222,16 +220,20 @@ const ServiceTable = () => {
 			)}
 
 			<ReactPaginate
-				previousLabel={"< previous"}
-				nextLabel={"next >"}
+				previousLabel={<span className="page">Trang đầu</span>}
+				nextLabel={<span className="page">Trang cuối</span>}
+				breakLabel={<span className="page-link">...</span>}
 				pageCount={pageCount}
 				onPageChange={handlePageClick}
-				containerClassName={"pagination"}
-				previousLinkClassName={"pagination__link"}
-				nextLinkClassName={"pagination__link"}
-				disabledClassName={"pagination__link--disabled"}
-				activeClassName={"pagination__link--active"}
-
+				containerClassName="pagination container my-4 d-flex justify-content-center"
+				pageClassName="page-item"
+				pageLinkClassName="page-link"
+				previousClassName="page-item"
+				previousLinkClassName="page-link"
+				nextClassName="page-item"
+				nextLinkClassName="page-link"
+				activeClassName="active"
+				disabledClassName="disabled"
 			/>
 		</div>
 	);

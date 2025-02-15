@@ -38,7 +38,7 @@ function DeleteComponent(props) {
 		<>
 			<Modal show={props.show} onHide={handleClose}>
 				<Modal.Header closeButton>
-					<Modal.Title>Modal heading</Modal.Title>
+					<Modal.Title>XOÁ KHÁCH HÀNG</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
 					Bạn có muốn xóa khách hàng{" "}

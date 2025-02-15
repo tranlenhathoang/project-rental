@@ -24,9 +24,7 @@ const Header = () => {
 				<Navbar bg="white" expand="lg" variant="light" className="shadow-sm py-3">
 					<Container>
 						{/* Logo */}
-						<Navbar.Brand as={Link} to="/" className="fw-bold fs-3 text-dark">
-							FLC
-						</Navbar.Brand>
+						<Navbar.Brand as={Link} to="/" className="fw-bold fs-3 text-dark"></Navbar.Brand>
 
 						{/* Toggle button cho mobile */}
 						<Navbar.Toggle aria-controls="navbar-nav" />
