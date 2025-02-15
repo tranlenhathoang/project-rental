@@ -9,8 +9,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import CreateServices from "./service.create";
 import EditServices from "./service.edit";
-import { useFormik } from "formik";
-
+import ReactPaginate from 'react-paginate';
 
 const ServiceTable = () => {
 	const [listService, setListService] = useState([]);
@@ -22,6 +21,8 @@ const ServiceTable = () => {
 	const [dataUpdate, setDataUpdate] = useState(null);
 	const [listCustomer, setListCustomer] = useState([]);
 	const [listPremises, setListPremises] = useState([]);
+	const [currentPage, setCurrentPage] = useState(0);
+	const [itemsPerPage, setItemsPerPage] = useState(3);
 
 	useEffect(() => {
 		getData();
@@ -31,7 +32,6 @@ const ServiceTable = () => {
 
 	const fetchListCustomer = async () => {
 		const res = await axios.get(`http://localhost:3001/customerList`);
-		console.log(">>>check res", res);
 		if (!res) {
 			toast.error("error fetch data");
 		}
@@ -40,7 +40,6 @@ const ServiceTable = () => {
 
 	const fetchListPremises = async () => {
 		const res = await axios.get(`http://localhost:3001/premises`);
-		// console.log(">>>check res", res);
 		if (!res) {
 			toast.error("error fetch data");
 		}
@@ -60,14 +59,9 @@ const ServiceTable = () => {
 		}
 		setListService(res.data);
 	};
-	console.log(listService);
-
-	console.log(">>>>check selectedService", selectedService);
-
 
 	const handleSave = async () => {
 		const res = await axios.delete(`http://localhost:3001/services/${selectedService.id}`);
-		console.log(">>>check res", res);
 		if (res.status === 200) {
 			toast.success("Xóa dịch vụ thành công!")
 			getData();
@@ -75,22 +69,32 @@ const ServiceTable = () => {
 			toast.error("Xóa dịch vụ thất bại")
 		}
 		setIsModalOpen(false);
-
 	};
 
 	const handleSelect = (item) => {
 		setDropdownSelected(item.premisesName);
 	};
-	console.log("check dropdownSelected", dropdownSelected);
 
 	const handleSearch = () => {
-		// let customerId = listCustomer.find(i => i.name === formik.values.customer)?.id;
-		// console.log(">>>check customerId", customerId);
 		getData();
 	};
+
 	const handlePayment = (item) => {
 		setIsModalOpen(true);
 		setSelectedService(item);
+	};
+
+	// vừa vào thì currentPage =  0 => offset = 0
+	const offset = currentPage * itemsPerPage;
+	// currentItems chạy từ 0 đến itemsPerPage - 1 
+	const currentItems = listService.slice(offset, offset + itemsPerPage);
+	const pageCount = Math.ceil(listService.length / itemsPerPage);
+
+	// selected => trang hiện tại đầu tiên là 1 => selected = 0 
+	const handlePageClick = ({ selected }) => {
+		setCurrentPage(selected);
+		console.log(selected);
+
 	};
 
 	return (
@@ -98,13 +102,15 @@ const ServiceTable = () => {
 			<h2
 				style={{
 					marginBottom: "20px",
+					color: "blueviolet",
+					fontWeight: "700",
 				}}
 			>
 				Dịch vụ
 			</h2>
 			<div className="row mb-5">
 				<div className="col d-flex align-items-center gap-3">
-					<span className="title">Mặt Bằng: </span>
+					<span className="title" style={{ fontWeight: "500" }}>Mặt Bằng: </span>
 					<div>
 						<DropdownButton id="dropdown-basic-button" title={dropdownSelected || "Chọn mặt bằng"}>
 							{listPremises.map((item) => {
@@ -119,15 +125,17 @@ const ServiceTable = () => {
 				</div>
 				<div className="col">
 					<Button
-						variant="primary"
 						style={{
 							marginRight: "10px",
+							backgroundColor: "#FFC107"
 						}}
 						onClick={() => handleSearch()}
 					>
 						Tìm kiếm
 					</Button>
-					<Button variant="secondary" onClick={() => setIsOpenModalCreate(true)}>
+					<Button style={{
+						backgroundColor: "#198754"
+					}} onClick={() => setIsOpenModalCreate(true)}>
 						Thêm dịch vụ
 					</Button>
 				</div>
@@ -147,10 +155,10 @@ const ServiceTable = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{listService.map((item, index) => {
+					{currentItems.map((item, index) => {
 						return (
 							<tr key={item.id}>
-								<td>{index + 1}</td>
+								<td>{index + 1 + offset}</td>
 								<td>{item.name}</td>
 								<td>{item.date}</td>
 								<td>{listCustomer.find((i) => i.id === item.customer)?.name}</td>
@@ -212,6 +220,19 @@ const ServiceTable = () => {
 					setIsOpenModalEdit={setIsOpenModalEdit}
 				/>
 			)}
+
+			<ReactPaginate
+				previousLabel={"< previous"}
+				nextLabel={"next >"}
+				pageCount={pageCount}
+				onPageChange={handlePageClick}
+				containerClassName={"pagination"}
+				previousLinkClassName={"pagination__link"}
+				nextLinkClassName={"pagination__link"}
+				disabledClassName={"pagination__link--disabled"}
+				activeClassName={"pagination__link--active"}
+
+			/>
 		</div>
 	);
 };

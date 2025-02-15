@@ -138,6 +138,24 @@
 			"premises": "MB002",
 			"quantity": 1000,
 			"customer": "2"
+		},
+		{
+			"id": "5",
+			"name": "mb3_cus1",
+			"consume": 3000,
+			"date": "2025-02-05",
+			"premises": "MB002",
+			"quantity": 1000,
+			"customer": "2"
+		},
+		{
+			"id": "68",
+			"name": "mb3_cus1",
+			"consume": 3000,
+			"date": "2025-02-05",
+			"premises": "MB002",
+			"quantity": 1000,
+			"customer": "2"
 		}
 	],
 	"customerList": [
