@@ -111,50 +111,50 @@ const Slider = () => {
 
 			<div className="container pb-5">
 				<Card className="text-black shadow-sm" style={{ minHeight: "300px", backgroundColor: "#f2f2f2", border: "none" }}>
-					<Row className="g-0 align-items-center">
-						{card &&
-							card.map((c) => (
-								<>
-									{/* Cột bên trái (Nội dung chính) */}
-									<Col md={7} key={c.id}>
-										<div
-											className="position-absolute top-0 end-0 p-3 text-white"
-											style={{
-												backgroundColor: "#E5A63B",
-												width: "250px",
-												textAlign: "center",
-											}}
-										>
-											<h4 className="fw-bold">{c.superficies}m2</h4>
-											<p className="mb-0">Tổng diện tích sử dụng</p>
-										</div>
-										<Card.Body className="p-5">
-											<Card.Title className="fw-bold" style={{ fontSize: "48px", color: "#452d14" }}>
-												Mang không gian chuyên nghiệp và thoải mái tới khách hàng
-											</Card.Title>
-											<br />
-											<Card.Text style={{ textAlign: "justify" }}>
-												Mang phong cách kiến trúc hiện đại, Tòa nhà phức hợp Diamond Time – 35 Thái Phiên – Đà Nẵng sở hữu nội thất gỗ tự nhiên được
-												thiết kế tinh tế, trau chuốt tỉ mỉ đảm bảo mang đến sự hài lòng cho khách hàng.
-											</Card.Text>
-										</Card.Body>
-									</Col>
+					{card &&
+						card.map((c) => (
+							<Row className="g-0 align-items-center" key={c.id}>
+								{/* Cột bên trái (Nội dung chính) */}
+								<Col md={7}>
+									<div
+										className="position-absolute top-0 end-0 p-3 text-white"
+										style={{
+											backgroundColor: "#E5A63B",
+											width: "250px",
+											textAlign: "center",
+										}}
+									>
+										<h4 className="fw-bold">{c.superficies}m2</h4>
+										<p className="mb-0">Tổng diện tích sử dụng</p>
+									</div>
+									<Card.Body className="p-5">
+										<Card.Title className="fw-bold" style={{ fontSize: "48px", color: "#452d14" }}>
+											Mang không gian chuyên nghiệp và thoải mái tới khách hàng
+										</Card.Title>
+										<br />
+										<Card.Text style={{ textAlign: "justify" }}>
+											Mang phong cách kiến trúc hiện đại, Tòa nhà phức hợp Diamond Time – 35 Thái Phiên – Đà Nẵng sở hữu nội thất gỗ tự nhiên được
+											thiết kế tinh tế, trau chuốt tỉ mỉ đảm bảo mang đến sự hài lòng cho khách hàng.
+										</Card.Text>
+									</Card.Body>
+								</Col>
 
-									{/* Cột bên phải (Thông tin thêm) */}
-									<Col md={5}>
-										<Card.Body>
+								{/* Cột bên phải (Thông tin thêm) */}
+								<Col md={5}>
+									<Card.Body>
+										<br />
+										<br />
+										<Card.Text className="ms-5">
+											{c.text1}
 											<br />
+											{c.text2}
 											<br />
-											<Card.Text className="ms-5">
-												<p>{c.text1}</p>
-												<p>{c.text2}</p>
-												<p>{c.text3}</p>
-											</Card.Text>
-										</Card.Body>
-									</Col>
-								</>
-							))}
-					</Row>
+											{c.text3}
+										</Card.Text>
+									</Card.Body>
+								</Col>
+							</Row>
+						))}
 				</Card>
 			</div>
 

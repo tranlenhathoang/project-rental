@@ -30,7 +30,7 @@ import Footer from "./component/footer/Footer";
 
 const LayoutAdmin = () => {
 	const navigate = useNavigate();
-	const account = useSelector((state) => state?.accountReducer?.account);
+	const account = useSelector((state) => state?.user?.account);
 
 	useEffect(() => {
 		if (!account) {
@@ -41,7 +41,6 @@ const LayoutAdmin = () => {
 	return (
 		<div>
 			<Header />
-
 			<Outlet />
 			<Footer></Footer>
 			<ToastContainer />

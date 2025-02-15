@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,7 +6,7 @@ import { checkLogin } from "../apiProject/ApiLogin";
 import { toast } from "react-toastify";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/accountAction";
 
 const Login = () => {
@@ -16,13 +16,23 @@ const Login = () => {
 		name: "",
 		password: "",
 	});
+
+	const account = useSelector((state) => state?.user?.account);
+
+	useEffect(() => {
+		if (account) {
+			navigate("/");
+		}
+	}, [account, navigate]);
+
 	const handleSubmit = async (value) => {
 		const { name, password } = value;
 		const result = await checkLogin(name, password);
 		if (result) {
+			window.localStorage.setItem("user", JSON.stringify(result));
 			toast.success("Đăng nhập thành công");
-			navigate("/");
 			dispatch(login(result));
+			navigate("/");
 		} else {
 			toast.error("Đăng nhập thất bại");
 		}

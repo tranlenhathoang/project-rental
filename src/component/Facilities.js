@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { GetAllfacilities, deleteFacilitiesById } from "../Function/typeFacilities";
 import Pagination from "react-bootstrap/Pagination";
 import { Modal, Button } from "react-bootstrap";
 
-const Facilities = () => {
+const Facilities = (props) => {
 	const [facilities, setFacilities] = useState([]);
 	const [searchFloor, setSearchFloor] = useState("");
 	const [searchCode, setSearchCode] = useState("");
@@ -16,6 +16,8 @@ const Facilities = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const itemsPerPage = 3;
 	const totalPage = Math.ceil(filteredFacilities.length / itemsPerPage);
+	const params = new URLSearchParams(window ? window.location.search : {});
+	console.log(params);
 
 	useEffect(() => {
 		loadFacilities();
@@ -47,7 +49,11 @@ const Facilities = () => {
 
 	const loadFacilities = async () => {
 		try {
-			const data = await GetAllfacilities();
+			const q = {
+				_expand: "customer",
+				...(params.get("customerId") && { customerId: params.get("customerId") }),
+			};
+			const data = await GetAllfacilities(q);
 			setFacilities(data || []);
 			setFilteredFacilities(data || []);
 		} catch (error) {
@@ -124,7 +130,7 @@ const Facilities = () => {
 									<td>{facility.status || "N/A"}</td>
 									<td className="text-end">{facility.prices}</td>
 									<td className="text-end">{facility.management_fee}</td>
-									<td>{facility.customer || ""}</td>
+									<td>{facility.customer ? facility.customer.name : ""}</td>
 									<td>
 										<Link to={`/floor/facilities/${facility.id}`} className="btn btn-primary me-2">
 											Xem
@@ -135,7 +141,6 @@ const Facilities = () => {
 										<button type="button" className="btn btn-danger" onClick={() => confirmDelete(facility.id)}>
 											Xóa
 										</button>
-
 									</td>
 								</tr>
 							))
@@ -170,8 +175,12 @@ const Facilities = () => {
 				</Modal.Header>
 				<Modal.Body>Bạn có chắc chắn muốn xóa mặt bằng này không?</Modal.Body>
 				<Modal.Footer>
-					<Button variant="secondary" onClick={handleClose}>Hủy</Button>
-					<Button variant="danger" onClick={handleDelete}>Xóa</Button>
+					<Button variant="secondary" onClick={handleClose}>
+						Hủy
+					</Button>
+					<Button variant="danger" onClick={handleDelete}>
+						Xóa
+					</Button>
 				</Modal.Footer>
 			</Modal>
 		</div>

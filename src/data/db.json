@@ -82,8 +82,7 @@
 			"dob": "1994-05-05",
 			"address": "12 Lê Quý Kỳ, Đà Nẵng",
 			"website": "hoaminnzy.com",
-			"company": "Hoa Thiên Lý",
-			"status": true
+			"company": "Hoa Thiên Lý"
 		},
 		{
 			"id": "2",
@@ -94,8 +93,7 @@
 			"dob": "1994-05-05",
 			"address": "12 Nguyễn Phước Nguyên, Đà Nẵng",
 			"website": "abc.com",
-			"company": "Hoa Mặt Trời",
-			"status": true
+			"company": "Hoa Mặt Trời"
 		},
 		{
 			"id": "3",
@@ -106,8 +104,7 @@
 			"dob": "1994-05-05",
 			"address": "12 Lê Duẩn, Đà Nẵng",
 			"website": "hoaminnzy.com",
-			"company": "Hoa Hướng Dương",
-			"status": true
+			"company": "Hoa Hướng Dương"
 		},
 		{
 			"id": "4",
@@ -118,8 +115,7 @@
 			"dob": "1994-05-05",
 			"address": "12 Trường Chinh, Đà Nẵng",
 			"website": "vipnha.com",
-			"company": "Hoa Vạn Thọ",
-			"status": true
+			"company": "Hoa Vạn Thọ"
 		},
 		{
 			"id": "5",
@@ -130,8 +126,7 @@
 			"dob": "1994-05-05",
 			"address": "12 Lê Văn Quý, Đà Nẵng",
 			"website": "build.com",
-			"company": "Hoa Cúc",
-			"status": true
+			"company": "Hoa Cúc"
 		},
 		{
 			"name": "Đinh Thanh Hằng",
@@ -142,8 +137,7 @@
 			"website": "tranhuahua.com",
 			"company": "Trăn hua hua",
 			"dob": "1994-05-05",
-			"id": "6",
-			"status": true
+			"id": "6"
 		},
 		{
 			"name": "Thanh Hằng",
@@ -154,15 +148,14 @@
 			"website": "tranhuahua.com",
 			"company": "Trăn hua hua",
 			"dob": "1994-05-05",
-			"id": "7",
-			"status": true
+			"id": "7"
 		}
 	],
 	"contracts": [
 		{
 			"id": "1",
 			"customerId": 1,
-			"premisesId": 2,
+			"premisesId": 1,
 			"employeeId": 1,
 			"tax": 2020202020,
 			"validity": "còn hiệu lực",
@@ -173,25 +166,7 @@
 			"deposit": "4.000.000 VNĐ",
 			"total": "12.000.000 VNĐ",
 			"content": "test",
-			"status": true,
-			"premises": {
-				"id": 1,
-				"premisesName": "MB001"
-			},
-			"customer": {
-				"id": 1,
-				"name": "Nguyễn Đình Hòa",
-				"identity": "343432423",
-				"email": "hoadeptrai@gmail.com",
-				"phone": "096543453",
-				"dob": "05/05/1994",
-				"address": "12 Lê Duẩn, Đà Nẵng",
-				"status": true
-			},
-			"employee": {
-				"id": 1,
-				"name": "Nguyễn Minh Hùng"
-			}
+			"status": true
 		},
 		{
 			"id": "2",
@@ -302,7 +277,7 @@
 			"status": "Chưa bàn giao",
 			"prices": "12000000",
 			"management_fee": "500000",
-			"customer": "Nguyễn Đình Hòa"
+			"customerId": 1
 		},
 		{
 			"id": "2",
@@ -315,7 +290,7 @@
 			"status": "Đã bàn giao",
 			"prices": "12000000",
 			"management_fee": "500000",
-			"customer": "Nguyễn Đình Hòa"
+			"customerId": 2
 		},
 		{
 			"id": "3",
@@ -328,7 +303,7 @@
 			"status": "Chuẩn bị ",
 			"prices": "12000000",
 			"management_fee": "500000",
-			"customer": "Nguyễn Đình Hòa"
+			"customerId": 3
 		},
 		{
 			"id": "4",
@@ -341,7 +316,7 @@
 			"status": "Chuẩn bị ",
 			"prices": "12000000",
 			"management_fee": "500000",
-			"customer": "Nguyễn Đình Hòa"
+			"customerId": 4
 		},
 		{
 			"id": "5",
@@ -354,7 +329,7 @@
 			"status": "Chuẩn bị ",
 			"prices": "12000000",
 			"management_fee": "500000",
-			"customer": "Nguyễn Đình Hòa"
+			"customerId": 5
 		},
 		{
 			"id": "6",
@@ -367,7 +342,7 @@
 			"status": "Chuẩn bị ",
 			"prices": "12000000",
 			"management_fee": "500000",
-			"customer": "Nguyễn Đình Hòa"
+			"customerId": 6
 		},
 		{
 			"id": "7",
@@ -380,7 +355,7 @@
 			"status": "Chuẩn bị ",
 			"prices": "12000000",
 			"management_fee": "500000",
-			"customer": "Nguyễn Đình Hòa"
+			"customerId": 7
 		},
 		{
 			"id": "8",
@@ -393,7 +368,7 @@
 			"status": "Chuẩn bị ",
 			"prices": "12000000",
 			"management_fee": "500000",
-			"customer": "Nguyễn Đình Hòa"
+			"customerId": 1
 		},
 		{
 			"id": "9",
@@ -406,7 +381,7 @@
 			"status": "Chuẩn bị ",
 			"prices": "12000000",
 			"management_fee": "500000",
-			"customer": "Nguyễn Đình Hòa"
+			"customerId": 2
 		},
 		{
 			"id": "10",
@@ -419,7 +394,7 @@
 			"status": "Chuẩn bị ",
 			"prices": "12000000",
 			"management_fee": "500000",
-			"customer": "Nguyễn Đình Hòa"
+			"customerId": 2
 		},
 		{
 			"id": "11",
@@ -432,7 +407,7 @@
 			"status": "Chuẩn bị ",
 			"prices": "12000000",
 			"management_fee": "500000",
-			"customer": "Nguyễn Đình Hòa"
+			"customerId": 2
 		}
 	],
 	"information": [

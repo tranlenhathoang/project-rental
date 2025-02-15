@@ -11,7 +11,7 @@ function CustomerItem(props) {
 			<td className="text-start">{email}</td>
 			<td className="text-end">{phone}</td>
 			<td className="text-center">
-				<Link className="btn btn-primary me-3" to={"/"}>
+				<Link className="btn btn-primary me-3" to={"/floor?customerId=" + id}>
 					Chi tiết
 				</Link>
 			</td>

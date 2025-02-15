@@ -55,7 +55,7 @@ function DetailFacilities() {
 								<td>{facility.status || "N/A"}</td>
 								<td>{facility.prices}</td>
 								<td>{facility.management_fee}</td>
-								<td>{facility.customer || ""}</td>
+								<td>{facility.customer ? facility.customer.name : ""}</td>
 							</tr>
 						))}
 					</tbody>

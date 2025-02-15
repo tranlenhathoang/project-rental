@@ -16,7 +16,7 @@ export async function GetAllfacilities(query) {
 // tìm 1 facilities dựa trên id truyền qua url
 export async function GetfacilitiesById(id) {
 	try {
-		const response = await axios.get(`${url}/` + id);
+		const response = await axios.get(`${url}/${id}?_expand=customer`);
 		console.log(response);
 		return response.data;
 	} catch (e) {
