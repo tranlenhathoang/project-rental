@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GetAllfacilities, deleteFacilitiesById } from "../Function/typeFacilities";
 import Pagination from "react-bootstrap/Pagination";
+import { Modal, Button } from "react-bootstrap";
 
 const Facilities = () => {
 	const [facilities, setFacilities] = useState([]);
@@ -10,6 +11,8 @@ const Facilities = () => {
 	const [searchArea, setSearchArea] = useState("");
 	const [searchType, setSearchType] = useState("");
 	const [filteredFacilities, setFilteredFacilities] = useState([]);
+	const [showModal, setShowModal] = useState(false);
+	const [deleteId, setDeleteId] = useState(null);
 	const [currentPage, setCurrentPage] = useState(1);
 	const itemsPerPage = 3;
 	const totalPage = Math.ceil(filteredFacilities.length / itemsPerPage);
@@ -29,10 +32,18 @@ const Facilities = () => {
 		setFilteredFacilities(filteredData);
 	}, [searchFloor, searchCode, searchArea, searchType, facilities]);
 
-	const handleDelete = async (id) => {
-		await deleteFacilitiesById(id);
-		setFacilities(facilities.filter((facility) => facility.id !== id));
+	const confirmDelete = (id) => {
+		setDeleteId(id);
+		setShowModal(true);
 	};
+	const handleDelete = async () => {
+		if (deleteId) {
+			await deleteFacilitiesById(deleteId);
+			setFacilities(facilities.filter((facility) => facility.id !== deleteId));
+			setShowModal(false);
+		}
+	};
+	const handleClose = () => setShowModal(false);
 
 	const loadFacilities = async () => {
 		try {
@@ -121,9 +132,10 @@ const Facilities = () => {
 										<Link to={`/floor/facilities/${facility.id}/edit`} className="btn btn-warning me-2">
 											Sửa
 										</Link>
-										<button type="button" className="btn btn-danger " onClick={() => handleDelete(facility.id)}>
+										<button type="button" className="btn btn-danger" onClick={() => confirmDelete(facility.id)}>
 											Xóa
 										</button>
+
 									</td>
 								</tr>
 							))
@@ -152,6 +164,16 @@ const Facilities = () => {
 					</Pagination.Last>
 				</Pagination>
 			</div>
+			<Modal show={showModal} onHide={handleClose}>
+				<Modal.Header closeButton>
+					<Modal.Title>Xác nhận xóa</Modal.Title>
+				</Modal.Header>
+				<Modal.Body>Bạn có chắc chắn muốn xóa mặt bằng này không?</Modal.Body>
+				<Modal.Footer>
+					<Button variant="secondary" onClick={handleClose}>Hủy</Button>
+					<Button variant="danger" onClick={handleDelete}>Xóa</Button>
+				</Modal.Footer>
+			</Modal>
 		</div>
 	);
 };
