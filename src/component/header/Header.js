@@ -72,7 +72,9 @@ const Header = () => {
 											width={40}
 											height={40}
 											className="border border-primary"
-											style={{ objectFit: "cover" }}
+											style={{
+												objectFit: "cover",
+											}}
 										/>
 									}
 									align="end"

@@ -7,9 +7,11 @@ function DeleteContract(props) {
 		<>
 			<Modal show={props.show} onHide={props.handleClose}>
 				<Modal.Header closeButton>
-					<Modal.Title>Xóa hợp đồng </Modal.Title>
+					<Modal.Title>XÓA HỢP ĐỒNG</Modal.Title>
 				</Modal.Header>
-				<Modal.Body>Bạn có muốn xóa hợp đồng này không?</Modal.Body>
+				<Modal.Body>
+					Bạn có muốn xóa hợp đồng <strong>{props.contracts?.id} </strong> không?
+				</Modal.Body>
 				<Modal.Footer>
 					<Button variant="secondary" onClick={props.handleClose}>
 						Hủy
