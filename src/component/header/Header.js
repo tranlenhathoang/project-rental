@@ -13,7 +13,7 @@ const Header = () => {
 
 	const handleLogout = () => {
 		dispatch(logout());
-		navigate("/");
+		navigate("/login");
 	};
 
 	// Trạng thái hiển thị submenu
