@@ -12,6 +12,7 @@ function accountReducer(state = initState, action) {
 				account: action.payload,
 			};
 		case "LOGOUT":
+			window.localStorage.removeItem("user");
 			return {
 				...state,
 				account: null,
@@ -23,3 +24,4 @@ function accountReducer(state = initState, action) {
 export const rootReducer = combineReducers({
 	user: accountReducer,
 });
+
