@@ -105,8 +105,6 @@ const Facilities = (props) => {
 				<Link to={`/floor/AddFacilities`} className="btn btn-success me-2 gap-2 mb-3">
 					Thêm mới
 				</Link>
-				<button className="btn btn-danger me-2 gap-2 mb-3">Xóa tất cả</button>
-				<button className="btn btn-danger gap-2 mb-3">Tên tầng</button>
 				<table className="table table-bordered table-striped">
 					<thead>
 						<tr>

@@ -108,8 +108,8 @@ const EditServices = (props) => {
                     <Modal.Footer>
                         <Button variant="secondary" onClick={() => {
                             setIsOpenModalEdit(false)
-                        }}>Close</Button>
-                        <Button variant="primary" onClick={(values) => handleSave(values)}>Save changes</Button>
+                        }}>Hủy</Button>
+                        <Button variant="primary" onClick={(values) => handleSave(values)}>Lưu</Button>
                     </Modal.Footer>
                 </Modal.Dialog>
             </div>

@@ -197,10 +197,10 @@ const ServiceTable = () => {
 						<Modal.Body>{selectedService && <p>Thanh toán số tiền: {selectedService.consume * selectedService.quantity} VND</p>}</Modal.Body>
 						<Modal.Footer>
 							<Button variant="secondary" onClick={() => setIsModalOpen(false)}>
-								Close
+								Hủy
 							</Button>
 							<Button variant="primary" onClick={() => handleSave()}>
-								Save changes
+								Đồng ý
 							</Button>
 						</Modal.Footer>
 					</Modal.Dialog>
