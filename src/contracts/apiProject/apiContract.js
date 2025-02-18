@@ -49,7 +49,10 @@ export async function addNewContract(contract) {
 	try {
 		const response = await axios.post(`${BASE_URL}/contracts`, contract);
 		return response.data;
-	} catch (error) {}
+	} catch (error) {
+		console.error("Lỗi API:", error.response ? error.response.data : error.message);
+		throw error;
+	}
 }
 
 export async function deleteById(id) {

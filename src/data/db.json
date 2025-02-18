@@ -87,9 +87,9 @@
 		{
 			"id": "2",
 			"name": "Lê Đình Quốc",
-			"identity": "343432423",
+			"identity": "343432423548",
 			"email": "nhanvanlam@gmail.com",
-			"phone": "096543453",
+			"phone": "0965434531",
 			"dob": "1994-05-05",
 			"address": "12 Nguyễn Phước Nguyên, Đà Nẵng",
 			"website": "abc.com",
@@ -98,9 +98,9 @@
 		{
 			"id": "3",
 			"name": "Nguyễn Minh Hùng",
-			"identity": "343432423",
+			"identity": "343432423548",
 			"email": "hung@gmail.com",
-			"phone": "096543453",
+			"phone": "0965434531",
 			"dob": "1994-05-05",
 			"address": "12 Lê Duẩn, Đà Nẵng",
 			"website": "hoaminnzy.com",
@@ -109,9 +109,9 @@
 		{
 			"id": "4",
 			"name": "Phạm Minh Hưng",
-			"identity": "343432423",
+			"identity": "343432423548",
 			"email": "hungmapdeptrai@gmail.com",
-			"phone": "096543453",
+			"phone": "0965434531",
 			"dob": "1994-05-05",
 			"address": "12 Trường Chinh, Đà Nẵng",
 			"website": "vipnha.com",
@@ -120,9 +120,9 @@
 		{
 			"id": "5",
 			"name": "Nguyễn Văn Tiến",
-			"identity": "343432423",
+			"identity": "343432423548",
 			"email": "tieni@gmail.com",
-			"phone": "096543453",
+			"phone": "0965434531",
 			"dob": "1994-05-05",
 			"address": "12 Lê Văn Quý, Đà Nẵng",
 			"website": "build.com",
@@ -140,15 +140,48 @@
 			"id": "6"
 		},
 		{
-			"name": "Thanh Hằng",
-			"identity": "040048000389",
-			"email": "dinhhang440@gmail.com",
-			"phone": "0334534831",
-			"address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
-			"website": "tranhuahua.com",
-			"company": "Trăn hua hua",
-			"dob": "1994-05-05",
-			"id": "7"
+			"name": "Trần Huyền Trân",
+			"identity": "343432423579",
+			"email": "tran.htran612@gmail.com",
+			"phone": "0334534491",
+			"address": "Số 37 Kim Hoa, Đống Đa",
+			"website": "thainguyen.com",
+			"company": "Forever",
+			"dob": "2003-12-06",
+			"id": "EQTlI2P"
+		},
+		{
+			"name": "Nguyễn Thị Hương Giang",
+			"identity": "040048000373",
+			"email": "huonggiang@gmail.com",
+			"phone": "0987547135",
+			"address": "Số 9 Cầu Giấy, Hà Nội",
+			"website": "huonggiang.com",
+			"company": "Huong Giang",
+			"dob": "2003-10-19",
+			"id": "xylbGY8"
+		},
+		{
+			"name": "Chu Phương Thảo",
+			"identity": "040048000385",
+			"email": "eirian@livinitlarge.net",
+			"phone": "0334534867",
+			"address": "Số 7 ngõ 8 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
+			"website": "lovisong.com",
+			"company": "Hoa Mặt Trang",
+			"dob": "2002-09-24",
+			"id": "EjxPmyA"
+		},
+		{
+			"name": "Nguyễn Văn Anh",
+			"identity": "343432423548",
+			"email": "yu67r2fgf@gmail.com",
+			"phone": "0864418389",
+			"address": "Số 1 Cầu Giấy, Hà Nội",
+			"website": "abc.com",
+			"company": "Hoa Thiên Lá",
+			"dob": "2012-02-15",
+			"id": "9dEWa5K"
 		}
 	],
 	"contracts": [
@@ -178,9 +211,9 @@
 			"term": 1,
 			"startDate": "2020-09-09",
 			"endDate": "2020-10-09",
-			"price": "12.000.000 VNĐ",
-			"deposit": "5.000.000 VNĐ",
-			"total": "12.000.000 VNĐ",
+			"price": "12.000.000",
+			"deposit": "5.000.000",
+			"total": "12.000.000",
 			"content": "",
 			"status": false
 		},
@@ -194,9 +227,9 @@
 			"term": 1,
 			"startDate": "2020-09-09",
 			"endDate": "2020-10-09",
-			"price": "12.000.000 VNĐ",
-			"deposit": "5.000.000 VNĐ",
-			"total": "12.000.000 VNĐ",
+			"price": "12.000.000",
+			"deposit": "5.000.000",
+			"total": "12.000.000",
 			"content": "",
 			"status": false
 		},
@@ -210,9 +243,9 @@
 			"term": 1,
 			"startDate": "2020-09-09",
 			"endDate": "2020-10-09",
-			"price": "12.000.000 VNĐ",
-			"deposit": "5.000.000 VNĐ",
-			"total": "12.000.000 VNĐ",
+			"price": "12.000.000",
+			"deposit": "5.000.000",
+			"total": "12.000.000",
 			"content": "",
 			"status": false
 		},
@@ -226,9 +259,9 @@
 			"term": 1,
 			"startDate": "2020-09-09",
 			"endDate": "2020-10-09",
-			"price": "12.000.000 VNĐ",
-			"deposit": "5.000.000 VNĐ",
-			"total": "12.000.000 VNĐ",
+			"price": "12.000.000",
+			"deposit": "5.000.000",
+			"total": "12.000.000",
 			"content": "",
 			"status": true
 		}
@@ -345,19 +378,6 @@
 			"customerId": 6
 		},
 		{
-			"id": "7",
-			"premisesName": "MB007",
-			"src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-			"title": "Mặt bằng tầng 2",
-			"desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
-			"facility_type": "Mặt tiền",
-			"area": 1009,
-			"status": "Chuẩn bị ",
-			"prices": "12000000",
-			"management_fee": "500000",
-			"customerId": 7
-		},
-		{
 			"id": "8",
 			"premisesName": "MB008",
 			"src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -372,7 +392,7 @@
 		},
 		{
 			"id": "9",
-			"premisesName": "MB09",
+			"premisesName": "MB009",
 			"src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 			"title": "Mặt bằng tầng 2",
 			"desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
