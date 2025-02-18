@@ -14,8 +14,8 @@ import { Bounce, toast } from "react-toastify";
 
 function AddContract() {
 	const [contract, setContract] = useState({
-		customerId: undefined,
-		premisesId: undefined,
+		customer: undefined,
+		premises: undefined,
 		employee: "",
 		tax: "",
 		validity: "còn hiệu lực",
@@ -98,9 +98,6 @@ function AddContract() {
 	};
 
 	const validationSchema = Yup.object({
-		name: Yup.string()
-			.required("Tên khách hàng là bắt buộc")
-			.matches(/^[A-ZÀ-Ỹ[a-zà-ỹ]*(\s[A-ZÀ-Ỹ[a-zà-ỹ]*)+$/, "Tên không đúng định dạng"),
 		term: Yup.string().required("Kì hạn là bắt buộc"),
 		startDate: Yup.date().required("Ngày thuê là bắt buộc"),
 		endDate: Yup.date().required("Ngày thuê là bắt buộc"),
@@ -136,7 +133,7 @@ function AddContract() {
 			</div>
 			<div className="container mb-3">
 				<Formik initialValues={contract} onSubmit={handleSubmit} validationSchema={validationSchema}>
-					{({ resetForm }) => (
+					{({ errors, resetForm }) => (
 						<Form className="mt-3">
 							<Row>
 								<Col>
@@ -237,7 +234,7 @@ function AddContract() {
 								>
 									Làm mới
 								</button>
-								<button className="btn btn-secondary" onClick={() => navigate("/contracts")}>
+								<button type="button" className="btn btn-secondary" onClick={() => navigate("/contracts")}>
 									Quay về
 								</button>
 							</div>

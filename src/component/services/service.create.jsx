@@ -148,8 +148,8 @@ const CreateServices = (props) => {
                         </form>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={() => setIsOpenModalCreate(false)}>Close</Button>
-                        <Button variant="primary" onClick={(values) => handleSave(values)}>Save changes</Button>
+                        <Button variant="secondary" onClick={() => setIsOpenModalCreate(false)}>Hủy</Button>
+                        <Button variant="primary" onClick={(values) => handleSave(values)}>Lưu</Button>
                     </Modal.Footer>
                 </Modal.Dialog>
             </div>

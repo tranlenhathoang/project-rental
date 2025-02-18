@@ -107,9 +107,6 @@ function EditContract() {
 	};
 
 	const validationSchema = Yup.object({
-		name: Yup.string()
-			.required("Tên khách hàng là bắt buộc")
-			.matches(/^[A-ZÀ-Ỹ[a-zà-ỹ]*(\s[A-ZÀ-Ỹ[a-zà-ỹ]*)+$/, "Tên không đúng định dạng"),
 		term: Yup.string().required("Kì hạn là bắt buộc"),
 		startDate: Yup.date().required("Ngày thuê là bắt buộc"),
 		endDate: Yup.date().required("Ngày thuê là bắt buộc"),
