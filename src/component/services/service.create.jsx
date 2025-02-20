@@ -6,28 +6,17 @@ import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 
 
-const listPremises = [
-    {
-        id: 1,
-        name: "MB001",
-    },
-    {
-        id: 2,
-        name: "MB002",
-    },
-    {
-        id: 3,
-        name: "MB003",
-    }
-];
+
 
 
 const CreateServices = (props) => {
     const [listCustomer, setListCustomer] = useState([]);
+    const [listPremises, setListPremises] = useState([]);
 
 
     useEffect(() => {
         fetchListCustomer();
+        fetchListPremises()
     }, []);
 
 
@@ -90,6 +79,14 @@ const CreateServices = (props) => {
         setListCustomer(res.data)
     }
 
+    const fetchListPremises = async () => {
+        const res = await axios.get(`http://localhost:3001/premises`);
+        if (!res) {
+            toast.error("error fetch data");
+        }
+        setListPremises(res.data);
+    };
+
     return (
         <>
             <div
@@ -128,7 +125,7 @@ const CreateServices = (props) => {
                                     {
                                         listPremises.map((item) => {
                                             return (
-                                                <option key={item.id} value={item.name}>{item.name}</option>
+                                                <option key={item.id} value={item.premisesName}>{item.premisesName}</option>
                                             )
                                         })
                                     }
