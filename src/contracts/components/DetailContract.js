@@ -94,8 +94,8 @@ function DetailContract() {
 			<div
 				className="text-center py-4"
 				style={{
-					backgroundColor: "#E3F2FD",
-					color: "#0056B3",
+					backgroundColor: "#e5a63b",
+					color: "white",
 					boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
 				}}
 			>
@@ -212,7 +212,7 @@ function DetailContract() {
 					<Row className="mb-3">
 						<Col md={4}>
 							<div className="mt-2">
-								<label className="form-label mb-1 fw-bold">Kì hạn:</label>
+								<label className="form-label mb-1 fw-bold">Kì hạn (tháng):</label>
 								<input type="text" id="disabledTextInput" className="form-control" value={contract.term} readOnly />
 							</div>
 						</Col>
@@ -232,14 +232,14 @@ function DetailContract() {
 					<Row>
 						<Col md={4}>
 							<div className="mt-2">
-								<label className="form-label mb-1 fw-bold">Giá tiền mỗi tháng:</label>
+								<label className="form-label mb-1 fw-bold">Giá tiền mỗi tháng: (VNĐ)</label>
 								<input type="text" id="disabledTextInput" className="form-control" value={contract.price} readOnly />{" "}
 							</div>
 						</Col>
 						<Col md={4}>
 							<div className="input-group" style={{ marginTop: "36px" }}>
 								<label className="input-group-text fw-bold" id="inputGroup-sizing-default">
-									Tổng tiền:
+									Tổng tiền: (VNĐ)
 								</label>
 								<input
 									type="text"
@@ -254,7 +254,7 @@ function DetailContract() {
 						</Col>
 						<Col md={4}>
 							<div className="mt-2">
-								<label className="form-label mb-1 fw-bold">Tiền đặt cọc:</label>
+								<label className="form-label mb-1 fw-bold">Tiền đặt cọc: (VNĐ)</label>
 								<input type="text" id="disabledTextInput" className="form-control" value={contract.deposit} readOnly />
 							</div>
 						</Col>

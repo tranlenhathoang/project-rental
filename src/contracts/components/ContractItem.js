@@ -16,9 +16,6 @@ function ContractItem(props) {
 			<td className="text-left">
 				<Link to={`/floor/facilities/${premises.id}`}>{premises ? premises.premisesName : ""}</Link>
 			</td>
-			<td className="text-center">
-				<input type="checkbox" checked={status} onChange={() => changeStatusContract()} />
-			</td>
 			<td className="text-center d-flex gap-2">
 				<Link type="button" className="btn btn-primary" to={"/contracts/detail/" + id}>
 					Chi tiết

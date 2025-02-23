@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Formik, Form, Field, useFormik, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import CustomSelect from "./CustomSelect";
 import { getAllEmployee } from "../apiProject/apiEmployee";
@@ -67,12 +67,13 @@ function AddContract() {
 
 	const navigate = useNavigate();
 
-	const formik = useFormik({
-		initialValues: { file: null },
-		onSubmit: (values) => {
-			console.log("File đã chọn:", values.file);
-		},
-	});
+	const calculateTerm = (startDate, endDate) => {
+		if (!startDate || !endDate) return "";
+		const start = new Date(startDate);
+		const end = new Date(endDate);
+		if (end < start) return "";
+		return (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+	};
 
 	const handleSubmit = async (value) => {
 		const contract = {
@@ -99,20 +100,21 @@ function AddContract() {
 
 	const validationSchema = Yup.object({
 		term: Yup.string().required("Kì hạn là bắt buộc"),
+
 		startDate: Yup.date().required("Ngày thuê là bắt buộc"),
-		endDate: Yup.date().required("Ngày thuê là bắt buộc"),
-		price: Yup.string()
-			.required("Giá tiền là bắt buộc")
-			.min(0, "Lớn hơn hoặc bằng 0")
-			.matches(/^\d{1,3}(\.\d{3})*(,\d{2})?$/, "Điền đúng định dạng. VD: 6.000.000"),
-		deposit: Yup.string()
-			.required("Tiền cọc là bắt buộc")
-			.min(0, "Lớn hơn hoặc bằng 0")
-			.matches(/^\d{1,3}(\.\d{3})*(,\d{2})?$/, "Điền đúng định dạng. VD: 6.000.000"),
-		total: Yup.string()
-			.required("Tổng tiền là bắt buộc")
-			.min(0, "Lớn hơn hoặc bằng 0")
-			.matches(/^\d{1,3}(\.\d{3})*(,\d{2})?$/, "Điền đúng định dạng. VD: 6.000.000"),
+
+		endDate: Yup.date()
+			.required("Ngày thuê là bắt buộc")
+			.test("isAfterStartDate", "Ngày kết thúc phải sau ngày bắt đầu", function (value) {
+				return !this.parent.startDate || new Date(value) >= new Date(this.parent.startDate);
+			}),
+
+		price: Yup.string().required("Giá tiền là bắt buộc").min(0, "Lớn hơn hoặc bằng 0").matches(/^\d+$/, "Điền đúng định dạng. VD: 6.000.000"),
+
+		deposit: Yup.string().required("Tiền cọc là bắt buộc").min(0, "Lớn hơn hoặc bằng 0"),
+
+		total: Yup.string().required("Tổng tiền là bắt buộc").min(0, "Lớn hơn hoặc bằng 0"),
+
 		tax: Yup.string()
 			.required("Mã số thuế là bắt buộc")
 			.min(0, "Lớn hơn hoặc bằng 0")
@@ -124,8 +126,8 @@ function AddContract() {
 			<div
 				className="text-center py-4"
 				style={{
-					backgroundColor: "#E3F2FD",
-					color: "#0056B3",
+					backgroundColor: "#e5a63b",
+					color: "white",
 					boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
 				}}
 			>
@@ -133,11 +135,11 @@ function AddContract() {
 			</div>
 			<div className="container mb-3">
 				<Formik initialValues={contract} onSubmit={handleSubmit} validationSchema={validationSchema}>
-					{({ errors, resetForm }) => (
+					{({ values, setFieldValue, resetForm }) => (
 						<Form className="mt-3">
 							<Row>
 								<Col>
-									<label className="mb-3">Mặt bằng</label>
+									<label className="mb-3">Mặt bằng: (*)</label>
 									<CustomSelect
 										name="premises"
 										options={premises}
@@ -146,13 +148,12 @@ function AddContract() {
 										onSelect={(option) => setSelectedPremisesOption(option)}
 									/>
 
-									<label className="mt-3">Kì hạn (Tháng)</label>
-									<Field type="number" name="term" className="form-control mt-3" />
-									<ErrorMessage name="term" className="text-danger" component="div" />
+									<label className="mt-3 mb-3">Kỳ hạn (tháng):</label>
+									<Field type="text" name="term" className="form-control" readOnly />
 								</Col>
 
 								<Col>
-									<label className="mb-3">Họ và tên khách hàng</label>
+									<label className="mb-3">Họ và tên khách hàng: (*)</label>
 									<CustomSelect
 										name="customer"
 										options={customers}
@@ -161,13 +162,21 @@ function AddContract() {
 										onSelect={(option) => setSelectedCustomerOption(option)}
 									/>
 
-									<label className="mt-3">Ngày bắt đầu thuê</label>
-									<Field type="date" className="form-control mt-3" name="startDate" />
+									<label className="mt-3 mb-3">Ngày bắt đầu thuê: (*)</label>
+									<Field
+										type="date"
+										name="startDate"
+										className="form-control"
+										onChange={(e) => {
+											setFieldValue("startDate", e.target.value);
+											setFieldValue("term", calculateTerm(e.target.value, values.endDate));
+										}}
+									/>
 									<ErrorMessage name="startDate" className="text-danger" component="div" />
 								</Col>
 
 								<Col>
-									<label className="mb-3">Họ và tên nhân viên</label>
+									<label className="mb-3">Họ và tên nhân viên: (*)</label>
 									<CustomSelect
 										name="employee"
 										options={employees}
@@ -176,44 +185,53 @@ function AddContract() {
 										onSelect={(option) => setSelectedEmployeeOption(option)}
 									/>
 
-									<label className="mt-3">Ngày kết thúc thuê</label>
-									<Field type="date" className="form-control mt-3" name="endDate" />
+									<label className="mt-3 mb-3">Ngày kết thúc thuê: (*)</label>
+									<Field
+										type="date"
+										name="endDate"
+										className="form-control"
+										onChange={(e) => {
+											setFieldValue("endDate", e.target.value);
+											setFieldValue("term", calculateTerm(values.startDate, e.target.value));
+										}}
+									/>
 									<ErrorMessage name="endDate" className="text-danger" component="div" />
 								</Col>
 							</Row>
 
 							<Row className="mt-4">
 								<Col>
-									<label>Giá tiền mỗi tháng (VNĐ)</label>
-									<Field type="text" name="price" className="form-control mt-3" placeholder="Nhập giá tiền mỗi tháng" />
+									<label>Giá tiền mỗi tháng: (VNĐ) (*)</label>
+									<Field
+										type="number"
+										name="price"
+										className="form-control mt-3"
+										placeholder="Nhập giá tiền mỗi tháng"
+										onChange={(e) => {
+											setFieldValue("price", e.target.value);
+											const total = e.target.value * values.term;
+											setFieldValue("total", total);
+											setFieldValue("deposit", total * 0.2);
+										}}
+									/>
 									<ErrorMessage name="price" className="text-danger" component="div" />
 
-									<label className="mt-3">Tiền cọc (VNĐ)</label>
-									<Field type="text" name="deposit" placeholder="Nhập tiền cọc" className="form-control mt-3" />
-									<ErrorMessage name="deposit" className="text-danger" component="div" />
+									<label className="mt-3">Tiền cọc: (VNĐ)</label>
+									<Field type="text" name="deposit" className="form-control mt-3" readOnly />
 								</Col>
 
 								<Col>
-									<label>Tổng tiền (VNĐ)</label>
-									<Field type="text" name="total" className="form-control mt-3" placeholder="Nhập tổng tiền" />
-									<ErrorMessage name="total" className="text-danger" component="div" />
+									<label>Tổng tiền: (VNĐ)</label>
+									<Field type="text" name="total" className="form-control mt-3" readOnly />
 
-									<label className="mt-3">Mã số thuế</label>
-									<Field type="text" name="tax" className="form-control mt-3" />
+									<label className="mt-3">Mã số thuế: (*)</label>
+									<Field type="text" name="tax" className="form-control mt-3" placeholder="Nhập mã số thuế" />
 									<ErrorMessage name="tax" className="text-danger" component="div" />
 								</Col>
 							</Row>
 
 							<Row>
-								<label className="mt-3">Hình ảnh hợp đồng</label>
-								<input
-									type="file"
-									className="mt-3"
-									onChange={(event) => {
-										formik.setFieldValue("file", event.currentTarget.files[0]);
-									}}
-								/>
-								<label className="mt-3">Nội dung hợp đồng</label>
+								<label className="mt-3">Nội dung hợp đồng:</label>
 								<Field as="textarea" rows="4" cols="50" className="form-control mt-3" name="content" />
 							</Row>
 
