@@ -10,6 +10,8 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import CreateServices from "./service.create";
 import EditServices from "./service.edit";
 import ReactPaginate from "react-paginate";
+import { FaSearch } from "react-icons/fa";
+import { HiArrowPath } from "react-icons/hi2";
 
 const ServiceTable = () => {
 	const [listService, setListService] = useState([]);
@@ -48,6 +50,8 @@ const ServiceTable = () => {
 		}
 		setListPremises(res.data);
 	};
+
+
 
 	const getData = async () => {
 		const params = {};
@@ -107,7 +111,9 @@ const ServiceTable = () => {
 				<h2>DANH SÁCH DỊCH VỤ</h2>
 			</div>
 			<div className="row mb-5">
-				<div className="col d-flex align-items-center gap-3">
+				<div className="col d-flex align-items-center gap-3" style={{
+					flex: 1,
+				}}>
 					<span className="title" style={{ fontWeight: "500" }}>
 						Mặt Bằng:{" "}
 					</span>
@@ -122,18 +128,18 @@ const ServiceTable = () => {
 							})}
 						</DropdownButton>
 					</div>
-				</div>
-				<div className="col">
-					<Button
-						style={{
-							marginRight: "10px",
-							backgroundColor: "#FFC107",
-						}}
-						onClick={() => handleSearch()}
+					<button
+						onClick={handleSearch}
+						type="button"
+						className="btn btn-secondary rounded-circle d-flex justify-content-center align-items-center"
+						style={{ width: "40px", height: "40px" }}
 					>
-						Tìm kiếm
-					</Button>
+						<FaSearch color="red" size={20} />
+					</button>
+
+
 					<Button
+						className="ms-auto"
 						style={{
 							backgroundColor: "#198754",
 						}}
@@ -177,7 +183,7 @@ const ServiceTable = () => {
 								>
 									<Button onClick={() => handlePayment(item)}>Thanh toán</Button>
 									<Button
-										variant="secondary"
+										className="btn-warning"
 										onClick={() => {
 											setIsOpenModalEdit(true);
 											setDataUpdate(item);
