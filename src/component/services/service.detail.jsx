@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import "./service.css";
 import CreateServices from './service.create';
 import EditServices from './service.edit';
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ServiceDetail = () => {
     const { id } = useParams();
@@ -21,6 +21,7 @@ const ServiceDetail = () => {
     const [isOpenModalEdit, setIsOpenModalEdit] = useState(false);
     const [dataUpdate, setDataUpdate] = useState(null);
     const [listCustomer, setListCustomer] = useState([]);
+    const navigation = useNavigate()
 
     useEffect(() => {
         getData();
@@ -52,10 +53,26 @@ const ServiceDetail = () => {
 
     return (
         <div className='container'>
-            <h2 style={{
-                marginBottom: "20px",
-                color: "red"
-            }}>Dịch vụ</h2>
+            <div style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between"
+
+            }}>
+                <h2 style={{
+                    marginBottom: "20px",
+                    color: "red",
+                    marginTop: "10px"
+                }}>Dịch vụ</h2>
+                <Button
+
+                    onClick={() => navigation("/services")}
+
+                >
+                    Quay lại trang dịch vụ
+                </Button>
+            </div>
+
 
             <Table striped bordered hover >
                 <thead>
@@ -75,12 +92,12 @@ const ServiceDetail = () => {
                         return (
                             <tr key={item.id}>
                                 <td>{index + 1}</td>
-                                <td>{item.name}</td>
+                                <td>{item?.type?.name}</td>
                                 <td>{item.date}</td>
-                                <td>{listCustomer.find(i => i.id === item.customer)?.name}</td>
+                                <td>{listCustomer.find((i) => i.id === item.customer)?.name}</td>
                                 <td>{item.quantity}</td>
-                                <td>{item.consume}</td>
-                                <td>{item.consume * item.quantity}</td>
+                                <td>{item?.type?.price}</td>
+                                <td>{item?.type?.price * item.quantity}</td>
                             </tr>
                         )
                     })}
