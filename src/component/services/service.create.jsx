@@ -12,63 +12,96 @@ import { useEffect, useState } from "react";
 const CreateServices = (props) => {
     const [listCustomer, setListCustomer] = useState([]);
     const [listPremises, setListPremises] = useState([]);
+    const [listServices, setListServices] = useState([]);
 
 
     useEffect(() => {
         fetchListCustomer();
-        fetchListPremises()
+        fetchListPremises();
+        fetchListServices();
     }, []);
 
 
     useEffect(() => {
         if (listCustomer.length > 0) {
-            formik.setFieldValue('customer', listCustomer[0]?.id);
+            formik.setFieldValue('customer', listCustomer[0]?.id || "");
         }
     }, [listCustomer]);
 
     const formik = useFormik({
         initialValues: {
-            name: "",
-            consume: "",
             date: "",
             premises: "MB001",
             quantity: "",
-            customer: listCustomer[0]?.id
+            customer: listCustomer[0]?.id,
+            service: ""
         },
         onSubmit: values => {
-            console.log(values);
-            axios.post("http://localhost:3001/services", values).then(res => {
-                console.log(">>>check res", res);
-                if (res.status === 201) {
-                    toast.success("Tạo dịch vụ thành công")
-                    getData();
-                } else {
-                    toast.error("Tạo dịch vụ thất bại")
-                }
-            })
+            handleSave(values);
         },
         validationSchema: Yup.object({
-            name: Yup.string().required("Tên dịch vụ không được để trống"),
-            consume: Yup.number().required("Giá dịch vụ không được để trống"),
             date: Yup.date().required("Ngày tháng không được để trống"),
             premises: Yup.string().required("Mặt bằng không được để trống"),
-            quantity: Yup.number().required("Số lượng không được để trống")
+            quantity: Yup.number().when('service', (service, schema) => {
+                const selectedService = listServices.find(s => s.id === service);
+                return selectedService?.isQuantity
+                    ? schema.required("Số lượng không được để trống")
+                    : schema.notRequired();
+            }),
+            service: Yup.string().required("Dịch vụ không được để trống")
         }),
-    })
+    });
+
+
+
+
     console.log(">>>check formik", formik);
+
 
     const { isOpenModalCreate, setIsOpenModalCreate, getData } = props;
 
     const handleSave = (values) => {
-        // setIsOpenModalCreate(false)
-        if (formik.values.name === "" || formik.values.consume === "" || formik.values.date === "") {
-            setIsOpenModalCreate(true)
+        const selectedService = listServices.find(service => service.id === formik.values.service);
+        if (!selectedService) {
+            toast.error("Vui lòng chọn dịch vụ");
+            return;
+        }
+
+        if (formik.values.date === "" || formik.values.premises === "" || formik.values.customer === "" || formik.values.service === "") {
+            setIsOpenModalCreate(true);
         } else {
             setIsOpenModalCreate(false);
-            formik.handleSubmit();
+
+            const type = {
+                name: selectedService.name,
+                price: selectedService.price
+            };
+
+            // Tạo payload với tất cả các trường cần thiết
+            const payload = {
+                id: Math.random().toString(36).substr(2, 4), // Tạo ID ngẫu nhiên
+                type: type,
+                date: values.date,
+                premises: values.premises,
+                customer: values.customer,
+                quantity: values.quantity
+            };
+
+
+            // Gửi dữ liệu lên server
+            axios.post("http://localhost:3001/services", payload).then(res => {
+                if (res.status === 201) {
+                    toast.success("Tạo dịch vụ thành công");
+                    getData();
+                } else {
+                    toast.error("Tạo dịch vụ thất bại");
+                }
+            }).catch(error => {
+                console.error("Error creating service:", error);
+                toast.error("Có lỗi xảy ra khi tạo dịch vụ");
+            });
         }
-        console.log(values);
-    }
+    };
 
     const fetchListCustomer = async () => {
         const res = await axios.get(`http://localhost:3001/customers`)
@@ -87,6 +120,17 @@ const CreateServices = (props) => {
         setListPremises(res.data);
     };
 
+    const fetchListServices = async () => {
+        const res = await axios.get(`http://localhost:3001/list_services`);
+        if (!res) {
+            toast.error("error fetch data");
+        }
+        setListServices(res.data);
+    };
+
+
+
+
     return (
         <>
             <div
@@ -98,55 +142,92 @@ const CreateServices = (props) => {
                         <Modal.Title>Tạo dịch vụ </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <form onSubmit={formik.handleSubmit}  >
+                        <form onSubmit={formik.handleSubmit}>
                             <div className="d-flex flex-column">
-                                <label className="p-2">Tên dịch vụ</label>
+                                <label className="p-2">Dịch vụ</label>
 
-                                <input type="text" name="name" value={formik.values.name} style={{ padding: "3px 5px", borderRadius: "6px", outline: "none", border: "1px solid #ccc" }} onBlur={formik.handleBlur} onChange={formik.handleChange} />
 
-                                {formik.touched.name && formik.errors.name ? <span style={{ color: "red" }}>{formik.errors.name}</span> : null}
+                                {listServices.map((item) => (
+                                    <div key={item.id}>
+                                        <input
+                                            type="radio"
+                                            id={`service-${item.id}`}
+                                            name="service"
+                                            value={item.id}
+                                            onChange={(e) => {
+                                                formik.setFieldValue('service', e.target.value);
+                                                formik.setFieldValue('quantity', item.isQuantity ? "" : 1);
+                                            }}
+                                            onBlur={formik.handleBlur}
+                                            checked={formik.values.service === item.id}
+                                        />
+                                        <label htmlFor={`service-${item.id}`}>{item.name} - {item.price} VND</label>
+                                    </div>
+                                ))}
 
-                                <label className="p-2">Số lượng</label>
-                                <input type="number" name="quantity" style={{ padding: "3px 5px", borderRadius: "6px", outline: "none", border: "1px solid #ccc" }} value={formik.values.quantity} onBlur={formik.handleBlur} onChange={formik.handleChange} />
-                                {formik.touched.quantity && formik.errors.consume ? <span style={{ color: "red" }}>{formik.errors.quantity}</span> : null}
-
-                                <label className="p-2">Giá dịch vụ</label>
-                                <input type="number" name="consume" style={{ padding: "3px 5px", borderRadius: "6px", outline: "none", border: "1px solid #ccc" }} value={formik.values.consume} onBlur={formik.handleBlur} onChange={formik.handleChange} />
-                                {formik.touched.consume && formik.errors.consume ? <span style={{ color: "red" }}>{formik.errors.consume}</span> : null}
-
+                                {/* Ô nhập số lượng */}
+                                {formik.values.service && listServices.find(service => service.id === formik.values.service) && (
+                                    <>
+                                        <label className="p-2">Số lượng</label>
+                                        <input
+                                            type="number"
+                                            name="quantity"
+                                            style={{ padding: "3px 5px", borderRadius: "6px", outline: "none", border: "1px solid #ccc" }}
+                                            value={formik.values.quantity}
+                                            onBlur={formik.handleBlur}
+                                            onChange={formik.handleChange}
+                                            disabled={!listServices.find(service => service.id === formik.values.service)?.isQuantity}
+                                        />
+                                        {formik.touched.quantity && formik.errors.quantity ? (
+                                            <span style={{ color: "red" }}>{formik.errors.quantity}</span>
+                                        ) : null}
+                                    </>
+                                )}
 
                                 <label className="p-2">Ngày tháng</label>
-                                <input type="date" name="date" style={{ padding: "3px 5px", borderRadius: "6px", outline: "none", border: "1px solid #ccc" }} value={formik.values.date} onBlur={formik.handleBlur} onChange={formik.handleChange} />
-
-                                {formik.touched.date && formik.errors.date ? <span style={{ color: "red" }}>{formik.errors.date}</span> : null}
+                                <input
+                                    type="date"
+                                    name="date"
+                                    style={{ padding: "3px 5px", borderRadius: "6px", outline: "none", border: "1px solid #ccc" }}
+                                    value={formik.values.date}
+                                    onBlur={formik.handleBlur}
+                                    onChange={formik.handleChange}
+                                />
+                                {formik.touched.date && formik.errors.date ? (
+                                    <span style={{ color: "red" }}>{formik.errors.date}</span>
+                                ) : null}
 
                                 <label className="p-2">Mặt bằng</label>
-                                <select onBlur={formik.handleBlur} onChange={formik.handleChange} name="premises" style={{ padding: "3px 5px", borderRadius: "6px", outline: "none", border: "1px solid #ccc" }}>
-                                    {
-                                        listPremises.map((item) => {
-                                            return (
-                                                <option key={item.id} value={item.premisesName}>{item.premisesName}</option>
-                                            )
-                                        })
-                                    }
+                                <select
+                                    name="premises"
+                                    onBlur={formik.handleBlur}
+                                    onChange={formik.handleChange}
+                                    value={formik.values.premises}
+                                    style={{ padding: "3px 5px", borderRadius: "6px", outline: "none", border: "1px solid #ccc" }}
+                                >
+                                    {listPremises.map((item) => (
+                                        <option key={item.id} value={item.premisesName}>{item.premisesName}</option>
+                                    ))}
                                 </select>
 
                                 <label className="p-2">Khách hàng</label>
-                                <select onBlur={formik.handleBlur} onChange={formik.handleChange} name="customer" style={{ padding: "3px 5px", borderRadius: "6px", outline: "none", border: "1px solid #ccc" }}>
-                                    {
-                                        listCustomer.map((item) => {
-                                            return (
-                                                <option key={item.id} value={item.id}>{item.name}</option>
-                                            )
-                                        })
-                                    }
+                                <select
+                                    name="customer"
+                                    onBlur={formik.handleBlur}
+                                    onChange={formik.handleChange}
+                                    value={formik.values.customer}
+                                    style={{ padding: "3px 5px", borderRadius: "6px", outline: "none", border: "1px solid #ccc" }}
+                                >
+                                    {listCustomer.map((item) => (
+                                        <option key={item.id} value={item.id}>{item.name}</option>
+                                    ))}
                                 </select>
                             </div>
                         </form>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={() => setIsOpenModalCreate(false)}>Hủy</Button>
-                        <Button variant="primary" onClick={(values) => handleSave(values)}>Lưu</Button>
+                        <Button variant="primary" onClick={formik.handleSubmit}>Lưu</Button>
                     </Modal.Footer>
                 </Modal.Dialog>
             </div>

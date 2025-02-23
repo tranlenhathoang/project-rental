@@ -22,13 +22,16 @@ const ServiceTable = () => {
 	const [listCustomer, setListCustomer] = useState([]);
 	const [listPremises, setListPremises] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
-	const [itemsPerPage, setItemsPerPage] = useState(3);
+	const itemsPerPage = 3;
 
 	useEffect(() => {
 		getData();
 		fetchListCustomer();
 		fetchListPremises();
 	}, []);
+
+
+
 
 	const fetchListCustomer = async () => {
 		const res = await axios.get(`http://localhost:3001/customers`);
@@ -51,6 +54,8 @@ const ServiceTable = () => {
 		if (dropdownSelected) {
 			params.premises = dropdownSelected;
 		}
+
+
 
 		const res = await axios.get("http://localhost:3001/services", { params });
 
@@ -157,12 +162,12 @@ const ServiceTable = () => {
 						return (
 							<tr key={item.id}>
 								<td>{index + 1 + offset}</td>
-								<td>{item.name}</td>
+								<td>{item?.type?.name}</td>
 								<td>{item.date}</td>
 								<td>{listCustomer.find((i) => i.id === item.customer)?.name}</td>
 								<td>{item.quantity}</td>
-								<td>{item.consume}</td>
-								<td>{item.consume * item.quantity}</td>
+								<td>{item?.type?.price}</td>
+								<td>{item?.type?.price * item.quantity}</td>
 								<td
 									style={{
 										display: "flex",
@@ -194,7 +199,7 @@ const ServiceTable = () => {
 							<Modal.Title>Thanh Toán</Modal.Title>
 						</Modal.Header>
 
-						<Modal.Body>{selectedService && <p>Thanh toán số tiền: {selectedService.consume * selectedService.quantity} VND</p>}</Modal.Body>
+						<Modal.Body>{selectedService && <p>Thanh toán số tiền: {selectedService?.type?.price * selectedService.quantity} VND</p>}</Modal.Body>
 						<Modal.Footer>
 							<Button variant="secondary" onClick={() => setIsModalOpen(false)}>
 								Hủy
@@ -207,7 +212,10 @@ const ServiceTable = () => {
 				</div>
 			)}
 
-			{isOpenModalCreate && <CreateServices isOpenModalCreate={isOpenModalCreate} setIsOpenModalCreate={setIsOpenModalCreate} getData={getData} />}
+			{isOpenModalCreate && <CreateServices
+				isOpenModalCreate={isOpenModalCreate}
+				setIsOpenModalCreate={setIsOpenModalCreate}
+				getData={getData} />}
 
 			{isOpenModalEdit && (
 				<EditServices
