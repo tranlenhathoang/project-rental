@@ -25,51 +25,59 @@
       "avatar": "https://images.unsplash.com/photo-1738566495610-8385ed595473?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ],
+  "list_services": [
+    {
+      "id": "1",
+      "name": "Điện",
+      "price": 10000,
+      "isQuantity": true
+    },
+    {
+      "id": "2",
+      "name": "Nước",
+      "price": 100000,
+      "isQuantity": false
+    },
+    {
+      "id": "3",
+      "name": "Wifi",
+      "price": 200000,
+      "isQuantity": false
+    }
+  ],
   "services": [
     {
       "id": "39d6",
-      "name": "MB2_cus1",
-      "consume": 5000,
+      "type": {
+        "name": "Điện",
+        "price": 10000
+      },
       "date": "2025-02-01",
       "premises": "MB002",
       "quantity": 30,
       "customer": "1"
     },
     {
-      "id": "1498",
-      "name": "mb1_cus3",
-      "consume": 30000,
-      "date": "2025-02-05",
-      "premises": "MB001",
-      "quantity": 1000,
-      "customer": "3"
+      "id": "3m4v",
+      "type": {
+        "name": "Điện",
+        "price": 10000
+      },
+      "date": "2025-02-03",
+      "premises": "MB002",
+      "customer": "2",
+      "quantity": 1
     },
     {
-      "id": "68e4",
-      "name": "mb3_cus1",
-      "consume": 3000,
-      "date": "2025-02-05",
-      "premises": "MB002",
-      "quantity": 1000,
-      "customer": "2"
-    },
-    {
-      "id": "5",
-      "name": "mb3_cus1",
-      "consume": 3000,
-      "date": "2025-02-05",
-      "premises": "MB002",
-      "quantity": 1000,
-      "customer": "2"
-    },
-    {
-      "id": "68",
-      "name": "mb3_cus1",
-      "consume": 3000,
-      "date": "2025-02-05",
-      "premises": "MB002",
-      "quantity": 1000,
-      "customer": "2"
+      "id": "nmgo",
+      "type": {
+        "name": "Điện",
+        "price": 10000
+      },
+      "date": "2025-02-19",
+      "premises": "MB003",
+      "customer": "3",
+      "quantity": 10
     }
   ],
   "customers": [
