@@ -99,7 +99,7 @@ function ContractList() {
 		try {
 			await deleteById(deleteContract.id);
 			handleClose();
-		} catch (error) { }
+		} catch (error) {}
 	};
 
 	return (
@@ -125,14 +125,6 @@ function ContractList() {
 							value={selectedOption}
 							onSelect={(option) => setSelectedOption(option)}
 						/>
-					</Col>
-
-					<Col>
-						<select className="form-select" value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)}>
-							<option value="">Tất cả trạng thái</option>
-							<option value="true">Đã thuê</option>
-							<option value="false">Trống</option>
-						</select>
 					</Col>
 
 					<Col>
@@ -163,9 +155,7 @@ function ContractList() {
 						<th className="text-center" style={{ width: "150px" }}>
 							Tên Mặt Bằng
 						</th>
-						<th className="text-center" style={{ width: "150px" }}>
-							Đang Thuê
-						</th>
+
 						<th className="text-center" style={{ width: "220px" }}></th>
 					</tr>
 				</thead>

@@ -1,632 +1,632 @@
 {
-  "users": [
-    {
-      "id": "1",
-      "name": "user",
-      "password": "1",
-      "mail": "tranlenhathoang357@gmail.com",
-      "role": "USER",
-      "avatar": "https://images.unsplash.com/photo-1738566495610-8385ed595473?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      "id": "2",
-      "name": "admin",
-      "password": "1234567",
-      "mail": "admin@gmail.com",
-      "role": "ADMIN",
-      "avatar": "https://images.unsplash.com/photo-1738566495610-8385ed595473?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      "id": "3",
-      "name": "anh",
-      "password": "1",
-      "mail": "admin@gmail.com",
-      "role": "ADMIN",
-      "avatar": "https://images.unsplash.com/photo-1738566495610-8385ed595473?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    }
-  ],
-  "list_services": [
-    {
-      "id": "1",
-      "name": "Điện",
-      "price": 10000,
-      "isQuantity": true
-    },
-    {
-      "id": "2",
-      "name": "Nước",
-      "price": 100000,
-      "isQuantity": false
-    },
-    {
-      "id": "3",
-      "name": "Wifi",
-      "price": 200000,
-      "isQuantity": false
-    }
-  ],
-  "services": [
-    {
-      "id": "39d6",
-      "type": {
-        "name": "Điện",
-        "price": 10000
-      },
-      "date": "2025-02-01",
-      "premises": "MB002",
-      "quantity": 20,
-      "customer": "1"
-    },
-    {
-      "id": "3m4v",
-      "type": {
-        "name": "Điện",
-        "price": 10000
-      },
-      "date": "2025-02-03",
-      "premises": "MB002",
-      "customer": "2",
-      "quantity": 1
-    },
-    {
-      "id": "nmgo",
-      "type": {
-        "name": "Điện",
-        "price": 10000
-      },
-      "date": "2025-02-19",
-      "premises": "MB003",
-      "customer": "3",
-      "quantity": 10
-    },
-    {
-      "id": "vxyd",
-      "type": {
-        "name": "Nước",
-        "price": 100000
-      },
-      "date": "2025-02-06",
-      "premises": "MB004",
-      "customer": "3",
-      "quantity": 1
-    }
-  ],
-  "customers": [
-    {
-      "id": "1",
-      "name": "Nguyễn Đình Hoà",
-      "identity": "343432423548",
-      "email": "hoadeptrai@gmail.com",
-      "phone": "0965434571",
-      "dob": "1994-05-05",
-      "address": "12 Lê Quý Kỳ, Đà Nẵng",
-      "website": "hoaminnzy.com",
-      "company": "Hoa Thiên Lý"
-    },
-    {
-      "id": "2",
-      "name": "Lê Đình Quốc",
-      "identity": "343432423557",
-      "email": "nhanvanlam@gmail.com",
-      "phone": "0965434521",
-      "dob": "1994-05-05",
-      "address": "12 Nguyễn Phước Nguyên, Đà Nẵng",
-      "website": "abc.com",
-      "company": "Hoa Mặt Trời"
-    },
-    {
-      "id": "3",
-      "name": "Nguyễn Minh Hùng",
-      "identity": "343432423548",
-      "email": "hung@gmail.com",
-      "phone": "0965434531",
-      "dob": "1994-05-05",
-      "address": "12 Lê Duẩn, Đà Nẵng",
-      "website": "hoaminnzy.com",
-      "company": "Hoa Hướng Dương"
-    },
-    {
-      "id": "4",
-      "name": "Phạm Minh Hưng",
-      "identity": "343432423548",
-      "email": "hungmapdeptrai@gmail.com",
-      "phone": "0965434531",
-      "dob": "1994-05-05",
-      "address": "12 Trường Chinh, Đà Nẵng",
-      "website": "vipnha.com",
-      "company": "Hoa Vạn Thọ"
-    },
-    {
-      "id": "5",
-      "name": "Nguyễn Văn Tiến",
-      "identity": "343432423548",
-      "email": "tieni@gmail.com",
-      "phone": "0965434531",
-      "dob": "1994-05-05",
-      "address": "12 Lê Văn Quý, Đà Nẵng",
-      "website": "build.com",
-      "company": "Hoa Cúc"
-    },
-    {
-      "name": "Đinh Thanh Hằng",
-      "identity": "001303016742",
-      "email": "dinhhang440@gmail.com",
-      "phone": "0334534831",
-      "address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
-      "website": "tranhuahua.com",
-      "company": "Trăn hua hua",
-      "dob": "1994-05-05",
-      "id": "6"
-    },
-    {
-      "name": "Trần Huyền Trân",
-      "identity": "343432423579",
-      "email": "tran.htran612@gmail.com",
-      "phone": "0334534491",
-      "address": "Số 37 Kim Hoa, Đống Đa",
-      "website": "thainguyen.com",
-      "company": "Forever",
-      "dob": "2003-12-06",
-      "id": "EQTlI2P"
-    },
-    {
-      "name": "Nguyễn Thị Hương Giang",
-      "identity": "040048000373",
-      "email": "huonggiang@gmail.com",
-      "phone": "0987547135",
-      "address": "Số 9 Cầu Giấy, Hà Nội",
-      "website": "huonggiang.com",
-      "company": "Huong Giang",
-      "dob": "2003-10-19",
-      "id": "xylbGY8"
-    },
-    {
-      "name": "Chu Phương Thảo",
-      "identity": "040048000385",
-      "email": "eirian@livinitlarge.net",
-      "phone": "0334534867",
-      "address": "Số 7 ngõ 8 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
-      "website": "lovisong.com",
-      "company": "Hoa Mặt Trang",
-      "dob": "2002-09-24",
-      "id": "EjxPmyA"
-    },
-    {
-      "name": "Nguyễn Văn Anh",
-      "identity": "343432423548",
-      "email": "yu67r2fgf@gmail.com",
-      "phone": "0864418389",
-      "address": "Số 1 Cầu Giấy, Hà Nội",
-      "website": "abc.com",
-      "company": "Hoa Thiên Lá",
-      "dob": "2012-02-15",
-      "id": "9dEWa5K"
-    }
-  ],
-  "contracts": [
-    {
-      "id": "1",
-      "customerId": 1,
-      "premisesId": 1,
-      "employeeId": 1,
-      "tax": 2020202020,
-      "validity": "còn hiệu lực",
-      "term": 1,
-      "startDate": "2020-09-09",
-      "endDate": "2020-10-09",
-      "price": "12.000.000 VNĐ",
-      "deposit": "4.000.000 VNĐ",
-      "total": "12.000.000 VNĐ",
-      "content": "test",
-      "status": true
-    },
-    {
-      "id": "2",
-      "customerId": 2,
-      "premisesId": 2,
-      "employeeId": 2,
-      "tax": 2020202020,
-      "validity": "còn hiệu lực",
-      "term": 1,
-      "startDate": "2020-09-09",
-      "endDate": "2020-10-09",
-      "price": "12.000.000",
-      "deposit": "5.000.000",
-      "total": "12.000.000",
-      "content": "",
-      "status": false
-    },
-    {
-      "id": "3",
-      "customerId": 3,
-      "premisesId": 3,
-      "employeeId": 3,
-      "tax": 2020202020,
-      "validity": "còn hiệu lực",
-      "term": 1,
-      "startDate": "2020-09-09",
-      "endDate": "2020-10-09",
-      "price": "12.000.000",
-      "deposit": "5.000.000",
-      "total": "12.000.000",
-      "content": "",
-      "status": false
-    },
-    {
-      "id": "4",
-      "customerId": "4",
-      "premisesId": "4",
-      "employeeId": "4",
-      "tax": 2020202020,
-      "validity": "còn hiệu lực",
-      "term": 1,
-      "startDate": "2020-09-09",
-      "endDate": "2020-10-09",
-      "price": "12.000.000",
-      "deposit": "5.000.000",
-      "total": "12.000.000",
-      "content": "",
-      "status": false,
-      "premises": {
-        "id": "1",
-        "premisesName": "MB001",
-        "src": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "title": "Tầng 1",
-        "desc": "Không gian mở gồm khu lễ tân, phòng khách và bếp liên thông, tạo cảm giác rộng rãi.",
-        "facility_type": "Mặt tiền",
-        "area": 100,
-        "status": "Chưa bàn giao",
-        "prices": "12000000",
-        "management_fee": "500000",
-        "customerId": 1
-      },
-      "customer": {
-        "id": "4",
-        "name": "Phạm Minh Hưng",
-        "identity": "343432423548",
-        "email": "hungmapdeptrai@gmail.com",
-        "phone": "0965434531",
-        "dob": "1994-05-05",
-        "address": "12 Trường Chinh, Đà Nẵng",
-        "website": "vipnha.com",
-        "company": "Hoa Vạn Thọ"
-      },
-      "employee": {
-        "id": "4",
-        "name": "Lê Đình Thám",
-        "phone": "0123456789",
-        "email": "dtham@gmail.com"
-      }
-    },
-    {
-      "id": "5",
-      "customerId": 5,
-      "premisesId": 1,
-      "employeeId": 5,
-      "tax": 2020202020,
-      "validity": "còn hiệu lực",
-      "term": 1,
-      "startDate": "2020-09-09",
-      "endDate": "2020-10-09",
-      "price": "12.000.000",
-      "deposit": "5.000.000",
-      "total": "12.000.000",
-      "content": "",
-      "status": true
-    },
-    {
-      "employee": "",
-      "tax": "9090909090",
-      "validity": "còn hiệu lực",
-      "term": 1,
-      "startDate": "2025-02-18",
-      "endDate": "2025-03-18",
-      "price": "6.000.000",
-      "deposit": "4.000.000",
-      "total": "10.000.000",
-      "content": "test",
-      "status": true,
-      "premisesId": "5",
-      "customerId": "xylbGY8",
-      "employeeId": "3",
-      "id": "s1gkLZ2"
-    },
-    {
-      "employee": "",
-      "tax": "7807800870",
-      "validity": "còn hiệu lực",
-      "term": 3,
-      "startDate": "2025-02-19",
-      "endDate": "2025-05-19",
-      "price": "10.000.000",
-      "deposit": "10.000.000",
-      "total": "40.000.000",
-      "content": "Chấp nhận điều khoản hợp đồng",
-      "status": true,
-      "premisesId": "6",
-      "customerId": "EQTlI2P",
-      "employeeId": "5",
-      "id": "5h7v9Lc"
-    },
-    {
-      "employee": "",
-      "tax": "2610261000",
-      "validity": "còn hiệu lực",
-      "term": 5,
-      "startDate": "2025-02-20",
-      "endDate": "2025-07-20",
-      "price": "10.000.000",
-      "deposit": "5.000.000",
-      "total": "55.000.000",
-      "content": "Chấp nhận điều khoản hợp đồng",
-      "status": true,
-      "premisesId": "8",
-      "customerId": "6",
-      "employeeId": "2",
-      "id": "uT6AnDc"
-    },
-    {
-      "employee": "",
-      "tax": "7338300028",
-      "validity": "còn hiệu lực",
-      "term": 2,
-      "startDate": "2025-02-20",
-      "endDate": "2025-04-20",
-      "price": "5.000.000",
-      "deposit": "2.000.000",
-      "total": "12.000.000",
-      "content": "Chấp nhận điều khoản hợp đồng",
-      "status": true,
-      "premisesId": "9",
-      "customerId": "EjxPmyA",
-      "employeeId": "5",
-      "id": "hrDvUmb"
-    },
-    {
-      "employee": "",
-      "tax": "0340340505",
-      "validity": "còn hiệu lực",
-      "term": 1,
-      "startDate": "2025-02-18",
-      "endDate": "2025-03-18",
-      "price": "6.000.000",
-      "deposit": "4.000.000",
-      "total": "10.000.000",
-      "content": "Chấp nhận điều khoản hợp đồng",
-      "status": true,
-      "premisesId": "10",
-      "customerId": "9dEWa5K",
-      "employeeId": "4",
-      "id": "9H_g_zY"
-    }
-  ],
-  "employees": [
-    {
-      "id": "1",
-      "name": "Nguyễn Minh Hùng",
-      "phone": "0123456789",
-      "email": "mhung@gmail.com"
-    },
-    {
-      "id": "2",
-      "name": "Lê Đình Quốc",
-      "phone": "0123456789",
-      "email": "quoc@gmail.com"
-    },
-    {
-      "id": "3",
-      "name": "Đào Dung Sỹ My",
-      "phone": "0123456789",
-      "email": "symy@gmail.com"
-    },
-    {
-      "id": "4",
-      "name": "Lê Đình Thám",
-      "phone": "0123456789",
-      "email": "dtham@gmail.com"
-    },
-    {
-      "id": "5",
-      "name": "Phạm Anh Hào",
-      "phone": "0123456789",
-      "email": "haoap@gmail.com"
-    }
-  ],
-  "premises": [
-    {
-      "id": "1",
-      "premisesName": "MB001",
-      "src": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "title": "Tầng 1",
-      "desc": "Không gian mở gồm khu lễ tân, phòng khách và bếp liên thông, tạo cảm giác rộng rãi.",
-      "facility_type": "Mặt tiền",
-      "area": 100,
-      "status": "Chưa bàn giao",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customerId": 1
-    },
-    {
-      "id": "2",
-      "premisesName": "MB002",
-      "src": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "title": "Mặt bằng tầng lửng",
-      "desc": "Thiết kế linh hoạt với phòng làm việc và khu thư giãn, tối ưu ánh sáng tự nhiên.",
-      "facility_type": "Mặt tiền",
-      "area": 100,
-      "status": "Đã bàn giao",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customerId": 2
-    },
-    {
-      "id": "3",
-      "premisesName": "MB003",
-      "src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "title": "Mặt bằng tầng 2",
-      "desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
-      "facility_type": "Mặt tiền",
-      "area": 100,
-      "status": "Chuẩn bị ",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customerId": 3
-    },
-    {
-      "id": "4",
-      "premisesName": "MB004",
-      "src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "title": "Mặt bằng tầng 2",
-      "desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
-      "facility_type": "Mặt tiền",
-      "area": 1009,
-      "status": "Chuẩn bị ",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customerId": 4
-    },
-    {
-      "id": "5",
-      "premisesName": "MB005",
-      "src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "title": "Mặt bằng tầng 2",
-      "desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
-      "facility_type": "Mặt tiền",
-      "area": 1009,
-      "status": "Chuẩn bị ",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customerId": 5
-    },
-    {
-      "id": "6",
-      "premisesName": "MB006",
-      "src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "title": "Mặt bằng tầng 2",
-      "desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
-      "facility_type": "Mặt tiền",
-      "area": 1009,
-      "status": "Chuẩn bị ",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customerId": 6
-    },
-    {
-      "id": "8",
-      "premisesName": "MB008",
-      "src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "title": "Mặt bằng tầng 2",
-      "desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
-      "facility_type": "Mặt tiền",
-      "area": 1009,
-      "status": "Chuẩn bị ",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customerId": 1
-    },
-    {
-      "id": "9",
-      "premisesName": "MB009",
-      "src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "title": "Mặt bằng tầng 2",
-      "desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
-      "facility_type": "Mặt tiền",
-      "area": 1009,
-      "status": "Chuẩn bị ",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customerId": 2
-    },
-    {
-      "id": "10",
-      "premisesName": "MB010",
-      "src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "title": "Mặt bằng tầng 2",
-      "desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
-      "facility_type": "Mặt tiền",
-      "area": 1009,
-      "status": "Chuẩn bị ",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customerId": 2
-    },
-    {
-      "id": "11",
-      "premisesName": "MB011",
-      "src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "title": "Mặt bằng tầng 2",
-      "desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
-      "facility_type": "Mặt tiền",
-      "area": 1009,
-      "status": "Chuẩn bị ",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "customerId": 2
-    },
-    {
-      "building": "1",
-      "floor": "2",
-      "facility_type": "Mặt Tiền",
-      "premisesName": "MB001",
-      "status": "Đang Vào Ở",
-      "area": "100",
-      "description": "test",
-      "prices": "12000000",
-      "management_fee": "500000",
-      "id": "noF6c1w"
-    }
-  ],
-  "information": [
-    {
-      "id": "1",
-      "imgSrc": "https://diamondtime.vn/wp-content/uploads/2024/12/img3703-173339989848421729102-1860-1733417379.jpg",
-      "imgAlt": "Image 1",
-      "title": "CEO Jensen Huang: Hôm nay là ngày khai sinh Nvidia Việt Nam",
-      "text": "Nhà sáng lập Nvidia Jensen Huang cho biết 5/12 là ngày khai sinh của Nvidia"
-    },
-    {
-      "id": "2",
-      "imgSrc": "https://diamondtime.vn/wp-content/uploads/2024/07/20240708.jpg",
-      "imgAlt": "Image 2",
-      "title": "6 LỜI KHUYÊN KHI LÀM VIỆC TẠI CÁC WEB FREELANCER NƯỚC NGOÀI",
-      "text": "Trong nhiều năm trở lại đây, giới Freelancer Việt hẳn không còn xa lạ với"
-    },
-    {
-      "id": "3",
-      "imgSrc": "https://diamondtime.vn/wp-content/uploads/2024/05/8E3A3322-scaled.jpg",
-      "imgAlt": "Image 3",
-      "title": "CO-WORKING SPACE VÀ NHỮNG ĐIỀU DOANH NGHIỆP CẦN BIẾT",
-      "text": "Khi co-working xuất hiện trên thị trường, chủ yếu hướng đến các khách hàng mục"
-    },
-    {
-      "id": "4",
-      "imgSrc": "https://diamondtime.vn/wp-content/uploads/2024/05/C6_n.jpg",
-      "imgAlt": "Image 4",
-      "title": "GIẢI MÃ XU HƯỚNG THUÊ VĂN PHÒNG LÀM VIỆC TẠI CO-WORKING SPACES",
-      "text": "Ngày nay, không gian làm việc đã trở thành một yếu tố quan trọng được"
-    },
-    {
-      "id": "5",
-      "imgSrc": "https://diamondtime.vn/wp-content/uploads/2021/12/258397390_303082458283999_5979908283113307618_n.jpg",
-      "imgAlt": "Image 5",
-      "title": "TƯƠNG LAI CỦA LÀM VIỆC TỪ XA (REMOTE) VÀ KHÔNG GIAN LÀM VIỆC CHUNG (CO-WORKING SPACE)",
-      "text": "Trong bài viết này, chúng ta đang khám phá bối cảnh ngày càng phát triển"
-    },
-    {
-      "id": "6",
-      "imgSrc": "https://diamondtime.vn/wp-content/uploads/2024/04/NEWS-1.png",
-      "imgAlt": "Image 6",
-      "title": "SHARED WORKSPACE – Định Nghĩa, Ưu Điểm và Những Lưu Ý",
-      "text": "“Shared workspace” là gì? Shared workspace đang trở thành một giải pháp ngày càng hấp"
-    }
-  ],
-  "card": [
-    {
-      "id": "1",
-      "superficies": 4.5062,
-      "text1": "Tầng 1: Trung tâm thương mại, giải trí, nhà hàng và coffee shop",
-      "text2": "Tầng 2: Căn hộ dịch vụ",
-      "text3": "Tầng 3: Tiktak Co-woking Space"
-    }
-  ]
+	"users": [
+		{
+			"id": "1",
+			"name": "user",
+			"password": "1",
+			"mail": "tranlenhathoang357@gmail.com",
+			"role": "USER",
+			"avatar": "https://images.unsplash.com/photo-1738566495610-8385ed595473?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+		},
+		{
+			"id": "2",
+			"name": "admin",
+			"password": "1234567",
+			"mail": "admin@gmail.com",
+			"role": "ADMIN",
+			"avatar": "https://images.unsplash.com/photo-1738566495610-8385ed595473?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+		},
+		{
+			"id": "3",
+			"name": "anh",
+			"password": "1",
+			"mail": "admin@gmail.com",
+			"role": "ADMIN",
+			"avatar": "https://images.unsplash.com/photo-1738566495610-8385ed595473?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+		}
+	],
+	"list_services": [
+		{
+			"id": "1",
+			"name": "Điện",
+			"price": 10000,
+			"isQuantity": true
+		},
+		{
+			"id": "2",
+			"name": "Nước",
+			"price": 100000,
+			"isQuantity": false
+		},
+		{
+			"id": "3",
+			"name": "Wifi",
+			"price": 200000,
+			"isQuantity": false
+		}
+	],
+	"services": [
+		{
+			"id": "39d6",
+			"type": {
+				"name": "Điện",
+				"price": 10000
+			},
+			"date": "2025-02-01",
+			"premises": "MB002",
+			"quantity": 20,
+			"customer": "1"
+		},
+		{
+			"id": "3m4v",
+			"type": {
+				"name": "Điện",
+				"price": 10000
+			},
+			"date": "2025-02-03",
+			"premises": "MB002",
+			"customer": "2",
+			"quantity": 1
+		},
+		{
+			"id": "nmgo",
+			"type": {
+				"name": "Điện",
+				"price": 10000
+			},
+			"date": "2025-02-19",
+			"premises": "MB003",
+			"customer": "3",
+			"quantity": 10
+		},
+		{
+			"id": "vxyd",
+			"type": {
+				"name": "Nước",
+				"price": 100000
+			},
+			"date": "2025-02-06",
+			"premises": "MB004",
+			"customer": "3",
+			"quantity": 1
+		}
+	],
+	"customers": [
+		{
+			"id": "1",
+			"name": "Nguyễn Đình Hoà",
+			"identity": "343432423548",
+			"email": "hoadeptrai@gmail.com",
+			"phone": "0965434571",
+			"dob": "1994-05-05",
+			"address": "12 Lê Quý Kỳ, Đà Nẵng",
+			"website": "hoaminnzy.com",
+			"company": "Hoa Thiên Lý"
+		},
+		{
+			"id": "2",
+			"name": "Lê Đình Quốc",
+			"identity": "343432423557",
+			"email": "nhanvanlam@gmail.com",
+			"phone": "0965434521",
+			"dob": "1994-05-05",
+			"address": "12 Nguyễn Phước Nguyên, Đà Nẵng",
+			"website": "abc.com",
+			"company": "Hoa Mặt Trời"
+		},
+		{
+			"id": "3",
+			"name": "Nguyễn Minh Hùng",
+			"identity": "343432423548",
+			"email": "hung@gmail.com",
+			"phone": "0965434531",
+			"dob": "1994-05-05",
+			"address": "12 Lê Duẩn, Đà Nẵng",
+			"website": "hoaminnzy.com",
+			"company": "Hoa Hướng Dương"
+		},
+		{
+			"id": "4",
+			"name": "Phạm Minh Hưng",
+			"identity": "343432423548",
+			"email": "hungmapdeptrai@gmail.com",
+			"phone": "0965434531",
+			"dob": "1994-05-05",
+			"address": "12 Trường Chinh, Đà Nẵng",
+			"website": "vipnha.com",
+			"company": "Hoa Vạn Thọ"
+		},
+		{
+			"id": "5",
+			"name": "Nguyễn Văn Tiến",
+			"identity": "343432423548",
+			"email": "tieni@gmail.com",
+			"phone": "0965434531",
+			"dob": "1994-05-05",
+			"address": "12 Lê Văn Quý, Đà Nẵng",
+			"website": "build.com",
+			"company": "Hoa Cúc"
+		},
+		{
+			"name": "Đinh Thanh Hằng",
+			"identity": "001303016742",
+			"email": "dinhhang440@gmail.com",
+			"phone": "0334534831",
+			"address": "Số 7 ngõ 6 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
+			"website": "tranhuahua.com",
+			"company": "Trăn hua hua",
+			"dob": "1994-05-05",
+			"id": "6"
+		},
+		{
+			"name": "Trần Huyền Trân",
+			"identity": "343432423579",
+			"email": "tran.htran612@gmail.com",
+			"phone": "0334534491",
+			"address": "Số 37 Kim Hoa, Đống Đa",
+			"website": "thainguyen.com",
+			"company": "Forever",
+			"dob": "2003-12-06",
+			"id": "EQTlI2P"
+		},
+		{
+			"name": "Nguyễn Thị Hương Giang",
+			"identity": "040048000373",
+			"email": "huonggiang@gmail.com",
+			"phone": "0987547135",
+			"address": "Số 9 Cầu Giấy, Hà Nội",
+			"website": "huonggiang.com",
+			"company": "Huong Giang",
+			"dob": "2003-10-19",
+			"id": "xylbGY8"
+		},
+		{
+			"name": "Chu Phương Thảo",
+			"identity": "040048000385",
+			"email": "eirian@livinitlarge.net",
+			"phone": "0334534867",
+			"address": "Số 7 ngõ 8 đường Nguyễn Văn Trỗi, Hà Đông, Hà Nội",
+			"website": "lovisong.com",
+			"company": "Hoa Mặt Trang",
+			"dob": "2002-09-24",
+			"id": "EjxPmyA"
+		},
+		{
+			"name": "Nguyễn Văn Anh",
+			"identity": "343432423548",
+			"email": "yu67r2fgf@gmail.com",
+			"phone": "0864418389",
+			"address": "Số 1 Cầu Giấy, Hà Nội",
+			"website": "abc.com",
+			"company": "Hoa Thiên Lá",
+			"dob": "2012-02-15",
+			"id": "9dEWa5K"
+		}
+	],
+	"contracts": [
+		{
+			"id": "1",
+			"customerId": 1,
+			"premisesId": 1,
+			"employeeId": 1,
+			"tax": 2020202020,
+			"validity": "còn hiệu lực",
+			"term": 1,
+			"startDate": "2020-09-09",
+			"endDate": "2020-10-09",
+			"price": "12.000.000 VNĐ",
+			"deposit": "4.000.000 VNĐ",
+			"total": "12.000.000 VNĐ",
+			"content": "test",
+			"status": true
+		},
+		{
+			"id": "2",
+			"customerId": 2,
+			"premisesId": 2,
+			"employeeId": 2,
+			"tax": 2020202020,
+			"validity": "còn hiệu lực",
+			"term": 1,
+			"startDate": "2020-09-09",
+			"endDate": "2020-10-09",
+			"price": "12.000.000",
+			"deposit": "5.000.000",
+			"total": "12.000.000",
+			"content": "",
+			"status": false
+		},
+		{
+			"id": "3",
+			"customerId": 3,
+			"premisesId": 3,
+			"employeeId": 3,
+			"tax": 2020202020,
+			"validity": "còn hiệu lực",
+			"term": 1,
+			"startDate": "2020-09-09",
+			"endDate": "2020-10-09",
+			"price": "12.000.000",
+			"deposit": "5.000.000",
+			"total": "12.000.000",
+			"content": "",
+			"status": false
+		},
+		{
+			"id": "4",
+			"customerId": "4",
+			"premisesId": "4",
+			"employeeId": "4",
+			"tax": 2020202020,
+			"validity": "còn hiệu lực",
+			"term": 1,
+			"startDate": "2020-09-09",
+			"endDate": "2020-10-09",
+			"price": "12.000.000",
+			"deposit": "5.000.000",
+			"total": "12.000.000",
+			"content": "",
+			"status": false,
+			"premises": {
+				"id": "1",
+				"premisesName": "MB001",
+				"src": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+				"title": "Tầng 1",
+				"desc": "Không gian mở gồm khu lễ tân, phòng khách và bếp liên thông, tạo cảm giác rộng rãi.",
+				"facility_type": "Mặt tiền",
+				"area": 100,
+				"status": "Chưa bàn giao",
+				"prices": "12000000",
+				"management_fee": "500000",
+				"customerId": 1
+			},
+			"customer": {
+				"id": "4",
+				"name": "Phạm Minh Hưng",
+				"identity": "343432423548",
+				"email": "hungmapdeptrai@gmail.com",
+				"phone": "0965434531",
+				"dob": "1994-05-05",
+				"address": "12 Trường Chinh, Đà Nẵng",
+				"website": "vipnha.com",
+				"company": "Hoa Vạn Thọ"
+			},
+			"employee": {
+				"id": "4",
+				"name": "Lê Đình Thám",
+				"phone": "0123456789",
+				"email": "dtham@gmail.com"
+			}
+		},
+		{
+			"id": "5",
+			"customerId": 5,
+			"premisesId": 1,
+			"employeeId": 5,
+			"tax": 2020202020,
+			"validity": "còn hiệu lực",
+			"term": 1,
+			"startDate": "2020-09-09",
+			"endDate": "2020-10-09",
+			"price": "12.000.000",
+			"deposit": "5.000.000",
+			"total": "12.000.000",
+			"content": "",
+			"status": true
+		},
+		{
+			"employee": "",
+			"tax": "9090909090",
+			"validity": "còn hiệu lực",
+			"term": 1,
+			"startDate": "2025-02-18",
+			"endDate": "2025-03-18",
+			"price": "6.000.000",
+			"deposit": "4.000.000",
+			"total": "10.000.000",
+			"content": "test",
+			"status": true,
+			"premisesId": "5",
+			"customerId": "xylbGY8",
+			"employeeId": "3",
+			"id": "s1gkLZ2"
+		},
+		{
+			"employee": "",
+			"tax": "7807800870",
+			"validity": "còn hiệu lực",
+			"term": 3,
+			"startDate": "2025-02-19",
+			"endDate": "2025-05-19",
+			"price": "10.000.000",
+			"deposit": "10.000.000",
+			"total": "40.000.000",
+			"content": "Chấp nhận điều khoản hợp đồng",
+			"status": true,
+			"premisesId": "6",
+			"customerId": "EQTlI2P",
+			"employeeId": "5",
+			"id": "5h7v9Lc"
+		},
+		{
+			"employee": "",
+			"tax": "2610261000",
+			"validity": "còn hiệu lực",
+			"term": 5,
+			"startDate": "2025-02-20",
+			"endDate": "2025-07-20",
+			"price": "10.000.000",
+			"deposit": "5.000.000",
+			"total": "55.000.000",
+			"content": "Chấp nhận điều khoản hợp đồng",
+			"status": true,
+			"premisesId": "8",
+			"customerId": "6",
+			"employeeId": "2",
+			"id": "uT6AnDc"
+		},
+		{
+			"employee": "",
+			"tax": "7338300028",
+			"validity": "còn hiệu lực",
+			"term": 2,
+			"startDate": "2025-02-20",
+			"endDate": "2025-04-20",
+			"price": "5.000.000",
+			"deposit": "2.000.000",
+			"total": "12.000.000",
+			"content": "Chấp nhận điều khoản hợp đồng",
+			"status": true,
+			"premisesId": "9",
+			"customerId": "EjxPmyA",
+			"employeeId": "5",
+			"id": "hrDvUmb"
+		},
+		{
+			"employee": "",
+			"tax": "0340340505",
+			"validity": "còn hiệu lực",
+			"term": 1,
+			"startDate": "2025-02-18",
+			"endDate": "2025-03-18",
+			"price": "6.000.000",
+			"deposit": "4.000.000",
+			"total": "10.000.000",
+			"content": "Chấp nhận điều khoản hợp đồng",
+			"status": true,
+			"premisesId": "10",
+			"customerId": "9dEWa5K",
+			"employeeId": "4",
+			"id": "9H_g_zY"
+		}
+	],
+	"employees": [
+		{
+			"id": "1",
+			"name": "Nguyễn Minh Hùng",
+			"phone": "0123456789",
+			"email": "mhung@gmail.com"
+		},
+		{
+			"id": "2",
+			"name": "Lê Đình Quốc",
+			"phone": "0123456789",
+			"email": "quoc@gmail.com"
+		},
+		{
+			"id": "3",
+			"name": "Đào Dung Sỹ My",
+			"phone": "0123456789",
+			"email": "symy@gmail.com"
+		},
+		{
+			"id": "4",
+			"name": "Lê Đình Thám",
+			"phone": "0123456789",
+			"email": "dtham@gmail.com"
+		},
+		{
+			"id": "5",
+			"name": "Phạm Anh Hào",
+			"phone": "0123456789",
+			"email": "haoap@gmail.com"
+		}
+	],
+	"premises": [
+		{
+			"id": "1",
+			"premisesName": "MB001",
+			"src": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			"title": "Tầng 1",
+			"desc": "Không gian mở gồm khu lễ tân, phòng khách và bếp liên thông, tạo cảm giác rộng rãi.",
+			"facility_type": "Mặt tiền",
+			"area": 100,
+			"status": "Chưa bàn giao",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"customerId": 1
+		},
+		{
+			"id": "2",
+			"premisesName": "MB002",
+			"src": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			"title": "Mặt bằng tầng lửng",
+			"desc": "Thiết kế linh hoạt với phòng làm việc và khu thư giãn, tối ưu ánh sáng tự nhiên.",
+			"facility_type": "Mặt tiền",
+			"area": 100,
+			"status": "Đã bàn giao",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"customerId": 2
+		},
+		{
+			"id": "3",
+			"premisesName": "MB003",
+			"src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			"title": "Mặt bằng tầng 2",
+			"desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
+			"facility_type": "Mặt tiền",
+			"area": 100,
+			"status": "Chuẩn bị ",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"customerId": 3
+		},
+		{
+			"id": "4",
+			"premisesName": "MB004",
+			"src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			"title": "Mặt bằng tầng 2",
+			"desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
+			"facility_type": "Mặt tiền",
+			"area": 1009,
+			"status": "Chuẩn bị ",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"customerId": 4
+		},
+		{
+			"id": "5",
+			"premisesName": "MB005",
+			"src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			"title": "Mặt bằng tầng 2",
+			"desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
+			"facility_type": "Mặt tiền",
+			"area": 1009,
+			"status": "Chuẩn bị ",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"customerId": 5
+		},
+		{
+			"id": "6",
+			"premisesName": "MB006",
+			"src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			"title": "Mặt bằng tầng 2",
+			"desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
+			"facility_type": "Mặt tiền",
+			"area": 1009,
+			"status": "Chuẩn bị ",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"customerId": 6
+		},
+		{
+			"id": "8",
+			"premisesName": "MB008",
+			"src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			"title": "Mặt bằng tầng 2",
+			"desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
+			"facility_type": "Mặt tiền",
+			"area": 1009,
+			"status": "Chuẩn bị ",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"customerId": 1
+		},
+		{
+			"id": "9",
+			"premisesName": "MB009",
+			"src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			"title": "Mặt bằng tầng 2",
+			"desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
+			"facility_type": "Mặt tiền",
+			"area": 1009,
+			"status": "Chuẩn bị ",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"customerId": 2
+		},
+		{
+			"id": "10",
+			"premisesName": "MB010",
+			"src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			"title": "Mặt bằng tầng 2",
+			"desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
+			"facility_type": "Mặt tiền",
+			"area": 1009,
+			"status": "Chuẩn bị ",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"customerId": 2
+		},
+		{
+			"id": "11",
+			"premisesName": "MB011",
+			"src": "https://images.unsplash.com/photo-1549637642-90187f64f420?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			"title": "Mặt bằng tầng 2",
+			"desc": "Bố trí 2 phòng ngủ rộng rãi có ban công, kết hợp phòng tắm riêng biệt.",
+			"facility_type": "Mặt tiền",
+			"area": 1009,
+			"status": "Chuẩn bị ",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"customerId": 2
+		},
+		{
+			"building": "1",
+			"floor": "2",
+			"facility_type": "Mặt Tiền",
+			"premisesName": "MB001",
+			"status": "Đang Vào Ở",
+			"area": "100",
+			"description": "test",
+			"prices": "12000000",
+			"management_fee": "500000",
+			"id": "noF6c1w"
+		}
+	],
+	"information": [
+		{
+			"id": "1",
+			"imgSrc": "https://diamondtime.vn/wp-content/uploads/2024/12/img3703-173339989848421729102-1860-1733417379.jpg",
+			"imgAlt": "Image 1",
+			"title": "CEO Jensen Huang: Hôm nay là ngày khai sinh Nvidia Việt Nam",
+			"text": "Nhà sáng lập Nvidia Jensen Huang cho biết 5/12 là ngày khai sinh của Nvidia"
+		},
+		{
+			"id": "2",
+			"imgSrc": "https://diamondtime.vn/wp-content/uploads/2024/07/20240708.jpg",
+			"imgAlt": "Image 2",
+			"title": "6 LỜI KHUYÊN KHI LÀM VIỆC TẠI CÁC WEB FREELANCER NƯỚC NGOÀI",
+			"text": "Trong nhiều năm trở lại đây, giới Freelancer Việt hẳn không còn xa lạ với"
+		},
+		{
+			"id": "3",
+			"imgSrc": "https://diamondtime.vn/wp-content/uploads/2024/05/8E3A3322-scaled.jpg",
+			"imgAlt": "Image 3",
+			"title": "CO-WORKING SPACE VÀ NHỮNG ĐIỀU DOANH NGHIỆP CẦN BIẾT",
+			"text": "Khi co-working xuất hiện trên thị trường, chủ yếu hướng đến các khách hàng mục"
+		},
+		{
+			"id": "4",
+			"imgSrc": "https://diamondtime.vn/wp-content/uploads/2024/05/C6_n.jpg",
+			"imgAlt": "Image 4",
+			"title": "GIẢI MÃ XU HƯỚNG THUÊ VĂN PHÒNG LÀM VIỆC TẠI CO-WORKING SPACES",
+			"text": "Ngày nay, không gian làm việc đã trở thành một yếu tố quan trọng được"
+		},
+		{
+			"id": "5",
+			"imgSrc": "https://diamondtime.vn/wp-content/uploads/2021/12/258397390_303082458283999_5979908283113307618_n.jpg",
+			"imgAlt": "Image 5",
+			"title": "TƯƠNG LAI CỦA LÀM VIỆC TỪ XA (REMOTE) VÀ KHÔNG GIAN LÀM VIỆC CHUNG (CO-WORKING SPACE)",
+			"text": "Trong bài viết này, chúng ta đang khám phá bối cảnh ngày càng phát triển"
+		},
+		{
+			"id": "6",
+			"imgSrc": "https://diamondtime.vn/wp-content/uploads/2024/04/NEWS-1.png",
+			"imgAlt": "Image 6",
+			"title": "SHARED WORKSPACE – Định Nghĩa, Ưu Điểm và Những Lưu Ý",
+			"text": "“Shared workspace” là gì? Shared workspace đang trở thành một giải pháp ngày càng hấp"
+		}
+	],
+	"card": [
+		{
+			"id": "1",
+			"superficies": 4.5062,
+			"text1": "Tầng 1: Trung tâm thương mại, giải trí, nhà hàng và coffee shop",
+			"text2": "Tầng 2: Căn hộ dịch vụ",
+			"text3": "Tầng 3: Tiktak Co-woking Space"
+		}
+	]
 }
