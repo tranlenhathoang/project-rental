@@ -562,6 +562,18 @@
       "prices": "12000000",
       "management_fee": "500000",
       "customerId": 2
+    },
+    {
+      "building": "1",
+      "floor": "2",
+      "facility_type": "Mặt Tiền",
+      "premisesName": "MB001",
+      "status": "Đang Vào Ở",
+      "area": "100",
+      "description": "test",
+      "prices": "12000000",
+      "management_fee": "500000",
+      "id": "noF6c1w"
     }
   ],
   "information": [
