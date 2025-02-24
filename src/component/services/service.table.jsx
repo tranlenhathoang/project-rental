@@ -24,16 +24,13 @@ const ServiceTable = () => {
 	const [listCustomer, setListCustomer] = useState([]);
 	const [listPremises, setListPremises] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
-	const itemsPerPage = 3;
+	const itemsPerPage = 10;
 
 	useEffect(() => {
 		getData();
 		fetchListCustomer();
 		fetchListPremises();
 	}, []);
-
-
-
 
 	const fetchListCustomer = async () => {
 		const res = await axios.get(`http://localhost:3001/customers`);
@@ -51,15 +48,11 @@ const ServiceTable = () => {
 		setListPremises(res.data);
 	};
 
-
-
 	const getData = async () => {
 		const params = {};
 		if (dropdownSelected) {
 			params.premises = dropdownSelected;
 		}
-
-
 
 		const res = await axios.get("http://localhost:3001/services", { params });
 
@@ -111,9 +104,12 @@ const ServiceTable = () => {
 				<h2>DANH SÁCH DỊCH VỤ</h2>
 			</div>
 			<div className="row mb-5">
-				<div className="col d-flex align-items-center gap-3" style={{
-					flex: 1,
-				}}>
+				<div
+					className="col d-flex align-items-center gap-3"
+					style={{
+						flex: 1,
+					}}
+				>
 					<span className="title" style={{ fontWeight: "500" }}>
 						Mặt Bằng:{" "}
 					</span>
@@ -136,7 +132,6 @@ const ServiceTable = () => {
 					>
 						<FaSearch color="red" size={20} />
 					</button>
-
 
 					<Button
 						className="ms-auto"
@@ -218,10 +213,7 @@ const ServiceTable = () => {
 				</div>
 			)}
 
-			{isOpenModalCreate && <CreateServices
-				isOpenModalCreate={isOpenModalCreate}
-				setIsOpenModalCreate={setIsOpenModalCreate}
-				getData={getData} />}
+			{isOpenModalCreate && <CreateServices isOpenModalCreate={isOpenModalCreate} setIsOpenModalCreate={setIsOpenModalCreate} getData={getData} />}
 
 			{isOpenModalEdit && (
 				<EditServices

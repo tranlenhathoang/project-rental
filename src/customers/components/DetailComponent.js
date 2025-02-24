@@ -34,8 +34,8 @@ function DetailComponent() {
 			<div
 				className="text-center py-4"
 				style={{
-					backgroundColor: "#e3f2fd",
-					color: "#0056b3",
+					backgroundColor: "#e5a63b",
+					color: "white",
 					boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
 				}}
 			>

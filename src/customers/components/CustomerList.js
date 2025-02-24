@@ -156,7 +156,9 @@ function CustomerList() {
 								Mặt bằng
 							</th>
 							<th className="text-center" style={{ width: 200 }}></th>
-							<th colSpan={2}></th>
+							<th colSpan={2} className="text-center">
+								Khách hàng
+							</th>
 						</tr>
 					</thead>
 					<tbody>

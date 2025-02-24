@@ -36,7 +36,7 @@ const Header = () => {
 						<Navbar.Collapse id="navbar-nav">
 							<Nav className="ms-auto fs-5" style={{ whiteSpace: "noWrap" }}>
 								<Nav.Link as={Link} to="/" className="text-dark mx-2">
-									Trang Chủ
+									Trang chủ
 								</Nav.Link>
 								<Nav.Link as={Link} to="/services" className="text-dark mx-2">
 									Dịch vụ
